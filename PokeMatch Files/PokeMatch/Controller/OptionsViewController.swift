@@ -23,10 +23,10 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     let musicPlayer = AVAudioPlayer()
     let pokeMatchViewController: PokeMatchViewController! = nil
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl! //DesignableSegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet var imagePicker: UIPickerView!
-    @IBOutlet weak var musicOnView: UIButton! //DesignableViews!
-    @IBOutlet weak var musicOffView: UIButton! //DesignableViews!
+    @IBOutlet weak var musicOnView: UIView!
+    @IBOutlet weak var musicOffView: UIView!
     @IBOutlet weak var offMusicImage: UIButton!
     
     var bannerView: GADBannerView!
