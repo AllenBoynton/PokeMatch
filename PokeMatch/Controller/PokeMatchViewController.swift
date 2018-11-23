@@ -18,7 +18,7 @@ class PokeMatchViewController: UIViewController {
     private var gameController = PokeMemoryGame()
     //    private var notifications = Notifications()
     //    private var music = Music()
-    private var optionsVC = OptionsVC()
+    private var optionsVC = OptionsViewController()
     
     // Collection view to hold all images
     @IBOutlet weak var collectionView: UICollectionView!
