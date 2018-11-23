@@ -191,7 +191,7 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
     // Reporting game time
     func saveHighScore(_ score: Int) {
         // if player is logged in to GC, then report the score
-        if GKLocalPlayer.localPlayer().isAuthenticated {
+        if GKLocalPlayer.local.isAuthenticated {
             
             // Save game time to GC
             let scoreReporter = GKScore(leaderboardIdentifier: timeLeaderboardID)
