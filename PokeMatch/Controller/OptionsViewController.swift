@@ -16,17 +16,17 @@ enum Difficulty {
     case Easy, Medium, Hard
 }
 
-class OptionsVC: UIViewController, GKGameCenterControllerDelegate {
+class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     // Class delegates
     let music = Music()
     let musicPlayer = AVAudioPlayer()
     let pokeMatchViewController: PokeMatchViewController! = nil
     
-    @IBOutlet weak var segmentedControl: DesignableSegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl! //DesignableSegmentedControl!
     @IBOutlet var imagePicker: UIPickerView!
-    @IBOutlet weak var musicOnView: DesignableViews!
-    @IBOutlet weak var musicOffView: DesignableViews!
+    @IBOutlet weak var musicOnView: UIButton! //DesignableViews!
+    @IBOutlet weak var musicOffView: UIButton! //DesignableViews!
     @IBOutlet weak var offMusicImage: UIButton!
     
     var bannerView: GADBannerView!
@@ -149,7 +149,7 @@ class OptionsVC: UIViewController, GKGameCenterControllerDelegate {
 }
 
 // asign each button a tag then if/else using the tag and user input
-extension OptionsVC {
+extension OptionsViewController {
     //    func onEasyTapped(sender: UIButton) {
     //        pokeMatchViewController.sizeDifficulty(difficulty: .Easy)
     //    }
@@ -182,7 +182,7 @@ extension OptionsVC {
     }
 }
 
-extension OptionsVC: UIPickerViewDelegate, UIPickerViewDataSource {
+extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK:  UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -271,7 +271,7 @@ extension OptionsVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-extension OptionsVC: GADBannerViewDelegate {
+extension OptionsViewController: GADBannerViewDelegate {
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
