@@ -112,7 +112,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
     func memoryGame(_ game: PokeMemoryGame, showCards cards: [Card]) {
         for card in cards {
             guard let index = gameController.indexForCard(card) else { continue }
-            let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeVCell
+            let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeViewCell
             cell.showCard(true, animated: true)
         }
     }
@@ -121,7 +121,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
     func memoryGame(_ game: PokeMemoryGame, hideCards cards: [Card]) {
         for card in cards {
             guard let index = gameController.indexForCard(card) else { continue }
-            let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeVCell
+            let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeViewCell
             cell.showCard(false, animated: true)
         }
     }
@@ -158,7 +158,7 @@ extension PokeMatchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PokeVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PokeViewCell
         cell.showCard(false, animated: false)
         
         guard let card = gameController.cardAtIndex(indexPath.item) else { return cell }
@@ -172,7 +172,7 @@ extension PokeMatchViewController: UICollectionViewDataSource {
 
 extension PokeMatchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! PokeVCell
+        let cell = collectionView.cellForItem(at: indexPath) as! PokeViewCell
         
         if cell.shown { return }
         gameController.didSelectCard(cell.card)
