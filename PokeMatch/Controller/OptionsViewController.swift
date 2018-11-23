@@ -65,13 +65,13 @@ class OptionsVC: UIViewController, GKGameCenterControllerDelegate {
     
     func handleSegmentControl() {
         segmentedControl.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Marker Felt", size: 15) as Any,
-            NSAttributedStringKey.foregroundColor: UIColor.yellow
+            NSAttributedString.Key.font : UIFont(name: "Marker Felt", size: 15) as Any,
+            NSAttributedString.Key.foregroundColor: UIColor.yellow
             ], for: .normal)
         
         segmentedControl.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Marker Felt", size: 15) as Any,
-            NSAttributedStringKey.foregroundColor: UIColor.blue
+            NSAttributedString.Key.font : UIFont(name: "Marker Felt", size: 15) as Any,
+            NSAttributedString.Key.foregroundColor: UIColor.blue
             ], for: .selected)
     }
     
