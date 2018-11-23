@@ -21,7 +21,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
     
-    let localPlayer = GKLocalPlayer.localPlayer()
+    let localPlayer = GKLocalPlayer.local
     
     lazy var gcEnabled = Bool() // Check if the user has Game Center enabled
     lazy var gcDefaultLeaderBoard = String() // Check the default
@@ -90,7 +90,7 @@ class MainMenuViewController: UIViewController {
     // Reporting game time
     func saveHighScore(_ score: Int64) {
         // if player is logged in to GC, then report the score
-        if GKLocalPlayer.localPlayer().isAuthenticated {
+        if GKLocalPlayer.local.isAuthenticated {
             
             // Save game time to GC
             let scoreReporter = GKScore(leaderboardIdentifier: timeLeaderboardID)
