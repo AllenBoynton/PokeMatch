@@ -66,9 +66,10 @@ class PokeMatchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        handleAdRequest()
+//        handleAdRequest()
         GADMobileAds.sharedInstance().applicationVolume = 0.5
         gameController.delegate = self
+        restartButton.isHidden = true
     }
     
     // Sets up for new game
@@ -85,7 +86,7 @@ class PokeMatchViewController: UIViewController {
         }
         
         bottomView.isHidden = true
-        
+        restartButton.isHidden = true
         collectionView.isHidden = true
         collectionView.isUserInteractionEnabled = true
         collectionView.reloadData()
@@ -213,6 +214,7 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
         setupNewGame()
         
         // Shows button at beginning of game
+        restartButton.isHidden = false
         playButton.isHidden = true
         playButton.isEnabled = false
         cancelButton.isHidden = true
@@ -310,100 +312,100 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PokeMatchViewController {
-    func sizeDifficulty(difficulty: Difficulty) -> (CGFloat, CGFloat) {
-        switch difficulty {
-        case .Easy:
-            print("Easy")
-            return (4, 5)
-        case .Medium:
-            print("Medium")
-            return (5, 5)
-        case .Hard:
-            print("Hard")
-            return (5, 6)
-        }
-    }
-    
-    func numCardsNeededDifficulty(difficulty: Difficulty) -> Int {
-        let (columns, rows) = sizeDifficulty(difficulty: difficulty)
-        return Int(columns * rows)
-    }
-}
+//extension PokeMatchViewController {
+//    func sizeDifficulty(difficulty: Difficulty) -> (CGFloat, CGFloat) {
+//        switch difficulty {
+//        case .Easy:
+//            print("Easy")
+//            return (4, 5)
+//        case .Medium:
+//            print("Medium")
+//            return (5, 5)
+//        case .Hard:
+//            print("Hard")
+//            return (5, 6)
+//        }
+//    }
+//
+//    func numCardsNeededDifficulty(difficulty: Difficulty) -> Int {
+//        let (columns, rows) = sizeDifficulty(difficulty: difficulty)
+//        return Int(columns * rows)
+//    }
+//}
 
 extension PokeMatchViewController: GADBannerViewDelegate {
     // MARK: - view positioning
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        if #available(iOS 11.0, *) {
-            // In iOS 11, we need to constrain the view to the safe area.
-            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
-        }
-        else {
-            // In lower iOS versions, safe area is not available so we use
-            // bottom layout guide and view edges.
-            positionBannerViewFullWidthAtBottomOfView(bannerView)
-        }
-    }
-    
-    @available (iOS 11, *)
-    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
-        // Position the banner. Stick it to the bottom of the Safe Area.
-        // Make it constrained to the edges of the safe area.
-        let guide = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
-            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
-            ])
-    }
-    
-    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .trailing,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .bottom,
-                                              relatedBy: .equal,
-                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
-    }
-    
-    // MARK:  AdMob banner ad
-    func handleAdRequest() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
-        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(adBannerView)
-        
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/6252355617"
-        adBannerView.rootViewController = self
-        adBannerView.delegate = self
-        
-        adBannerView.load(request)
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("Banner loaded successfully")
-    }
-    
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print(error.debugDescription)
-    }
+//    func addBannerViewToView(_ bannerView: GADBannerView) {
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(bannerView)
+//        if #available(iOS 11.0, *) {
+//            // In iOS 11, we need to constrain the view to the safe area.
+//            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
+//        }
+//        else {
+//            // In lower iOS versions, safe area is not available so we use
+//            // bottom layout guide and view edges.
+//            positionBannerViewFullWidthAtBottomOfView(bannerView)
+//        }
+//    }
+//
+//    @available (iOS 11, *)
+//    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
+//        // Position the banner. Stick it to the bottom of the Safe Area.
+//        // Make it constrained to the edges of the safe area.
+//        let guide = view.safeAreaLayoutGuide
+//        NSLayoutConstraint.activate([
+//            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
+//            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
+//            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
+//            ])
+//    }
+//
+//    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
+//        view.addConstraint(NSLayoutConstraint(item: bannerView,
+//                                              attribute: .leading,
+//                                              relatedBy: .equal,
+//                                              toItem: view,
+//                                              attribute: .leading,
+//                                              multiplier: 1,
+//                                              constant: 0))
+//        view.addConstraint(NSLayoutConstraint(item: bannerView,
+//                                              attribute: .trailing,
+//                                              relatedBy: .equal,
+//                                              toItem: view,
+//                                              attribute: .trailing,
+//                                              multiplier: 1,
+//                                              constant: 0))
+//        view.addConstraint(NSLayoutConstraint(item: bannerView,
+//                                              attribute: .bottom,
+//                                              relatedBy: .equal,
+//                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
+//                                              attribute: .top,
+//                                              multiplier: 1,
+//                                              constant: 0))
+//    }
+//
+//    // MARK:  AdMob banner ad
+//    func handleAdRequest() {
+//        let request = GADRequest()
+//        request.testDevices = [kGADSimulatorID]
+//
+//        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+//        addBannerViewToView(adBannerView)
+//
+//        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/6252355617"
+//        adBannerView.rootViewController = self
+//        adBannerView.delegate = self
+//
+//        adBannerView.load(request)
+//    }
+//
+//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        print("Banner loaded successfully")
+//    }
+//
+//    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+//        print(error.debugDescription)
+//    }
     
 }
