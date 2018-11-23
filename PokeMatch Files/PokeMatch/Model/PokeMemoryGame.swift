@@ -134,8 +134,13 @@ class PokeMemoryGame {
 
 // Mark: - ************** Future gen?CardImages **************
 extension PokeMemoryGame {
+    // Popular
+    static var topCardImages: [UIImage] = [
+        UIImage(named: "666")!, UIImage(named:"718")!, UIImage(named:"649")!
+    ]
+    
     // Gen 1 = 1-151
-    static var gen1Images: [UIImage] = [UIImage(named: "1")!]
+    static var gen1Images: [UIImage] = []
     //        UIImage(named: "1")!, UIImage(named: "2")!, UIImage(named: "3")!, UIImage(named:"4")!, UIImage(named: "5")!, UIImage(named: "6")!, UIImage(named: "7")!, UIImage(named:"8")!, UIImage(named: "9")!, UIImage(named: "10")!, UIImage(named: "11")!, UIImage(named: "12")!, UIImage(named: "13")!, UIImage(named: "14")!, UIImage(named: "15")!, UIImage(named: "16")!, UIImage(named: "17")!, UIImage(named: "18")!, UIImage(named: "19")!, UIImage(named: "20")!, UIImage(named: "21")!, UIImage(named: "22")!, UIImage(named: "23")!, UIImage(named: "24")!, UIImage(named: "25")!, UIImage(named: "26")!, UIImage(named: "27")!, UIImage(named: "28")!, UIImage(named: "29")!, UIImage(named: "30")!, UIImage(named: "31")!, UIImage(named: "32")!, UIImage(named: "33")!, UIImage(named: "34")!, UIImage(named: "35")!, UIImage(named: "36")!, UIImage(named: "37")!, UIImage(named: "38")!, UIImage(named: "39")!, UIImage(named: "40")!, UIImage(named: "41")!, UIImage(named: "42")!, UIImage(named: "43")!, UIImage(named: "44")!, UIImage(named: "45")!, UIImage(named: "46")!, UIImage(named: "47")!, UIImage(named: "48")!, UIImage(named:"49")!, UIImage(named: "50")!, UIImage(named: "51")!, UIImage(named: "52")!, UIImage(named: "53")!, UIImage(named: "54")!, UIImage(named: "55")!, UIImage(named:"56")!, UIImage(named: "57")!, UIImage(named: "58")!, UIImage(named: "59")!, UIImage(named: "60")!, UIImage(named: "61")!, UIImage(named: "62")!, UIImage(named: "63")!, UIImage(named:"64")!, UIImage(named: "65")!, UIImage(named: "66")!, UIImage(named: "67")!, UIImage(named: "68")!, UIImage(named: "69")!, UIImage(named: "70")!, UIImage(named:"71")!, UIImage(named: "72")!, UIImage(named: "73")!, UIImage(named: "74")!, UIImage(named: "75")!, UIImage(named: "76")!, UIImage(named: "77")!, UIImage(named: "78")!, UIImage(named: "79")!, UIImage(named: "80")!, UIImage(named: "81")!, UIImage(named: "82")!, UIImage(named:"83")!, UIImage(named: "84")!, UIImage(named: "85")!, UIImage(named: "86")!, UIImage(named: "87")!, UIImage(named: "88")!, UIImage(named: "89")!, UIImage(named: "90")!, UIImage(named: "91")!, UIImage(named: "92")!, UIImage(named: "93")!, UIImage(named: "94")!, UIImage(named: "95")!, UIImage(named: "96")!, UIImage(named: "97")!, UIImage(named:"98")!, UIImage(named: "99")!, UIImage(named: "100")!, UIImage(named: "101")!, UIImage(named: "102")!, UIImage(named: "103")!, UIImage(named: "104")!, UIImage(named: "105")!, UIImage(named: "106")!, UIImage(named: "107")!, UIImage(named: "108")!, UIImage(named: "109")!, UIImage(named: "110")!, UIImage(named: "111")!, UIImage(named: "112")!, UIImage(named: "113")!, UIImage(named: "114")!, UIImage(named: "115")!, UIImage(named: "116")!, UIImage(named: "117")!, UIImage(named: "118")!, UIImage(named:"119")!, UIImage(named: "120")!, UIImage(named: "121")!, UIImage(named: "122")!, UIImage(named: "123")!, UIImage(named: "124")!, UIImage(named: "125")!, UIImage(named:"126")!, UIImage(named: "127")!, UIImage(named: "128")!, UIImage(named: "129")!, UIImage(named: "130")!, UIImage(named: "131")!, UIImage(named: "132")!, UIImage(named: "133")!, UIImage(named: "134")!, UIImage(named: "135")!, UIImage(named: "136")!, UIImage(named: "137")!, UIImage(named: "138")!, UIImage(named: "139")!, UIImage(named: "140")!, UIImage(named: "141")!, UIImage(named: "142")!, UIImage(named: "143")!, UIImage(named: "144")!, UIImage(named: "145")!, UIImage(named: "146")!, UIImage(named: "147")!, UIImage(named: "148")!, UIImage(named: "149")!, UIImage(named: "150")!, UIImage(named: "151")!]
     //
     //    // Gen 2 = 152-251
@@ -160,9 +165,5 @@ extension PokeMemoryGame {
     
     // Gen 7 = 722-807
     static var gen7Images: [UIImage] = []
-    
-    // Popular
-    static var topCardImages: [UIImage] = [
-        UIImage(named: "666")!, UIImage(named:"718")!, UIImage(named:"649")!
-    ]
+
 }
