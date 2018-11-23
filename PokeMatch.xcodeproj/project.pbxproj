@@ -16,6 +16,7 @@
 		0FB620FC21A87FAD002EABD0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620FB21A87FAD002EABD0 /* Card.swift */; };
 		0FB620FE21A88019002EABD0 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620FD21A88019002EABD0 /* Device.swift */; };
 		0FB6210021A88074002EABD0 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620FF21A88074002EABD0 /* Music.swift */; };
+		0FB6210221A880DF002EABD0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6210121A880DF002EABD0 /* Notifications.swift */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
 		3CAB7BC9821D07F8B7D995EA /* Pods_PokeMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */; };
 		5CDBAE145D8B73072C3A97E1 /* Pods_PokeMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */; };
@@ -55,6 +56,7 @@
 		0FB620FB21A87FAD002EABD0 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0FB620FD21A88019002EABD0 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		0FB620FF21A88074002EABD0 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		0FB6210121A880DF002EABD0 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C11FCA93570D60C45FB3858 /* Pods-PokeMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatch.release.xcconfig"; path = "Target Support Files/Pods-PokeMatch/Pods-PokeMatch.release.xcconfig"; sourceTree = "<group>"; };
 		47B85474126A3686E4C111FE /* Pods-PokeMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeMatchUITests/Pods-PokeMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,9 +225,10 @@
 		0FB620F721A87EAE002EABD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0FB620FD21A88019002EABD0 /* Device.swift */,
 				0FB620FB21A87FAD002EABD0 /* Card.swift */,
+				0FB620FD21A88019002EABD0 /* Device.swift */,
 				0FB620FF21A88074002EABD0 /* Music.swift */,
+				0FB6210121A880DF002EABD0 /* Notifications.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FB6210221A880DF002EABD0 /* Notifications.swift in Sources */,
 				0FB620FE21A88019002EABD0 /* Device.swift in Sources */,
 				0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */,
 				0FB620FC21A87FAD002EABD0 /* Card.swift in Sources */,
