@@ -57,10 +57,10 @@ class PokeViewCell: UICollectionViewCell {
             }
         } else {
             if show {
-                bringSubview(toFront: frontImageView)
+                bringSubviewToFront(frontImageView)
                 backImageView.isHidden = true
             } else {
-                bringSubview(toFront: backImageView)
+                bringSubviewToFront(backImageView)
                 frontImageView.isHidden = true
             }
         }
