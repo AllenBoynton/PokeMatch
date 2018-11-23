@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620B921A8776C002EABD0 /* AppDelegate.swift */; };
-		0FB620BC21A8776C002EABD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620BB21A8776C002EABD0 /* ViewController.swift */; };
-		0FB620BF21A8776C002EABD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620BD21A8776C002EABD0 /* Main.storyboard */; };
 		0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620C021A8776C002EABD0 /* Assets.xcassets */; };
-		0FB620C421A8776C002EABD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620C221A8776C002EABD0 /* LaunchScreen.storyboard */; };
 		0FB620CF21A8776C002EABD0 /* PokeMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620CE21A8776C002EABD0 /* PokeMatchTests.swift */; };
 		0FB620DA21A8776C002EABD0 /* PokeMatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620D921A8776C002EABD0 /* PokeMatchUITests.swift */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
@@ -40,10 +37,7 @@
 		052A2FBB89CE303D46609B6F /* Pods-PokeMatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchTests.release.xcconfig"; path = "Target Support Files/Pods-PokeMatchTests/Pods-PokeMatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		0FB620B621A8776C002EABD0 /* PokeMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB620B921A8776C002EABD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FB620BB21A8776C002EABD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0FB620BE21A8776C002EABD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FB620C021A8776C002EABD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0FB620C321A8776C002EABD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FB620C521A8776C002EABD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FB620CA21A8776C002EABD0 /* PokeMatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeMatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB620CE21A8776C002EABD0 /* PokeMatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeMatchTests.swift; sourceTree = "<group>"; };
@@ -114,11 +108,8 @@
 		0FB620B821A8776C002EABD0 /* PokeMatch */ = {
 			isa = PBXGroup;
 			children = (
-				0FB620B921A8776C002EABD0 /* AppDelegate.swift */,
-				0FB620BB21A8776C002EABD0 /* ViewController.swift */,
-				0FB620BD21A8776C002EABD0 /* Main.storyboard */,
+				0FB620E821A87BEB002EABD0 /* AppDelegate */,
 				0FB620C021A8776C002EABD0 /* Assets.xcassets */,
-				0FB620C221A8776C002EABD0 /* LaunchScreen.storyboard */,
 				0FB620C521A8776C002EABD0 /* Info.plist */,
 			);
 			path = PokeMatch;
@@ -142,6 +133,14 @@
 			path = PokeMatchUITests;
 			sourceTree = "<group>";
 		};
+		0FB620E821A87BEB002EABD0 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0FB620B921A8776C002EABD0 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		B2E44A40F4D4D57EFA9D429C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +161,6 @@
 				47B85474126A3686E4C111FE /* Pods-PokeMatchUITests.debug.xcconfig */,
 				8AC323EC66B52E077464380C /* Pods-PokeMatchUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -274,9 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FB620C421A8776C002EABD0 /* LaunchScreen.storyboard in Resources */,
 				0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */,
-				0FB620BF21A8776C002EABD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FB620BC21A8776C002EABD0 /* ViewController.swift in Sources */,
 				0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,25 +426,6 @@
 			targetProxy = 0FB620D621A8776C002EABD0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0FB620BD21A8776C002EABD0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB620BE21A8776C002EABD0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0FB620C221A8776C002EABD0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB620C321A8776C002EABD0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0FB620DC21A8776C002EABD0 /* Debug */ = {
