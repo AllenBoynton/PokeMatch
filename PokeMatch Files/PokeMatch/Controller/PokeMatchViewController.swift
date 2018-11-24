@@ -67,7 +67,7 @@ class PokeMatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAdRequest()
-    GADMobileAds.sharedInstance().applicationVolume = 0.5
+        GADMobileAds.sharedInstance().applicationVolume = 0.5
         gameController.delegate = self
         restartButton.isHidden = true
     }
