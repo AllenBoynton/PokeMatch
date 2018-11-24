@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import SwiftyGif
 
 // Global GC identifiers
 let timeLeaderboardID = "com.abtechapps.PokeMatch" // Time Leaderboard
@@ -31,8 +32,8 @@ class MainMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         handleMusicButtons()
-        //        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "1", withExtension: "gif")!)
-        //        self.gifView.image = UIImage.gif(data: imageData)
+        let gif = UIImage(gifName: "1.gif", levelOfIntegrity:0.25)
+        gifView.setGifImage(gif)
     }
     
     override func viewDidLoad() {
