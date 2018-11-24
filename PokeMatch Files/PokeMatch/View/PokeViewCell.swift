@@ -35,14 +35,6 @@ class PokeViewCell: UICollectionViewCell {
         backImageView.isHidden = false
         shown = show
         
-        imageArrays.append(PokeMemoryGame.gen1Images)
-        imageArrays.append(PokeMemoryGame.gen2Images)
-        imageArrays.append(PokeMemoryGame.gen3Images)
-        imageArrays.append(PokeMemoryGame.gen4Images)
-        imageArrays.append(PokeMemoryGame.gen5Images)
-        imageArrays.append(PokeMemoryGame.gen6Images)
-        imageArrays.append(PokeMemoryGame.gen7Images)
-        
         let left = UIImage(named: "_254")
         leftImageView = UIImageView(image: left)
 
