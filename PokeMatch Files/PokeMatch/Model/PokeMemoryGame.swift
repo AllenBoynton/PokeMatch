@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit.UIImage
+import SwiftyGif
 
 class PokeMemoryGame {
     
@@ -136,7 +137,7 @@ class PokeMemoryGame {
 extension PokeMemoryGame {
     // Popular
     static var topCardImages: [UIImage] = [
-        UIImage(named: "666")!, UIImage(named:"718")!, UIImage(named:"649")!, UIImage(named: "180")!, UIImage(named: "281")!, UIImage(named: "382")!, UIImage(named: "440")!, UIImage(named: "571")!, UIImage(named: "612")!, UIImage(named: "89")!
+        UIImage(named: "_6")!, UIImage(named:"_25")!, UIImage(named:"_26")!, UIImage(named: "_93")!, UIImage(named: "_94")!, UIImage(named: "_133")!, UIImage(named: "_150")!, UIImage(named: "_249")!, UIImage(named: "_259")!, UIImage(named: "_445")!
     ]
     
     // Gen 1 = 1-151
