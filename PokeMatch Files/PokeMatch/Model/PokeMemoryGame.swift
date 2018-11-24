@@ -136,7 +136,7 @@ class PokeMemoryGame {
 extension PokeMemoryGame {
     // Popular
     static var topCardImages: [UIImage] = [
-        UIImage(named: "666")!, UIImage(named:"718")!, UIImage(named:"649")!
+        UIImage(named: "666")!, UIImage(named:"718")!, UIImage(named:"649")!, UIImage(named: "180")!, UIImage(named: "281")!, UIImage(named: "382")!, UIImage(named: "440")!, UIImage(named: "571")!, UIImage(named: "612")!, UIImage(named: "89")!
     ]
     
     // Gen 1 = 1-151
