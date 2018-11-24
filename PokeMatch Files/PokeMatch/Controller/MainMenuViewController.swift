@@ -11,7 +11,7 @@ import GameKit
 import SwiftyGif
 
 // Global GC identifiers
-let timeLeaderboardID = "com.abtechapps.PokeMatch" // Time Leaderboard
+let timeLeaderboardID = "com.alsmobileapps.PokeMatch" // Time Leaderboard
 
 class MainMenuViewController: UIViewController {
     
