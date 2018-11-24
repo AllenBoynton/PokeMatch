@@ -46,8 +46,8 @@ class HighScoreViewController: UIViewController {
     private var interstitial: GADInterstitial!
     
     override func viewWillAppear(_ animated: Bool) {
-        //        animateGCIcon()
-        //        loadImage()
+                animateGCIcon()
+                loadImage()
     }
     
     override func viewDidLoad() {
@@ -72,8 +72,7 @@ class HighScoreViewController: UIViewController {
     }
     
     private func loadImage() {
-        //        let imageData = try! Data(contentsOf: Bundle.main.url(forResource: "\(arc4random_uniform(12) + 1)", withExtension: "gif")!)
-        //        self.gifView.image = UIImage.gif(data: imageData)
+        gifView.setGifImage(RandomGifs.init().randomGif())
     }
     
     /*************************** High Score Logic *********************/
