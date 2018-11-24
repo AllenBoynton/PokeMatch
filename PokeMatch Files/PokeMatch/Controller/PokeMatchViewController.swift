@@ -62,6 +62,10 @@ class PokeMatchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         resetGame()
+        if musicIsOn {
+            bgMusic?.play()
+            musicIsOn = true
+        }
     }
     
     override func viewDidLoad() {
@@ -131,9 +135,20 @@ extension PokeMatchViewController: MemoryGameDelegate {
     func memoryGameDidEnd(_ game: PokeMemoryGame, elapsedTime: TimeInterval) {
         timer?.invalidate()
         
-        let when = DispatchTime.now() + 1.0
+        if musicIsOn {
+            bgMusic?.pause()
+            Music().playWinnerAudio()
+            
+            let delay = DispatchTime.now() + 5.0
+            DispatchQueue.main.asyncAfter(deadline: delay) {
+                // Your code with delay
+                bgMusic?.play()
+                musicIsOn = true
+            }
+        } 
+        
+        let when = DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: when) {
-            // Your code with delay
             let myVC = self.storyboard?.instantiateViewController(withIdentifier: "HighScoreViewController") as! HighScoreViewController
             myVC.timePassed = self.display
             self.present(myVC, animated: true)
@@ -189,10 +204,15 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
         var itemWidth: CGFloat!
         var itemHeight: CGFloat!
         
-        //        if Device.IS_IPHONE {
-        itemWidth = collectionView.frame.width / 4 - 10.0 // 4 wide
-        itemHeight = collectionView.frame.height / 5 - 12.0
-        print("Layout for iPhone")
+        if Device.IS_IPHONE {
+            itemWidth = collectionView.frame.width / 4 - 10.0 // 4 wide
+            itemHeight = collectionView.frame.height / 5 - 12.0
+            print("Layout for iPhone")
+        } else if Device.IS_IPAD {
+            itemWidth = collectionView.frame.width / 5 - 10.0 // 4 wide
+            itemHeight = collectionView.frame.height / 6 - 12.0
+            print("Layout for iPad")
+        }
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
@@ -216,14 +236,6 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
     
     // Back button to bring to main menu
     @IBAction func backButtonTapped(_ sender: Any) {
-        //        notifications.showNotification(inSeconds: 3, completion: { success in
-        //            if success {
-        //                print("Successfully scheduled notification")
-        //            } else {
-        //                print("Error scheduling notification")
-        //            }
-        //        })
-        
         timer?.invalidate()
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController")
