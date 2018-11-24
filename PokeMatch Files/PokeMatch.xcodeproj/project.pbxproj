@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */; };
 		0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620B921A8776C002EABD0 /* AppDelegate.swift */; };
 		0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620C021A8776C002EABD0 /* Assets.xcassets */; };
 		0FB620CF21A8776C002EABD0 /* PokeMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620CE21A8776C002EABD0 /* PokeMatchTests.swift */; };
@@ -42,6 +43,7 @@
 		0FB6214E21A8DDC5002EABD0 /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6214421A8DDC4002EABD0 /* 4.gif */; };
 		0FB6214F21A8DDC5002EABD0 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6214521A8DDC5002EABD0 /* 3.gif */; };
 		0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6215021A8E603002EABD0 /* Gifs.swift */; };
+		0FB6215521A8FB67002EABD0 /* CertificateSigningRequest.certSigningRequest in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6215421A8FB66002EABD0 /* CertificateSigningRequest.certSigningRequest */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
 		3CAB7BC9821D07F8B7D995EA /* Pods_PokeMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */; };
 		5CDBAE145D8B73072C3A97E1 /* Pods_PokeMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */; };
@@ -66,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		052A2FBB89CE303D46609B6F /* Pods-PokeMatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchTests.release.xcconfig"; path = "Target Support Files/Pods-PokeMatchTests/Pods-PokeMatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FB620B621A8776C002EABD0 /* PokeMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB620B921A8776C002EABD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FB620C021A8776C002EABD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		0FB6214421A8DDC4002EABD0 /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 4.gif; sourceTree = "<group>"; };
 		0FB6214521A8DDC5002EABD0 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
 		0FB6215021A8E603002EABD0 /* Gifs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifs.swift; sourceTree = "<group>"; };
+		0FB6215421A8FB66002EABD0 /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CertificateSigningRequest.certSigningRequest; path = PokeMatch/Utilities/CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
 		1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C11FCA93570D60C45FB3858 /* Pods-PokeMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatch.release.xcconfig"; path = "Target Support Files/Pods-PokeMatch/Pods-PokeMatch.release.xcconfig"; sourceTree = "<group>"; };
 		47B85474126A3686E4C111FE /* Pods-PokeMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeMatchUITests/Pods-PokeMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0FB6210721A881D1002EABD0 /* Default-568h@2x.png */,
+				0FB6215421A8FB66002EABD0 /* CertificateSigningRequest.certSigningRequest */,
 				0FB620B821A8776C002EABD0 /* PokeMatch */,
 				0FB620CD21A8776C002EABD0 /* PokeMatchTests */,
 				0FB620D821A8776C002EABD0 /* PokeMatchUITests */,
@@ -326,6 +331,7 @@
 		0FB620FA21A87ED5002EABD0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */,
 				0FB620C521A8776C002EABD0 /* Info.plist */,
 			);
 			path = Utilities;
@@ -478,7 +484,9 @@
 				0FB6210421A88178002EABD0 /* Main.storyboard in Resources */,
 				0FB6214B21A8DDC5002EABD0 /* 5.gif in Resources */,
 				0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */,
+				0FB6215521A8FB67002EABD0 /* CertificateSigningRequest.certSigningRequest in Resources */,
 				0FB6210621A881B6002EABD0 /* LaunchScreen.storyboard in Resources */,
+				0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */,
 				0FB620F221A87E68002EABD0 /* music.mp3 in Resources */,
 				0FB6214D21A8DDC5002EABD0 /* 8.gif in Resources */,
 				0FB6214F21A8DDC5002EABD0 /* 3.gif in Resources */,
