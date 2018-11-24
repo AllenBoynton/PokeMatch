@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */; };
 		0F7BE9E621A9105400E8763D /* DesignableButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BE9E521A9105400E8763D /* DesignableButtons.swift */; };
+		0F7BE9E821A9272100E8763D /* DesignableImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BE9E721A9272100E8763D /* DesignableImageViews.swift */; };
 		0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620B921A8776C002EABD0 /* AppDelegate.swift */; };
 		0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620C021A8776C002EABD0 /* Assets.xcassets */; };
 		0FB620CF21A8776C002EABD0 /* PokeMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620CE21A8776C002EABD0 /* PokeMatchTests.swift */; };
@@ -71,6 +72,7 @@
 		052A2FBB89CE303D46609B6F /* Pods-PokeMatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchTests.release.xcconfig"; path = "Target Support Files/Pods-PokeMatchTests/Pods-PokeMatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F7BE9E521A9105400E8763D /* DesignableButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButtons.swift; sourceTree = "<group>"; };
+		0F7BE9E721A9272100E8763D /* DesignableImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageViews.swift; sourceTree = "<group>"; };
 		0FB620B621A8776C002EABD0 /* PokeMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB620B921A8776C002EABD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FB620C021A8776C002EABD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		0FB6211521A88252002EABD0 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
+				0F7BE9E721A9272100E8763D /* DesignableImageViews.swift */,
 				0F7BE9E521A9105400E8763D /* DesignableButtons.swift */,
 			);
 			path = Designables;
@@ -620,6 +623,7 @@
 				0FB6212121A884FE002EABD0 /* MainMenuViewController.swift in Sources */,
 				0FB6212521A88591002EABD0 /* HighScoreViewController.swift in Sources */,
 				0FB6213721A8A109002EABD0 /* RandomArray.swift in Sources */,
+				0F7BE9E821A9272100E8763D /* DesignableImageViews.swift in Sources */,
 				0FB6210221A880DF002EABD0 /* Notifications.swift in Sources */,
 				0FB620FE21A88019002EABD0 /* Device.swift in Sources */,
 				0FB6212321A88548002EABD0 /* OptionsViewController.swift in Sources */,
