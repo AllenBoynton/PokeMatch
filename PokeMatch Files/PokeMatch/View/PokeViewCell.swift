@@ -7,15 +7,17 @@
 //
 
 import UIKit
-//import SwiftGifOrigin
+import SwiftyGif
 
 class PokeViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     @IBOutlet weak var frontImageView: UIImageView!
     @IBOutlet weak var backImageView: UIImageView!
-    @IBOutlet weak var leftImageView: UIImageView!
-    @IBOutlet weak var rightImageView: UIImageView!
+    @IBOutlet var leftImageView: UIImageView!
+    @IBOutlet var rightImageView: UIImageView!
+    
+    private var imageArrays: [[UIImage]] = [[]]
     
     var card: Card? {
         didSet {
@@ -33,11 +35,19 @@ class PokeViewCell: UICollectionViewCell {
         backImageView.isHidden = false
         shown = show
         
-        //        let left = UIImage(named: "_254")
-        //        leftImageView = UIImageView(image: left)
-        //
-        //        let right = UIImage(named: "_6")
-        //        rightImageView = UIImageView(image: right)
+        imageArrays.append(PokeMemoryGame.gen1Images)
+        imageArrays.append(PokeMemoryGame.gen2Images)
+        imageArrays.append(PokeMemoryGame.gen3Images)
+        imageArrays.append(PokeMemoryGame.gen4Images)
+        imageArrays.append(PokeMemoryGame.gen5Images)
+        imageArrays.append(PokeMemoryGame.gen6Images)
+        imageArrays.append(PokeMemoryGame.gen7Images)
+        
+        let left = UIImage(named: "_254")
+        leftImageView = UIImageView(image: left)
+
+        let right = UIImage(named: "_6")
+        rightImageView = UIImageView(image: right)
         
         if animated {
             if show {
