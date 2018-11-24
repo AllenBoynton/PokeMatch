@@ -31,9 +31,14 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        handleMusicButtons()
-        let gif = UIImage(gifName: "1.gif", levelOfIntegrity:0.25)
+        let gif = UIImage(gifName: "1.gif", levelOfIntegrity:0.15)
         gifView.setGifImage(gif)
+        
+        if !musicIsOn {
+            handleMusicButtons()
+        } else {
+            bgMusic?.play()
+        }
     }
     
     override func viewDidLoad() {
@@ -123,6 +128,11 @@ class MainMenuViewController: UIViewController {
     @IBAction func muteButtonTapped(_ sender: UIButton) {
         music.handleMuteMusic()
         handleMusicButtons()
+//        if gifView.isHidden {
+//            gifView.isHidden = false
+//        } else {
+//            gifView.isHidden = true
+//        }
     }
     
     @IBAction func bestTimesButtonTapped(_ sender: UIButton) {
