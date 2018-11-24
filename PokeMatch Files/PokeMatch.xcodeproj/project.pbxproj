@@ -41,6 +41,7 @@
 		0FB6214D21A8DDC5002EABD0 /* 8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6214321A8DDC4002EABD0 /* 8.gif */; };
 		0FB6214E21A8DDC5002EABD0 /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6214421A8DDC4002EABD0 /* 4.gif */; };
 		0FB6214F21A8DDC5002EABD0 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6214521A8DDC5002EABD0 /* 3.gif */; };
+		0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6215021A8E603002EABD0 /* Gifs.swift */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
 		3CAB7BC9821D07F8B7D995EA /* Pods_PokeMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */; };
 		5CDBAE145D8B73072C3A97E1 /* Pods_PokeMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */; };
@@ -105,6 +106,7 @@
 		0FB6214321A8DDC4002EABD0 /* 8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 8.gif; sourceTree = "<group>"; };
 		0FB6214421A8DDC4002EABD0 /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 4.gif; sourceTree = "<group>"; };
 		0FB6214521A8DDC5002EABD0 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
+		0FB6215021A8E603002EABD0 /* Gifs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifs.swift; sourceTree = "<group>"; };
 		1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C11FCA93570D60C45FB3858 /* Pods-PokeMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatch.release.xcconfig"; path = "Target Support Files/Pods-PokeMatch/Pods-PokeMatch.release.xcconfig"; sourceTree = "<group>"; };
 		47B85474126A3686E4C111FE /* Pods-PokeMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeMatchUITests/Pods-PokeMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				0FB620FF21A88074002EABD0 /* Music.swift */,
 				0FB6210121A880DF002EABD0 /* Notifications.swift */,
 				0FB6212A21A88830002EABD0 /* PokeMemoryGame.swift */,
+				0FB6215021A8E603002EABD0 /* Gifs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				0FB6212B21A88830002EABD0 /* PokeMemoryGame.swift in Sources */,
 				0FB6212921A887B1002EABD0 /* MemoryGameDelegate.swift in Sources */,
 				0FB6211F21A88495002EABD0 /* PokeMatchViewController.swift in Sources */,
+				0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */,
 				0FB6211D21A882F5002EABD0 /* PokeViewCell.swift in Sources */,
 				0FB6213621A8A109002EABD0 /* MaterialView.swift in Sources */,
 			);
