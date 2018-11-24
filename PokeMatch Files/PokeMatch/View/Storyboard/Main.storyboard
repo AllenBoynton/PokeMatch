@@ -29,7 +29,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="at4-WX-iFi" userLabel="Button Stack View">
                                 <rect key="frame" x="112.66666666666669" y="593" width="150" height="135"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-Ma-6bH" customClass="DesignableButtons" customModule="Poke_Match" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-Ma-6bH">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Play" backgroundImage="change_button">
@@ -42,7 +42,7 @@
                                             <segue destination="dQJ-XH-gzA" kind="show" identifier="PokeMatchViewController" id="8GR-kQ-QG3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-Od-TV2" userLabel="Best Times" customClass="DesignableButtons" customModule="Poke_Match" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-Od-TV2" userLabel="Best Times">
                                         <rect key="frame" x="0.0" y="48.333333333333371" width="150" height="38.333333333333343"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Best Time" backgroundImage="change_button">
@@ -56,7 +56,7 @@
                                             <segue destination="zPp-Ss-tfw" kind="show" identifier="HighScoreViewController" id="Uxo-ku-CZQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKL-4J-NZo" userLabel="About Button" customClass="DesignableButtons" customModule="Poke_Match" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKL-4J-NZo" userLabel="About Button">
                                         <rect key="frame" x="0.0" y="96.666666666666629" width="150" height="38.333333333333343"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Options" backgroundImage="change_button">
@@ -92,7 +92,7 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-vp-1D4" userLabel="MuteButton" customClass="DesignableButtons" customModule="Poke_Match" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-vp-1D4" userLabel="MuteButton">
                                 <rect key="frame" x="308" y="718" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="8ZN-6b-0sb"/>
@@ -176,7 +176,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-6a-NRz" customClass="DesignableImageViews" customModule="Poke_Match" customModuleProvider="target">
+                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-6a-NRz">
                                                     <rect key="frame" x="0.0" y="-1" width="75" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -193,7 +193,7 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-H5-AaU" userLabel="Poke Image View" customClass="DesignableImageViews" customModule="Poke_Match" customModuleProvider="target">
+                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-H5-AaU" userLabel="Poke Image View">
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -220,8 +220,8 @@
                                         <connections>
                                             <outlet property="backImageView" destination="Uo1-6a-NRz" id="a57-Ct-yKD"/>
                                             <outlet property="frontImageView" destination="IrM-H5-AaU" id="DoZ-Fo-oiu"/>
-                                            <outlet property="leftImageView" destination="azh-Jm-Guq" id="9V3-Ld-nOK"/>
-                                            <outlet property="rightImageView" destination="cVg-nM-FKW" id="sen-gi-d8v"/>
+                                            <outlet property="leftImageView" destination="azh-Jm-Guq" id="BHt-zV-fgU"/>
+                                            <outlet property="rightImageView" destination="cVg-nM-FKW" id="GYP-dw-uGt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
