@@ -46,8 +46,8 @@ class HighScoreViewController: UIViewController {
     private var interstitial: GADInterstitial!
     
     override func viewWillAppear(_ animated: Bool) {
-                animateGCIcon()
-                loadImage()
+        animateGCIcon()
+        loadImage()
     }
     
     override func viewDidLoad() {
@@ -62,6 +62,7 @@ class HighScoreViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         gifView.image = nil
+        bgMusic?.pause()
     }
     
     // Shows items depending on best score screen or final score screen
@@ -162,10 +163,13 @@ class HighScoreViewController: UIViewController {
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
             print("Ad page attempted")
-            
-            music.handleMuteMusic()
+            if musicIsOn {
+                musicIsOn = false
+                music.handleMuteMusic()
+            }
         } else {
             print("Ad wasn't ready")
+            return
         }
         
         if timePassed != nil {
@@ -314,7 +318,6 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
     
     func interstitialWillDismissScreen(_ ad: GADInterstitial) {
         interstitial = createAndLoadInterstitial()
-        //        music.handleMuteMusic()
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -331,20 +334,20 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
     
     /// Tells the delegate that an interstitial will be presented.
     func interstitialWillPresentScreen(_ ad: GADInterstitial) {
-        gifView.image = nil
         print("interstitialWillPresentScreen")
     }
     
     /// Tells the delegate the interstitial had been animated off the screen.
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        if musicIsOn {
+            bgMusic?.play()
+        }
         print("interstitialDidDismissScreen")
-        
     }
     
     /// Tells the delegate that a user click will open another app
     /// (such as the App Store), backgrounding the current app.
     func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-        gifView.image = nil
         print("interstitialWillLeaveApplication")
     }
 }
