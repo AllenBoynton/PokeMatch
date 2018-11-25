@@ -61,6 +61,11 @@
 		0FC8352D21AB3106007A2914 /* 11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8352421AB3105007A2914 /* 11.gif */; };
 		0FC8352E21AB3106007A2914 /* 14.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8352521AB3105007A2914 /* 14.gif */; };
 		0FC8352F21AB3106007A2914 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8352621AB3106007A2914 /* 2.gif */; };
+		0FC8353121AB36E4007A2914 /* Gurdurr.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8353021AB36E4007A2914 /* Gurdurr.gif */; };
+		0FC8353321AB375A007A2914 /* 2.1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8353221AB3759007A2914 /* 2.1.gif */; };
+		0FC8353521AB378C007A2914 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8353421AB378C007A2914 /* 1.gif */; };
+		0FC8353821AB379D007A2914 /* 16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8353621AB379D007A2914 /* 16.gif */; };
+		0FC8353921AB379D007A2914 /* 15.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8353721AB379D007A2914 /* 15.gif */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
 		3CAB7BC9821D07F8B7D995EA /* Pods_PokeMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */; };
 		5CDBAE145D8B73072C3A97E1 /* Pods_PokeMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */; };
@@ -387,6 +392,11 @@
 		0FC8352421AB3105007A2914 /* 11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 11.gif; sourceTree = "<group>"; };
 		0FC8352521AB3105007A2914 /* 14.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 14.gif; sourceTree = "<group>"; };
 		0FC8352621AB3106007A2914 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		0FC8353021AB36E4007A2914 /* Gurdurr.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Gurdurr.gif; sourceTree = "<group>"; };
+		0FC8353221AB3759007A2914 /* 2.1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.1.gif; sourceTree = "<group>"; };
+		0FC8353421AB378C007A2914 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		0FC8353621AB379D007A2914 /* 16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 16.gif; sourceTree = "<group>"; };
+		0FC8353721AB379D007A2914 /* 15.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 15.gif; sourceTree = "<group>"; };
 		1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C11FCA93570D60C45FB3858 /* Pods-PokeMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatch.release.xcconfig"; path = "Target Support Files/Pods-PokeMatch/Pods-PokeMatch.release.xcconfig"; sourceTree = "<group>"; };
 		47B85474126A3686E4C111FE /* Pods-PokeMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokeMatchUITests/Pods-PokeMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -516,6 +526,8 @@
 				0FC8351121AB2DE9007A2914 /* 1.8.gif */,
 				0FB6213D21A8DDC1002EABD0 /* 1.9.gif */,
 				0FB6213E21A8DDC2002EABD0 /* 2.0.gif */,
+				0FC8353221AB3759007A2914 /* 2.1.gif */,
+				0FC8353421AB378C007A2914 /* 1.gif */,
 				0FC8352621AB3106007A2914 /* 2.gif */,
 				0FB6214521A8DDC5002EABD0 /* 3.gif */,
 				0FC8352221AB3104007A2914 /* 4.gif */,
@@ -529,6 +541,8 @@
 				0FC8351E21AB3103007A2914 /* 12.gif */,
 				0FC8352021AB3103007A2914 /* 13.gif */,
 				0FC8352521AB3105007A2914 /* 14.gif */,
+				0FC8353721AB379D007A2914 /* 15.gif */,
+				0FC8353621AB379D007A2914 /* 16.gif */,
 				0F7BEA1121AB1EDB00E8763D /* Abomasnow_Mega.gif */,
 				0F7BEA3E21AB1EF400E8763D /* Aegislash_Blade.gif */,
 				0F7BEAD521AB1F4E00E8763D /* Aegislash_Shield.gif */,
@@ -617,6 +631,7 @@
 				0F7BE9FC21AB1ECE00E8763D /* Growlithe.gif */,
 				0F7BEAB021AB1F3A00E8763D /* Grubbin.gif */,
 				0F7BEA4121AB1EF600E8763D /* Gulpin_Female.gif */,
+				0FC8353021AB36E4007A2914 /* Gurdurr.gif */,
 				0F7BEA8521AB1F1C00E8763D /* Guzzlord.gif */,
 				0F7BEA2B21AB1EE900E8763D /* Helioptile.gif */,
 				0F7BEA4E21AB1EFD00E8763D /* Heracross_Female.gif */,
@@ -1012,13 +1027,16 @@
 			files = (
 				0FC8352F21AB3106007A2914 /* 2.gif in Resources */,
 				0FC8352721AB3106007A2914 /* 12.gif in Resources */,
+				0FC8353921AB379D007A2914 /* 15.gif in Resources */,
 				0FB6214A21A8DDC5002EABD0 /* 6.gif in Resources */,
 				0FB620F021A87E47002EABD0 /* pokemon.ttf in Resources */,
 				0FC8352A21AB3106007A2914 /* 10.gif in Resources */,
 				0FB6214621A8DDC5002EABD0 /* 7.gif in Resources */,
+				0FC8353521AB378C007A2914 /* 1.gif in Resources */,
 				0FC8351D21AB2DEB007A2914 /* 1.1.gif in Resources */,
 				0FB6214C21A8DDC5002EABD0 /* 1.0.gif in Resources */,
 				0FB6214721A8DDC5002EABD0 /* 1.9.gif in Resources */,
+				0FC8353821AB379D007A2914 /* 16.gif in Resources */,
 				0FB6210421A88178002EABD0 /* Main.storyboard in Resources */,
 				0FC8351A21AB2DEB007A2914 /* 1.7.gif in Resources */,
 				0FB6214B21A8DDC5002EABD0 /* 5.gif in Resources */,
@@ -1032,6 +1050,7 @@
 				0FB6210621A881B6002EABD0 /* LaunchScreen.storyboard in Resources */,
 				0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */,
 				0FC8351C21AB2DEB007A2914 /* 1.2.gif in Resources */,
+				0FC8353321AB375A007A2914 /* 2.1.gif in Resources */,
 				0FC8351821AB2DEB007A2914 /* 1.4.gif in Resources */,
 				0FC8351B21AB2DEB007A2914 /* 1.6.gif in Resources */,
 				0FB620F221A87E68002EABD0 /* music.mp3 in Resources */,
@@ -1040,6 +1059,7 @@
 				0FC8352821AB3106007A2914 /* 8.gif in Resources */,
 				0FC8352D21AB3106007A2914 /* 11.gif in Resources */,
 				0FB6214821A8DDC5002EABD0 /* 2.0.gif in Resources */,
+				0FC8353121AB36E4007A2914 /* Gurdurr.gif in Resources */,
 				0F7BE9EC21A9B8DA00E8763D /* fanfare.mp3 in Resources */,
 				0FC8351621AB2DEB007A2914 /* 1.5.gif in Resources */,
 				0FB6210821A881D1002EABD0 /* Default-568h@2x.png in Resources */,
