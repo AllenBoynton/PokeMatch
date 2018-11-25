@@ -31,7 +31,8 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        gifView.setGifImage(RandomGifs.init().randomFlyingGif())
+//        gifView.setGifImage(RandomGifs.init().randomFlyingGif())
+        gifView.setGifImage(UIImage(gifName: "1.0.gif"))
         
         if !musicIsOn {
             handleMusicButtons()
