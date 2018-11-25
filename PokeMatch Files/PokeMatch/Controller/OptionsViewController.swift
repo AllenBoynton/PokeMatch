@@ -12,9 +12,9 @@ import GameKit
 import StoreKit
 import GoogleMobileAds
 
-enum Difficulty {
-    case Easy, Medium, Hard
-}
+var difficulty: UInt?
+let defaults = UserDefaults.standard
+var imageGroupArray: [UIImage] = []
 
 class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
@@ -31,16 +31,22 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     var bannerView: GADBannerView!
     
-    var imageGroupArray: [[UIImage]] = [Array]()
-    var imageCategoryArray: [String] = ["Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7", "Most Popular"]
+    var imageCategoryArray: [String] = ["Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6"/*, "Generation 7"*/, "Most Popular"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageGroupArray = [PokeMemoryGame.topCardImages]
+        // Saves the current state of the segmented control
+        let segmentName = defaults.integer(forKey: "difficulty")
+        self.segmentedControl.selectedSegmentIndex = segmentName
+        print("Segment name: \(segmentName)")
         
         self.imagePicker.dataSource = self
         self.imagePicker.delegate = self
+        
+        let pickerName = defaults.integer(forKey: "row")
+        self.imagePicker.selectRow(pickerName, inComponent: 0, animated: true)
+        print("Picker row: \(pickerName)")
         
         handleMusicButtons()
         handleSegmentControl()
@@ -75,17 +81,23 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
             ], for: .selected)
     }
     
-    @IBAction func easyButtonTapped(_ sender: Any) {
-        imageGroupArray = [PokeMemoryGame.gen1Images]
-        //        pokeMatchViewController.sizeDifficulty(difficulty: .Easy)
-    }
-    
-    @IBAction func mediumButtonTapped(_ sender: Any) {
-        //        pokeMatchViewController.sizeDifficulty(difficulty: .Medium)
-    }
-    
-    @IBAction func hardButtonTapped(_ sender: Any) {
-        //        pokeMatchViewController.sizeDifficulty(difficulty: .Hard)
+    @IBAction func difficultySelection(_ sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex{
+        case 0:
+            difficulty = 6
+            defaults.set(0, forKey: "difficulty")
+            print("Easy Difficulty = 12 cards")
+        case 1:
+            difficulty = 8
+            defaults.set(1, forKey: "difficulty")
+            print("Medium Difficulty = 16 cards")
+        case 2:
+            difficulty = 10
+            defaults.set(2, forKey: "difficulty")
+            print("Hard Difficulty = 20 cards")
+        default:
+            break
+        }
     }
     
     @IBAction func musicButtonOn(_ sender: Any) {
@@ -116,7 +128,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBAction func rateButtonTapped(_ sender: Any) {
         print("Rate App button tapped!")
-        let appleID = "1241113119"
+        let appleID = "1444497236"
         guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id\(appleID)?action=write-review")
             else { fatalError("Expected a valid URL") }
         UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
@@ -148,40 +160,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
 }
 
-// asign each button a tag then if/else using the tag and user input
-extension OptionsViewController {
-    //    func onEasyTapped(sender: UIButton) {
-    //        pokeMatchViewController.sizeDifficulty(difficulty: .Easy)
-    //    }
-    //
-    //    func onMediumTapped(sender: UIButton) {
-    //        pokeMatchViewController.sizeDifficulty(difficulty: .Medium)
-    //    }
-    //
-    //    func onHardTapped(sender: UIButton) {
-    //        pokeMatchViewController.sizeDifficulty(difficulty: .Hard)
-    //    }
-    
-    func sizeDifficulty(difficulty: Difficulty) -> (CGFloat, CGFloat) {
-        switch difficulty {
-        case .Easy:
-            print("Easy")
-            return (4, 4)
-        case .Medium:
-            print("Medium")
-            return (4, 5)
-        case .Hard:
-            print("Hard")
-            return (5, 6)
-        }
-    }
-    
-    func numCardsNeededDifficulty(difficulty: Difficulty) -> Int {
-        let (columns, rows) = sizeDifficulty(difficulty: difficulty)
-        return Int(columns * rows)
-    }
-}
-
 extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK:  UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -205,6 +183,10 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return imageCategoryArray[row]
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        defaults.set(row, forKey: "row")
+    }
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         let myView = UIView(frame: CGRect(x:0, y:0, width:pickerView.bounds.width - 30, height:60))
@@ -219,48 +201,56 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         case 0:
             rowString = imageCategoryArray[0]
             myImageView.image = UIImage(named:"_25")
-            imageGroupArray = [PokeMemoryGame.gen1Images]
+            imageGroupArray = PokeMemoryGame.gen1Images
+            print("Picked: Gen-1 Images")
         case 1:
             rowString = imageCategoryArray[1]
             myImageView.image = UIImage(named:"_6")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen2Images]
+            imageGroupArray = PokeMemoryGame.gen2Images
+            print("Picked: Gen-2 Images")
         case 2:
             rowString = imageCategoryArray[2]
             myImageView.image = UIImage(named:"269")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen3Images]
+            imageGroupArray = PokeMemoryGame.gen3Images
+            print("Picked: Gen-3 Images")
         case 3:
             rowString = imageCategoryArray[3]
             myImageView.image = UIImage(named:"_448")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen4Images]
+            imageGroupArray = PokeMemoryGame.gen4Images
+            print("Picked: Gen-4 Images")
         case 4:
             rowString = imageCategoryArray[4]
             myImageView.image = UIImage(named:"_133")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen5Images]
+            imageGroupArray = PokeMemoryGame.gen5Images
+            print("Picked: Gen-5 Images")
         case 5:
             rowString = imageCategoryArray[5]
             myImageView.image = UIImage(named:"_249")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen6Images]
+            imageGroupArray = PokeMemoryGame.gen6Images
+            print("Picked: Gen-6 Images")
         case 6:
+//            rowString = imageCategoryArray[6]
+//            myImageView.image = UIImage(named:"_257")
+//            lockImage.image = lockImg
+//            imageGroupArray = PokeMemoryGame.gen7Images
+//            print("Picked: Gen-7 Images")
+//        case 7:
             rowString = imageCategoryArray[6]
-            myImageView.image = UIImage(named:"_257")
-            lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.gen7Images]
-        case 7:
-            rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named:"_384")
             lockImage.image = lockImg
-            imageGroupArray = [PokeMemoryGame.topCardImages]
+            imageGroupArray = PokeMemoryGame.topCardImages
+            print("Picked: Top Card Images")
         case 8: break
         default:
             rowString = "Error: too many rows"
             myImageView.image = nil
         }
-        
+
         myLabel.text = rowString
         
         myView.addSubview(myLabel)
