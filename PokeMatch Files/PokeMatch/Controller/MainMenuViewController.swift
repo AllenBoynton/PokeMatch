@@ -31,8 +31,7 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        let gif = UIImage(gifName: "1.gif", levelOfIntegrity:0.15)
-        gifView.setGifImage(gif)
+        gifView.setGifImage(RandomGifs.init().randomFlyingGif())
         
         if !musicIsOn {
             handleMusicButtons()
@@ -43,7 +42,7 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Total cards: \(PokeMemoryGame.topCardImages.count)")
+        print("Total cards: \(imageGroupArray.count)")
         authenticatePlayer()
     }
     
