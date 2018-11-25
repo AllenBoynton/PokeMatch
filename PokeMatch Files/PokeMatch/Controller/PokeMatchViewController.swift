@@ -14,10 +14,7 @@ let cellID = "PokeCell"
 
 class PokeMatchViewController: UIViewController {
     
-    //    private var card: Card!
     private var gameController = PokeMemoryGame()
-    //    private var notifications = Notifications()
-    //    private var music = Music()
     private var optionsVC = OptionsViewController()
     
     // Collection view to hold all images
@@ -77,8 +74,8 @@ class PokeMatchViewController: UIViewController {
     }
     
     // Sets up for new game
-    private func setupNewGame() {
-        let cardsData: [UIImage] = PokeMemoryGame.topCardImages
+    private func setupNewGame(numCards: UInt) {
+        let cardsData: [UIImage] = imageGroupArray.sample(numCards) 
         gameController.newGame(cardsData)
     }
     
@@ -147,7 +144,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
             }
         } 
         
-        let when = DispatchTime.now()
+        let when = DispatchTime.now() + 1.0
         DispatchQueue.main.asyncAfter(deadline: when) {
             let myVC = self.storyboard?.instantiateViewController(withIdentifier: "HighScoreViewController") as! HighScoreViewController
             myVC.timePassed = self.display
@@ -205,11 +202,27 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
         var itemHeight: CGFloat!
         
         if Device.IS_IPHONE {
-            itemWidth = collectionView.frame.width / 4 - 10.0 // 4 wide
-            itemHeight = collectionView.frame.height / 5 - 12.0
+            switch difficulty {
+            case 6:
+                itemWidth = collectionView.frame.width / 3 - 12.0
+                itemHeight = collectionView.frame.height / 4 - 10.0
+                print("12 cards: 3 x 4")
+            case 8:
+                itemWidth = collectionView.frame.width / 4 - 8.0
+                itemHeight = collectionView.frame.height / 4 - 14.0
+                print("16 cards: 4 x 4")
+            case 10:
+                itemWidth = collectionView.frame.width / 4 - 8.0
+                itemHeight = collectionView.frame.height / 5 - 10.0
+                print("20 cards: 4 x 5")
+            default:
+                itemWidth = collectionView.frame.width / 4 - 8.0
+                itemHeight = collectionView.frame.height / 5 - 12.0
+                print("Default in Switch")
+            }
             print("Layout for iPhone")
         } else if Device.IS_IPAD {
-            itemWidth = collectionView.frame.width / 5 - 10.0 // 4 wide
+            itemWidth = collectionView.frame.width / 5 - 10.0
             itemHeight = collectionView.frame.height / 6 - 12.0
             print("Layout for iPad")
         }
@@ -220,7 +233,7 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
         // Begin with new setup
-        setupNewGame()
+        setupNewGame(numCards: difficulty ?? 8)
         
         // Shows button at beginning of game
         restartButton.isHidden = false
