@@ -26,11 +26,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="6YI-z9-1dc" userLabel="gameBGImage">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="at4-WX-iFi" userLabel="Button Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="at4-WX-iFi" userLabel="Button Stack View">
                                 <rect key="frame" x="112.66666666666669" y="583" width="150" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-Ma-6bH">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="36.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Play" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-Od-TV2" userLabel="Best Times">
-                                        <rect key="frame" x="0.0" y="56.666666666666629" width="150" height="36.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="54" width="150" height="42"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Best Time" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKL-4J-NZo" userLabel="About Button">
-                                        <rect key="frame" x="0.0" y="113.33333333333339" width="150" height="36.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="108" width="150" height="42"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Options" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -709,9 +709,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="easyButtonTapped:" destination="dbu-pB-TK8" eventType="valueChanged" id="3ix-HA-rwG"/>
-                                    <action selector="hardButtonTapped:" destination="dbu-pB-TK8" eventType="valueChanged" id="yYL-3R-x7d"/>
-                                    <action selector="mediumButtonTapped:" destination="dbu-pB-TK8" eventType="valueChanged" id="LmN-CZ-tru"/>
+                                    <action selector="difficultySelection:" destination="dbu-pB-TK8" eventType="valueChanged" id="zGM-MV-QkL"/>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeZ-iA-Cpx" userLabel="Line Divider 2">
