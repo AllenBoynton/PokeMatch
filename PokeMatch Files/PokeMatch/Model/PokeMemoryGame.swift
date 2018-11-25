@@ -9,6 +9,7 @@
 import Foundation
 import UIKit.UIImage
 import SwiftyGif
+import Darwin
 
 class PokeMemoryGame {
     
@@ -121,15 +122,18 @@ class PokeMemoryGame {
         return unpairedCard
     }
     
+    /*************************************** Random Images ***********/
+    
     // Pick random cards for game board
     fileprivate func randomCards(_ cardsData:[UIImage]) -> [Card] {
         var cards = [Card]()
-        for i in 0...cardsData.count-1 {
-            let card = Card.init(image: cardsData[i])
-            cards.append(contentsOf: [card, Card.init(card: card)])
+        if cardsData.count > 0 {
+            for i in 0...cardsData.count - 1 {
+                let card = Card.init(image: cardsData[i])
+                cards.append(contentsOf: [card, Card.init(card: card)])
+            }
         }
-        cards.shuffle()
-        return cards
+        return cards.shuffled()
     }
 }
 
@@ -137,7 +141,7 @@ class PokeMemoryGame {
 extension PokeMemoryGame {
     // Popular
     static var topCardImages: [UIImage] = [
-        /*UIImage(named: "_6")!, UIImage(named:"_25")!, UIImage(named:"_26")!, UIImage(named: "_93")!, UIImage(named: "_94")!, UIImage(named: "_133")!, UIImage(named: "_150")!, UIImage(named: "_249")!, UIImage(named: "_259")!, UIImage(named: "_445")!, UIImage(named: "374")!, UIImage(named: "299")!, UIImage(named: "491")!,*/ UIImage(named: "272")!, UIImage(named: "633")!
+        UIImage(named: "_6")!, UIImage(named:"_25")!, UIImage(named:"_26")!, UIImage(named: "_93")!, UIImage(named: "_94")!, UIImage(named: "_133")!, UIImage(named: "_150")!, UIImage(named: "_249")!, UIImage(named: "_259")!, UIImage(named: "_445")!, UIImage(named: "374")!, UIImage(named: "299")!, UIImage(named: "491")!, UIImage(named: "272")!, UIImage(named: "633")!
     ]
     
     // Gen 1 = 1-151
