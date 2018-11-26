@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Start app with sound
-        Music().startGameMusic()
+        Music().startGameMusic(name: "music")
         
         StoreReviewHelper().checkAndAskForReview()
         
