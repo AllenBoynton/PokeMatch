@@ -131,10 +131,10 @@ extension PokeMatchViewController: MemoryGameDelegate {
     // End of game methods
     func memoryGameDidEnd(_ game: PokeMemoryGame, elapsedTime: TimeInterval) {
         timer?.invalidate()
-        
+                
         if musicIsOn {
             bgMusic?.pause()
-            Music().playWinnerAudio()
+            Music().playWinnerAudio1()
             
             let delay = DispatchTime.now() + 5.0
             DispatchQueue.main.asyncAfter(deadline: delay) {
@@ -209,7 +209,7 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
                 print("12 cards: 3 x 4")
             case 8:
                 itemWidth = collectionView.frame.width / 4 - 8.0
-                itemHeight = collectionView.frame.height / 4 - 14.0
+                itemHeight = collectionView.frame.height / 4 - 12.0
                 print("16 cards: 4 x 4")
             case 10:
                 itemWidth = collectionView.frame.width / 4 - 8.0
