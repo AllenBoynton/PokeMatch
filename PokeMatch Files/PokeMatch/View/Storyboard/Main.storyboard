@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="at4-WX-iFi" userLabel="Button Stack View">
-                                <rect key="frame" x="112.66666666666669" y="583" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="568" width="150" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-Ma-6bH">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="41"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Play" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-Od-TV2" userLabel="Best Times">
-                                        <rect key="frame" x="0.0" y="54" width="150" height="42"/>
+                                        <rect key="frame" x="0.0" y="53" width="150" height="41"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Best Time" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKL-4J-NZo" userLabel="About Button">
-                                        <rect key="frame" x="0.0" y="108" width="150" height="42"/>
+                                        <rect key="frame" x="0.0" y="106" width="150" height="41"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Options" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -69,10 +69,20 @@
                                             <segue destination="dbu-pB-TK8" kind="show" identifier="Options" id="76t-b5-vd7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmc-Mb-80I" userLabel="PokéDex">
+                                        <rect key="frame" x="0.0" y="159" width="150" height="41"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <state key="normal" title="PokéDex" backgroundImage="change_button">
+                                            <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="1za-eG-PDA"/>
-                                    <constraint firstAttribute="height" constant="150" id="sJz-32-976"/>
+                                    <constraint firstAttribute="height" constant="200" id="sJz-32-976"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-fO-A3j">
@@ -106,7 +116,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-U0-c0h">
-                                <rect key="frame" x="62.666666666666657" y="291" width="150" height="150"/>
+                                <rect key="frame" x="62.666666666666657" y="281" width="150" height="150"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-VS-ZOi">
+                                <rect key="frame" x="267.66666666666669" y="493" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="rZZ-Ft-Dco"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,20 +133,24 @@
                             <constraint firstItem="at4-WX-iFi" firstAttribute="centerX" secondItem="K7F-Co-HVt" secondAttribute="centerX" id="FSj-0b-Lqc"/>
                             <constraint firstItem="6YI-z9-1dc" firstAttribute="leading" secondItem="sJk-90-fgr" secondAttribute="leading" id="KV5-Wg-1M4"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="centerX" secondItem="K7F-Co-HVt" secondAttribute="centerX" constant="-50" id="Kqy-fK-5Ev"/>
+                            <constraint firstItem="ukX-VS-ZOi" firstAttribute="trailing" secondItem="at4-WX-iFi" secondAttribute="trailing" constant="80" id="Me2-OG-jPw"/>
                             <constraint firstItem="6YI-z9-1dc" firstAttribute="trailing" secondItem="sJk-90-fgr" secondAttribute="trailing" id="SHN-SP-xHK"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="width" secondItem="6YI-z9-1dc" secondAttribute="width" multiplier="0.4" id="Vdd-qc-vYr"/>
-                            <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="at4-WX-iFi" secondAttribute="bottom" constant="45" id="VjW-sd-Jwk"/>
+                            <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="at4-WX-iFi" secondAttribute="bottom" constant="10" id="VjW-sd-Jwk"/>
                             <constraint firstItem="Kha-fO-A3j" firstAttribute="leading" secondItem="K7F-Co-HVt" secondAttribute="leading" constant="40" id="XkO-0e-ulP"/>
-                            <constraint firstItem="56Q-U0-c0h" firstAttribute="centerY" secondItem="K7F-Co-HVt" secondAttribute="centerY" constant="-40" id="Xnr-zc-kTA"/>
+                            <constraint firstItem="56Q-U0-c0h" firstAttribute="centerY" secondItem="K7F-Co-HVt" secondAttribute="centerY" constant="-50" id="Xnr-zc-kTA"/>
                             <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="T8D-vp-1D4" secondAttribute="bottom" constant="30" id="YQk-aV-pI3"/>
+                            <constraint firstItem="ukX-VS-ZOi" firstAttribute="width" secondItem="ukX-VS-ZOi" secondAttribute="height" multiplier="1:1" id="bU9-fp-ldr"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="width" secondItem="56Q-U0-c0h" secondAttribute="height" multiplier="1:1" id="d0z-Ev-5MI"/>
                             <constraint firstAttribute="bottom" secondItem="6YI-z9-1dc" secondAttribute="bottom" id="tU9-iV-jKo"/>
                             <constraint firstItem="Kha-fO-A3j" firstAttribute="top" secondItem="sJk-90-fgr" secondAttribute="top" constant="75" id="vUg-I3-UNO"/>
+                            <constraint firstItem="at4-WX-iFi" firstAttribute="top" secondItem="ukX-VS-ZOi" secondAttribute="bottom" id="wf3-nc-nCM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sJk-90-fgr"/>
                     </view>
                     <connections>
                         <outlet property="gifView" destination="56Q-U0-c0h" id="Y9i-M0-Y5V"/>
+                        <outlet property="miniGifView1" destination="ukX-VS-ZOi" id="mik-sR-wae"/>
                         <outlet property="musicButton" destination="T8D-vp-1D4" id="Veu-5e-NVk"/>
                     </connections>
                 </viewController>
@@ -318,10 +338,10 @@
                                         <rect key="frame" x="122" y="39.666666666666671" width="131" height="36.666666666666671"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoL-Cn-2Va" userLabel="Back Button">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="75" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Main Menu">
+                                        <state key="normal" title="Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -417,10 +437,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="81.333333333333329"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3x-7S-zRZ" userLabel="Main Menu">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="75" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Main Menu">
+                                        <state key="normal" title="Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -478,7 +498,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ovX-Ad-geH">
-                                <rect key="frame" x="103" y="534.33333333333337" width="169" height="168.66666666666663"/>
+                                <rect key="frame" x="137.66666666666666" y="538" width="149.99999999999997" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ovX-Ad-geH" secondAttribute="height" multiplier="1:1" id="NqL-87-aFe"/>
                                 </constraints>
@@ -569,7 +589,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pcS-ZZ-HsG" firstAttribute="height" secondItem="vbN-75-Nck" secondAttribute="height" multiplier="0.1" id="16V-yR-zJW"/>
-                            <constraint firstItem="ovX-Ad-geH" firstAttribute="centerX" secondItem="vbN-75-Nck" secondAttribute="centerX" id="4fA-pO-ibp"/>
+                            <constraint firstItem="ovX-Ad-geH" firstAttribute="centerX" secondItem="vbN-75-Nck" secondAttribute="centerX" constant="25" id="4fA-pO-ibp"/>
                             <constraint firstItem="TUV-V1-Q13" firstAttribute="top" secondItem="zDD-ST-iAe" secondAttribute="bottom" constant="20" id="4tg-bf-KKw"/>
                             <constraint firstItem="3up-wK-JGD" firstAttribute="centerY" secondItem="vbN-75-Nck" secondAttribute="centerY" id="77I-hS-zu0"/>
                             <constraint firstItem="Bw8-Gy-EEo" firstAttribute="top" secondItem="TUV-V1-Q13" secondAttribute="bottom" constant="20" id="8Vz-Ff-0M5"/>
@@ -582,10 +602,10 @@
                             <constraint firstAttribute="trailing" secondItem="zDD-ST-iAe" secondAttribute="trailing" id="O4t-kR-wNu"/>
                             <constraint firstAttribute="bottom" secondItem="ekW-qq-ue0" secondAttribute="bottom" id="SM6-Rq-Rp0"/>
                             <constraint firstItem="pcS-ZZ-HsG" firstAttribute="trailing" secondItem="5ps-lU-l5k" secondAttribute="trailing" id="UIk-8c-UNu"/>
-                            <constraint firstItem="ovX-Ad-geH" firstAttribute="width" secondItem="ekW-qq-ue0" secondAttribute="width" multiplier="0.45" id="WTG-8O-cET"/>
+                            <constraint firstItem="ovX-Ad-geH" firstAttribute="width" secondItem="ekW-qq-ue0" secondAttribute="width" multiplier="0.4" id="WTG-8O-cET"/>
                             <constraint firstItem="TUV-V1-Q13" firstAttribute="leading" secondItem="vbN-75-Nck" secondAttribute="leading" constant="20" id="aw7-Ki-8Je"/>
                             <constraint firstItem="ekW-qq-ue0" firstAttribute="top" secondItem="vbN-75-Nck" secondAttribute="top" id="gYC-bJ-H84"/>
-                            <constraint firstItem="5ps-lU-l5k" firstAttribute="bottom" secondItem="ovX-Ad-geH" secondAttribute="bottom" constant="75" id="i6x-Cc-TNI"/>
+                            <constraint firstItem="5ps-lU-l5k" firstAttribute="bottom" secondItem="ovX-Ad-geH" secondAttribute="bottom" constant="90" id="i6x-Cc-TNI"/>
                             <constraint firstItem="zDD-ST-iAe" firstAttribute="leading" secondItem="vbN-75-Nck" secondAttribute="leading" id="lFu-Pp-ETi"/>
                             <constraint firstItem="3up-wK-JGD" firstAttribute="centerX" secondItem="vbN-75-Nck" secondAttribute="centerX" id="n81-TU-i17"/>
                             <constraint firstItem="ekW-qq-ue0" firstAttribute="leading" secondItem="5ps-lU-l5k" secondAttribute="leading" id="tXU-Lw-otH"/>
@@ -621,10 +641,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="81.333333333333329"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDF-mm-VpW" userLabel="Cancel Button">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="45" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Cancel">
+                                        <state key="normal" title="Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
