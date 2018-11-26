@@ -165,7 +165,7 @@ class HighScoreViewController: UIViewController {
             print("Ad page attempted")
             if musicIsOn {
                 musicIsOn = false
-                music.handleMuteMusic()
+                music.handleMuteMusic(clip: bgMusic)
             }
         } else {
             print("Ad wasn't ready")
