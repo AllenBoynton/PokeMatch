@@ -21,6 +21,11 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
+    @IBOutlet weak var miniGifView1: UIImageView!
+    @IBOutlet weak var miniGifView2: UIImageView!
+    @IBOutlet weak var miniGifView3: UIImageView!
+    
+    let gifManager = SwiftyGifManager(memoryLimit:20)
     
     let localPlayer = GKLocalPlayer.local
     
@@ -31,8 +36,8 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        gifView.setGifImage(RandomGifs.init().randomFlyingGif())
-        gifView.setGifImage(UIImage(gifName: "1.0.gif"))
+        
+        handleGifViews()
         
         if !musicIsOn {
             handleMusicButtons()
@@ -43,7 +48,6 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Total cards: \(imageGroupArray.count)")
         authenticatePlayer()
     }
     
@@ -110,6 +114,17 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    func handleGifViews() {
+        let gifImage1 = RandomGifs.init().randomFlyingGif()
+        let gifImage2 = RandomGifs.init().randomGif()
+        
+        gifView.setGifImage(gifImage1, manager: gifManager, loopCount: -1)
+        miniGifView1.setGifImage(gifImage2, manager: gifManager, loopCount: -1)
+        
+        print("GifImage frame count: \(gifView.gifImage!.framesCount())")
+        print("Mini-GifImage frame count: \(miniGifView1.gifImage!.framesCount())")
+    }
+    
     func handleMusicButtons() {
         let image = UIImage(named: "x")
         musicButton.setImage(image, for: .selected)
@@ -126,13 +141,8 @@ class MainMenuViewController: UIViewController {
     
     // Music button to turn music on/off
     @IBAction func muteButtonTapped(_ sender: UIButton) {
-        music.handleMuteMusic()
+        music.handleMuteMusic(clip: bgMusic)
         handleMusicButtons()
-//        if gifView.isHidden {
-//            gifView.isHidden = false
-//        } else {
-//            gifView.isHidden = true
-//        }
     }
     
     @IBAction func bestTimesButtonTapped(_ sender: UIButton) {
