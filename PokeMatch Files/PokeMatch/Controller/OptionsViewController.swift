@@ -101,12 +101,12 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @IBAction func musicButtonOn(_ sender: Any) {
-        music.handleMuteMusic()
+        music.handleMuteMusic(clip: bgMusic)
         handleMusicButtons()
     }
     
     @IBAction func musicButtonOff(_ sender: Any) {
-        music.handleMuteMusic()
+        music.handleMuteMusic(clip: bgMusic)
         handleMusicButtons()
     }
     
