@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="at4-WX-iFi" userLabel="Button Stack View">
-                                <rect key="frame" x="112.66666666666669" y="568" width="150" height="200"/>
+                                <rect key="frame" x="112.66666666666669" y="573" width="150" height="175"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-Ma-6bH">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50.333333333333336"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Play" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-Od-TV2" userLabel="Best Times">
-                                        <rect key="frame" x="0.0" y="53" width="150" height="41"/>
+                                        <rect key="frame" x="0.0" y="62.333333333333371" width="150" height="50.333333333333343"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Best Time" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKL-4J-NZo" userLabel="About Button">
-                                        <rect key="frame" x="0.0" y="106" width="150" height="41"/>
+                                        <rect key="frame" x="0.0" y="124.66666666666661" width="150" height="50.333333333333329"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <state key="normal" title="Options" backgroundImage="change_button">
                                             <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -69,20 +69,10 @@
                                             <segue destination="dbu-pB-TK8" kind="show" identifier="Options" id="76t-b5-vd7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmc-Mb-80I" userLabel="PokéDex">
-                                        <rect key="frame" x="0.0" y="159" width="150" height="41"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                                        <state key="normal" title="PokéDex" backgroundImage="change_button">
-                                            <color key="titleColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="1za-eG-PDA"/>
-                                    <constraint firstAttribute="height" constant="200" id="sJz-32-976"/>
+                                    <constraint firstAttribute="height" constant="175" id="sJz-32-976"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kha-fO-A3j">
@@ -118,12 +108,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-U0-c0h">
                                 <rect key="frame" x="62.666666666666657" y="281" width="150" height="150"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-VS-ZOi">
-                                <rect key="frame" x="267.66666666666669" y="493" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="rZZ-Ft-Dco"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -133,24 +117,20 @@
                             <constraint firstItem="at4-WX-iFi" firstAttribute="centerX" secondItem="K7F-Co-HVt" secondAttribute="centerX" id="FSj-0b-Lqc"/>
                             <constraint firstItem="6YI-z9-1dc" firstAttribute="leading" secondItem="sJk-90-fgr" secondAttribute="leading" id="KV5-Wg-1M4"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="centerX" secondItem="K7F-Co-HVt" secondAttribute="centerX" constant="-50" id="Kqy-fK-5Ev"/>
-                            <constraint firstItem="ukX-VS-ZOi" firstAttribute="trailing" secondItem="at4-WX-iFi" secondAttribute="trailing" constant="80" id="Me2-OG-jPw"/>
                             <constraint firstItem="6YI-z9-1dc" firstAttribute="trailing" secondItem="sJk-90-fgr" secondAttribute="trailing" id="SHN-SP-xHK"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="width" secondItem="6YI-z9-1dc" secondAttribute="width" multiplier="0.4" id="Vdd-qc-vYr"/>
-                            <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="at4-WX-iFi" secondAttribute="bottom" constant="10" id="VjW-sd-Jwk"/>
+                            <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="at4-WX-iFi" secondAttribute="bottom" constant="30" id="VjW-sd-Jwk"/>
                             <constraint firstItem="Kha-fO-A3j" firstAttribute="leading" secondItem="K7F-Co-HVt" secondAttribute="leading" constant="40" id="XkO-0e-ulP"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="centerY" secondItem="K7F-Co-HVt" secondAttribute="centerY" constant="-50" id="Xnr-zc-kTA"/>
-                            <constraint firstItem="sJk-90-fgr" firstAttribute="bottom" secondItem="T8D-vp-1D4" secondAttribute="bottom" constant="30" id="YQk-aV-pI3"/>
-                            <constraint firstItem="ukX-VS-ZOi" firstAttribute="width" secondItem="ukX-VS-ZOi" secondAttribute="height" multiplier="1:1" id="bU9-fp-ldr"/>
                             <constraint firstItem="56Q-U0-c0h" firstAttribute="width" secondItem="56Q-U0-c0h" secondAttribute="height" multiplier="1:1" id="d0z-Ev-5MI"/>
+                            <constraint firstItem="T8D-vp-1D4" firstAttribute="bottom" secondItem="at4-WX-iFi" secondAttribute="bottom" id="g1k-jH-NhA"/>
                             <constraint firstAttribute="bottom" secondItem="6YI-z9-1dc" secondAttribute="bottom" id="tU9-iV-jKo"/>
                             <constraint firstItem="Kha-fO-A3j" firstAttribute="top" secondItem="sJk-90-fgr" secondAttribute="top" constant="75" id="vUg-I3-UNO"/>
-                            <constraint firstItem="at4-WX-iFi" firstAttribute="top" secondItem="ukX-VS-ZOi" secondAttribute="bottom" id="wf3-nc-nCM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sJk-90-fgr"/>
                     </view>
                     <connections>
                         <outlet property="gifView" destination="56Q-U0-c0h" id="Y9i-M0-Y5V"/>
-                        <outlet property="miniGifView1" destination="ukX-VS-ZOi" id="mik-sR-wae"/>
                         <outlet property="musicButton" destination="T8D-vp-1D4" id="Veu-5e-NVk"/>
                     </connections>
                 </viewController>
@@ -290,7 +270,7 @@
                                         <rect key="frame" x="119" y="5" width="138" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="_6" translatesAutoresizingMaskIntoConstraints="NO" id="cVg-nM-FKW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6" translatesAutoresizingMaskIntoConstraints="NO" id="cVg-nM-FKW">
                                         <rect key="frame" x="271.33333333333331" y="5" width="87.666666666666686" height="87.666666666666671"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -338,28 +318,31 @@
                                         <rect key="frame" x="122" y="39.666666666666671" width="131" height="36.666666666666671"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoL-Cn-2Va" userLabel="Back Button">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="75" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Menu">
+                                        <state key="normal" title="Main Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="28"/>
+                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="26"/>
                                         </variation>
                                         <connections>
                                             <action selector="backButtonTapped:" destination="dQJ-XH-gzA" eventType="touchUpInside" id="K4I-49-nAh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQm-PW-at3" userLabel="Restart Button">
-                                        <rect key="frame" x="303" y="43.333333333333336" width="56" height="33.000000000000007"/>
-                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="14"/>
+                                        <rect key="frame" x="299" y="43.333333333333336" width="60" height="33.000000000000007"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
                                         <state key="normal" title="Restart">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="26"/>
+                                        </variation>
                                         <connections>
                                             <action selector="restartButtonTapped:" destination="dQJ-XH-gzA" eventType="touchUpInside" id="Pvq-3U-M70"/>
                                         </connections>
@@ -437,10 +420,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="81.333333333333329"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3x-7S-zRZ" userLabel="Main Menu">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="75" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Menu">
+                                        <state key="normal" title="Main Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -467,8 +450,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Won!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlN-0r-T26">
-                                        <rect key="frame" x="144" y="47.333333333333336" width="87.333333333333314" height="29.000000000000007"/>
-                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
+                                        <rect key="frame" x="135.33333333333334" y="41.666666666666671" width="104.33333333333334" height="34.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="24"/>
                                         <color key="textColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.015686274510000001" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -641,15 +624,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="81.333333333333329"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDF-mm-VpW" userLabel="Cancel Button">
-                                        <rect key="frame" x="16" y="43.333333333333336" width="37" height="33.000000000000007"/>
+                                        <rect key="frame" x="16" y="43.333333333333336" width="75" height="33.000000000000007"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="15"/>
                                         <size key="titleShadowOffset" width="-1" height="1"/>
-                                        <state key="normal" title="Menu">
+                                        <state key="normal" title="Main Menu">
                                             <color key="titleColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="26"/>
                                         </variation>
                                         <connections>
                                             <action selector="backToMain:" destination="dbu-pB-TK8" eventType="touchUpInside" id="rSH-FO-YeY"/>
@@ -664,19 +647,22 @@
                                             <color key="titleShadowColor" red="0.01230340544" green="0.23481360079999999" blue="0.99301832909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="26"/>
                                         </variation>
                                         <connections>
                                             <action selector="doneButtonTapped:" destination="dbu-pB-TK8" eventType="touchUpInside" id="rXM-SU-t41"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU9-Xk-JRY">
-                                        <rect key="frame" x="149.33333333333334" y="47.333333333333336" width="76.666666666666657" height="29.000000000000007"/>
-                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
+                                        <rect key="frame" x="141.66666666666666" y="41.666666666666671" width="91.666666666666657" height="34.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="24"/>
                                         <color key="textColor" red="0.98823529409999999" green="0.87450980389999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.015686274510000001" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="shadowOffset" width="-1" height="1"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="40"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1042,10 +1028,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="25" width="86.400001525878906" height="86.400001525878906"/>
+        <image name="25" width="475" height="475"/>
+        <image name="6" width="282" height="256.66665649414062"/>
         <image name="PokeMatch" width="429" height="122"/>
         <image name="_254" width="312" height="284.33334350585938"/>
-        <image name="_6" width="282" height="256.66665649414062"/>
         <image name="bg" width="1920" height="1200"/>
         <image name="bg2" width="1920" height="1080"/>
         <image name="change_button" width="200" height="78"/>

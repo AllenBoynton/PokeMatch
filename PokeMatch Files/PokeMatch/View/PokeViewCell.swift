@@ -38,7 +38,7 @@ class PokeViewCell: UICollectionViewCell {
         let left = UIImage(named: "_254")
         leftImageView = UIImageView(image: left)
 
-        let right = UIImage(named: "_6")
+        let right = UIImage(named: "6")
         rightImageView = UIImageView(image: right)
         
         if animated {
