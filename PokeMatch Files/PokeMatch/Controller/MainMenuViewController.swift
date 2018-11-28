@@ -21,9 +21,6 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
-    @IBOutlet weak var miniGifView1: UIImageView!
-    @IBOutlet weak var miniGifView2: UIImageView!
-    @IBOutlet weak var miniGifView3: UIImageView!
     
     let gifManager = SwiftyGifManager(memoryLimit:20)
     
@@ -115,14 +112,8 @@ class MainMenuViewController: UIViewController {
     }
     
     func handleGifViews() {
-        let gifImage1 = RandomGifs.init().randomFlyingGif()
-        let gifImage2 = RandomGifs.init().randomGif()
-        
-        gifView.setGifImage(gifImage1, manager: gifManager, loopCount: -1)
-        miniGifView1.setGifImage(gifImage2, manager: gifManager, loopCount: -1)
-        
+        gifView.setGifImage(RandomGifs.init().randomFlyingGif(), manager: gifManager, loopCount: -1)
         print("GifImage frame count: \(gifView.gifImage!.framesCount())")
-        print("Mini-GifImage frame count: \(miniGifView1.gifImage!.framesCount())")
     }
     
     func handleMusicButtons() {
