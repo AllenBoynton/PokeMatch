@@ -105,8 +105,6 @@ class HighScoreViewController: UIViewController {
             menuButton.isHidden = true
             score = Int(convertStringToNumbers(time: timePassed!)!)
             scoreLabel.text = "\(intToScoreString(score: score))"
-            gifView.isHidden = false
-            loadImage()
             
             if (score > highScore) { // Change value for testing purposes
                 highScore = score
