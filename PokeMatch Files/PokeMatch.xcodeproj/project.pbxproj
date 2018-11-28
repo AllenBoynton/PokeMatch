@@ -28,7 +28,6 @@
 		0F28A2F521ABB60600DE6F9F /* 1.2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DA21ABB60400DE6F9F /* 1.2.gif */; };
 		0F28A2F621ABB60600DE6F9F /* 2.9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DB21ABB60400DE6F9F /* 2.9.gif */; };
 		0F28A2F721ABB60600DE6F9F /* 2.7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DC21ABB60400DE6F9F /* 2.7.gif */; };
-		0F28A2F821ABB60600DE6F9F /* 3.0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DD21ABB60500DE6F9F /* 3.0.gif */; };
 		0F28A2F921ABB60600DE6F9F /* 1.0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DE21ABB60500DE6F9F /* 1.0.gif */; };
 		0F28A2FA21ABB60600DE6F9F /* 2.4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2DF21ABB60500DE6F9F /* 2.4.gif */; };
 		0F28A2FB21ABB60600DE6F9F /* 1.7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2E021ABB60500DE6F9F /* 1.7.gif */; };
@@ -126,7 +125,6 @@
 		0F28A2DA21ABB60400DE6F9F /* 1.2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.2.gif; sourceTree = "<group>"; };
 		0F28A2DB21ABB60400DE6F9F /* 2.9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.9.gif; sourceTree = "<group>"; };
 		0F28A2DC21ABB60400DE6F9F /* 2.7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.7.gif; sourceTree = "<group>"; };
-		0F28A2DD21ABB60500DE6F9F /* 3.0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.0.gif; sourceTree = "<group>"; };
 		0F28A2DE21ABB60500DE6F9F /* 1.0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.0.gif; sourceTree = "<group>"; };
 		0F28A2DF21ABB60500DE6F9F /* 2.4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.4.gif; sourceTree = "<group>"; };
 		0F28A2E021ABB60500DE6F9F /* 1.7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.7.gif; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				0F28A2DC21ABB60400DE6F9F /* 2.7.gif */,
 				0F28A2D821ABB60300DE6F9F /* 2.8.gif */,
 				0F28A2DB21ABB60400DE6F9F /* 2.9.gif */,
-				0F28A2DD21ABB60500DE6F9F /* 3.0.gif */,
 				0F28A2D721ABB60300DE6F9F /* 3.1.gif */,
 				0F28A2CC21ABB60100DE6F9F /* 3.2.gif */,
 				0F28A2E521ABB60600DE6F9F /* 3.3.gif */,
@@ -651,7 +648,6 @@
 				0F28A2C521AB565800DE6F9F /* 54 Fanfare_ Pokémon Caught.mp3 in Resources */,
 				0F28A2FC21ABB60600DE6F9F /* 2.3.gif in Resources */,
 				0F28A2E721ABB60600DE6F9F /* 3.2.gif in Resources */,
-				0F28A2F821ABB60600DE6F9F /* 3.0.gif in Resources */,
 				0F7BE9EC21A9B8DA00E8763D /* fanfare.mp3 in Resources */,
 				0FB6210821A881D1002EABD0 /* Default-568h@2x.png in Resources */,
 				0F28A2F521ABB60600DE6F9F /* 1.2.gif in Resources */,
