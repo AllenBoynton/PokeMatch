@@ -58,6 +58,7 @@ class PokeMatchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        collectionView.reloadData()
         resetGame()
         if musicIsOn {
             bgMusic?.play()
@@ -216,14 +217,32 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
                 itemHeight = collectionView.frame.height / 5 - 10.0
                 print("20 cards: 4 x 5")
             default:
-                itemWidth = collectionView.frame.width / 4 - 8.0
-                itemHeight = collectionView.frame.height / 5 - 12.0
+                itemWidth = collectionView.frame.width / 3 - 12.0
+                itemHeight = collectionView.frame.height / 4 - 10.0
                 print("Default in Switch")
+                break
             }
             print("Layout for iPhone")
         } else if Device.IS_IPAD {
-            itemWidth = collectionView.frame.width / 5 - 10.0
-            itemHeight = collectionView.frame.height / 6 - 12.0
+            switch iPadDifficulty {
+            case 6:
+                itemWidth = collectionView.frame.width / 3 - 12.0
+                itemHeight = collectionView.frame.height / 4 - 10.0
+                print("12 cards: 3 x 4")
+            case 10:
+                itemWidth = collectionView.frame.width / 4 - 8.0
+                itemHeight = collectionView.frame.height / 5 - 12.0
+                print("20 cards: 4 x 5")
+            case 15:
+                itemWidth = collectionView.frame.width / 5 - 8.0
+                itemHeight = collectionView.frame.height / 6 - 10.0
+                print("30 cards: 5 x 6")
+            default:
+                itemWidth = collectionView.frame.width / 4 - 12.0
+                itemHeight = collectionView.frame.height / 5 - 10.0
+                print("Default in Switch")
+                break
+            }
             print("Layout for iPad")
         }
         return CGSize(width: itemWidth, height: itemHeight)
@@ -233,8 +252,11 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
         // Begin with new setup
-        setupNewGame(numCards: difficulty ?? 8)
-        
+        if Device.IS_IPHONE {
+            setupNewGame(numCards: difficulty)
+        } else {
+            setupNewGame(numCards: iPadDifficulty)
+        }
         // Shows button at beginning of game
         restartButton.isHidden = false
         playButton.isHidden = true

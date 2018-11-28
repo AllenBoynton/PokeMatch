@@ -12,7 +12,8 @@ import GameKit
 import StoreKit
 import GoogleMobileAds
 
-var difficulty: UInt?
+var difficulty = UInt()
+var iPadDifficulty = UInt()
 let defaults = UserDefaults.standard
 var imageGroupArray: [UIImage] = []
 
@@ -31,7 +32,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     var bannerView: GADBannerView!
     
-    var imageCategoryArray: [String] = ["Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6"/*, "Generation 7"*/, "Most Popular"]
+    var imageCategoryArray: [String] = ["Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7", "Most Popular"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
             musicOnView.materialDesign = true
             musicOffView.materialDesign = false
             musicIsOn = true
+            
         } else {
             musicOnView.layer.borderWidth = 0
             musicOffView.layer.borderWidth = 2
@@ -82,21 +84,24 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @IBAction func difficultySelection(_ sender: AnyObject) {
-        switch segmentedControl.selectedSegmentIndex{
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
             difficulty = 6
+            iPadDifficulty = 6
             defaults.set(0, forKey: "difficulty")
             print("Easy Difficulty = 12 cards")
         case 1:
             difficulty = 8
+            iPadDifficulty = 10
             defaults.set(1, forKey: "difficulty")
             print("Medium Difficulty = 16 cards")
         case 2:
             difficulty = 10
+            iPadDifficulty = 15
             defaults.set(2, forKey: "difficulty")
             print("Hard Difficulty = 20 cards")
         default:
-            break
+            print("Default hit in Difficulty - Segmented Control")
         }
     }
     
@@ -200,12 +205,12 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         switch row {
         case 0:
             rowString = imageCategoryArray[0]
-            myImageView.image = UIImage(named:"_25")
+            myImageView.image = UIImage(named:"25")
             imageGroupArray = PokeMemoryGame.gen1Images
             print("Picked: Gen-1 Images")
         case 1:
             rowString = imageCategoryArray[1]
-            myImageView.image = UIImage(named:"_6")
+            myImageView.image = UIImage(named:"6")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen2Images
             print("Picked: Gen-2 Images")
@@ -234,13 +239,13 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             imageGroupArray = PokeMemoryGame.gen6Images
             print("Picked: Gen-6 Images")
         case 6:
-//            rowString = imageCategoryArray[6]
-//            myImageView.image = UIImage(named:"_257")
-//            lockImage.image = lockImg
-//            imageGroupArray = PokeMemoryGame.gen7Images
-//            print("Picked: Gen-7 Images")
-//        case 7:
             rowString = imageCategoryArray[6]
+            myImageView.image = UIImage(named:"_257")
+            lockImage.image = lockImg
+            imageGroupArray = PokeMemoryGame.gen7Images
+            print("Picked: Gen-7 Images")
+        case 7:
+            rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named:"_384")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.topCardImages
