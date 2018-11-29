@@ -11,11 +11,7 @@ import GoogleMobileAds
 
 // Global references
 var bgMusic: AVAudioPlayer?
-var bgMusic2: AVAudioPlayer?
 var winnerAudio1: AVAudioPlayer?
-var winnerAudio2: AVAudioPlayer?
-var winnerAudio3: AVAudioPlayer?
-var winnerAudioArray: [AVAudioPlayer]?
 var musicIsOn = true
 
 class Music {
@@ -35,20 +31,6 @@ class Music {
         }
     }
     
-    func startGameMusic2() {
-        // Winning music
-        let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: "90 Ending Theme", ofType: "mp3")!)
-        
-        do {
-            bgMusic2 = try AVAudioPlayer(contentsOf: url)
-            bgMusic2?.prepareToPlay()
-            bgMusic2?.play()
-            bgMusic2?.numberOfLoops = 0
-        } catch let error as NSError {
-            print("audioPlayer error \(error.localizedDescription)")
-        }
-    }
-    
     func playWinnerAudio1() {
         // Winning music
         let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: "fanfare", ofType: "mp3")!)
@@ -58,34 +40,6 @@ class Music {
             winnerAudio1?.prepareToPlay()
             winnerAudio1?.play()
             winnerAudio1?.numberOfLoops = 0
-        } catch let error as NSError {
-            print("audioPlayer error \(error.localizedDescription)")
-        }
-    }
-    
-    func playWinnerAudio2() {
-        // Winning music
-        let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: "42 Fanfare_ Jackpot", ofType: "mp3")!)
-        
-        do {
-            winnerAudio2 = try AVAudioPlayer(contentsOf: url)
-            winnerAudio2?.prepareToPlay()
-            winnerAudio2?.play()
-            winnerAudio2?.numberOfLoops = 0
-        } catch let error as NSError {
-            print("audioPlayer error \(error.localizedDescription)")
-        }
-    }
-    
-    func playWinnerAudio3() {
-        // Winning music
-        let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: "54 Fanfare_ Pokémon Caught", ofType: "mp3")!)
-        
-        do {
-            winnerAudio3 = try AVAudioPlayer(contentsOf: url)
-            winnerAudio3?.prepareToPlay()
-            winnerAudio3?.play()
-            winnerAudio3?.numberOfLoops = 0
         } catch let error as NSError {
             print("audioPlayer error \(error.localizedDescription)")
         }
