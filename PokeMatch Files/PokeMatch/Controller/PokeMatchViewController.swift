@@ -28,6 +28,7 @@ class PokeMatchViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var difficultyLabel: UILabel!
     
     // Constraint outlets for animation
     @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
@@ -69,6 +70,7 @@ class PokeMatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAdRequest()
+        handleDifficultyLabel()
         GADMobileAds.sharedInstance().applicationVolume = 0.5
         gameController.delegate = self
         restartButton.isHidden = true
@@ -98,6 +100,19 @@ class PokeMatchViewController: UIViewController {
         
         playButton.isHidden = false
         playButton.isEnabled = true
+    }
+    
+    private func handleDifficultyLabel() {
+        switch defaults.integer(forKey: "difficulty") {
+        case 0:
+            difficultyLabel.text = "Difficulty: Easy"
+        case 1:
+            difficultyLabel.text = "Difficulty: Medium"
+        case 2:
+            difficultyLabel.text = "Difficulty: Hard"
+        default:
+            difficultyLabel.text = ""
+        }
     }
 }
 
@@ -160,10 +175,8 @@ extension PokeMatchViewController: UICollectionViewDataSource {
     // Determines which device the user has - determines # of cards
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if Device.IS_IPHONE {
-            print("Device is iPhone. Number of cards: \(gameController.numberOfCards)")
             return gameController.numberOfCards > 0 ? gameController.numberOfCards: 20
         } else {
-            print("Device is not an iPhone. Number of cards: \(gameController.numberOfCards)")
             return gameController.numberOfCards > 0 ? gameController.numberOfCards: 30
         }
         
@@ -207,43 +220,33 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
             case 6:
                 itemWidth = collectionView.frame.width / 3 - 12.0
                 itemHeight = collectionView.frame.height / 4 - 10.0
-                print("12 cards: 3 x 4")
             case 8:
                 itemWidth = collectionView.frame.width / 4 - 8.0
                 itemHeight = collectionView.frame.height / 4 - 12.0
-                print("16 cards: 4 x 4")
             case 10:
                 itemWidth = collectionView.frame.width / 4 - 8.0
                 itemHeight = collectionView.frame.height / 5 - 10.0
-                print("20 cards: 4 x 5")
             default:
                 itemWidth = collectionView.frame.width / 3 - 12.0
                 itemHeight = collectionView.frame.height / 4 - 10.0
-                print("Default in Switch")
                 break
             }
-            print("Layout for iPhone")
         } else if Device.IS_IPAD {
             switch iPadDifficulty {
             case 6:
                 itemWidth = collectionView.frame.width / 3 - 12.0
                 itemHeight = collectionView.frame.height / 4 - 10.0
-                print("12 cards: 3 x 4")
             case 10:
                 itemWidth = collectionView.frame.width / 4 - 8.0
                 itemHeight = collectionView.frame.height / 5 - 12.0
-                print("20 cards: 4 x 5")
             case 15:
                 itemWidth = collectionView.frame.width / 5 - 8.0
                 itemHeight = collectionView.frame.height / 6 - 10.0
-                print("30 cards: 5 x 6")
             default:
                 itemWidth = collectionView.frame.width / 4 - 12.0
                 itemHeight = collectionView.frame.height / 5 - 10.0
-                print("Default in Switch")
                 break
             }
-            print("Layout for iPad")
         }
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -273,7 +276,7 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
     @IBAction func backButtonTapped(_ sender: Any) {
         timer?.invalidate()
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionsViewController")
         self.show(vc!, sender: self)
     }
     
