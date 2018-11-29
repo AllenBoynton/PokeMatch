@@ -37,11 +37,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Saves the current state of the segmented control
-        let segmentName = defaults.integer(forKey: "difficulty")
-        self.segmentedControl.selectedSegmentIndex = segmentName
-        print("Segment name: \(segmentName)")
-        
         self.imagePicker.dataSource = self
         self.imagePicker.delegate = self
         
@@ -72,6 +67,21 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     func handleSegmentControl() {
+        // Saves the current state of the segmented control
+        let segmentName = defaults.integer(forKey: "difficulty")
+        self.segmentedControl.selectedSegmentIndex = segmentName
+        
+        if segmentName == 0 {
+            difficulty = 6
+            iPadDifficulty = 6
+        } else if segmentName == 1 {
+            difficulty = 8
+            iPadDifficulty = 10
+        } else if segmentName == 2 {
+            difficulty = 10
+            iPadDifficulty = 15
+        }
+        
         segmentedControl.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "Marker Felt", size: 15) as Any,
             NSAttributedString.Key.foregroundColor: UIColor.yellow
@@ -89,17 +99,14 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
             difficulty = 6
             iPadDifficulty = 6
             defaults.set(0, forKey: "difficulty")
-            print("Easy Difficulty = 12 cards")
         case 1:
             difficulty = 8
             iPadDifficulty = 10
             defaults.set(1, forKey: "difficulty")
-            print("Medium Difficulty = 16 cards")
         case 2:
             difficulty = 10
             iPadDifficulty = 15
             defaults.set(2, forKey: "difficulty")
-            print("Hard Difficulty = 20 cards")
         default:
             print("Default hit in Difficulty - Segmented Control")
         }
@@ -207,49 +214,41 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             rowString = imageCategoryArray[0]
             myImageView.image = UIImage(named:"25")
             imageGroupArray = PokeMemoryGame.gen1Images
-            print("Picked: Gen-1 Images")
         case 1:
             rowString = imageCategoryArray[1]
             myImageView.image = UIImage(named:"6")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen2Images
-            print("Picked: Gen-2 Images")
         case 2:
             rowString = imageCategoryArray[2]
             myImageView.image = UIImage(named:"269")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen3Images
-            print("Picked: Gen-3 Images")
         case 3:
             rowString = imageCategoryArray[3]
             myImageView.image = UIImage(named:"_448")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen4Images
-            print("Picked: Gen-4 Images")
         case 4:
             rowString = imageCategoryArray[4]
             myImageView.image = UIImage(named:"_133")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen5Images
-            print("Picked: Gen-5 Images")
         case 5:
             rowString = imageCategoryArray[5]
             myImageView.image = UIImage(named:"_249")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen6Images
-            print("Picked: Gen-6 Images")
         case 6:
             rowString = imageCategoryArray[6]
             myImageView.image = UIImage(named:"_257")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen7Images
-            print("Picked: Gen-7 Images")
         case 7:
             rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named:"_384")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.topCardImages
-            print("Picked: Top Card Images")
         case 8: break
         default:
             rowString = "Error: too many rows"
@@ -351,7 +350,6 @@ extension OptionsViewController: GADBannerViewDelegate {
     /// to the user clicking on an ad.
     func adViewWillPresentScreen(_ bannerView: GADBannerView) {
         print("adViewWillPresentScreen")
-        //        music.handleMuteMusic()
     }
     
     /// Tells the delegate that the full-screen view will be dismissed.
@@ -362,7 +360,6 @@ extension OptionsViewController: GADBannerViewDelegate {
     /// Tells the delegate that the full-screen view has been dismissed.
     func adViewDidDismissScreen(_ bannerView: GADBannerView) {
         print("adViewDidDismissScreen")
-        //        music.handleMuteMusic()
     }
     
     /// Tells the delegate that a user click will open another app (such as
