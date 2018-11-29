@@ -23,7 +23,7 @@ class PurchaseManager: NSObject, SKProductsRequestDelegate, SKPaymentTransaction
         productsRequest.start()
     }
     
-    let IAP_REMOVE_ADS = "com.abtechapps.PokeMatch.remove.ads"
+    let IAP_REMOVE_ADS = "1444497236"
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if response.products.count > 0 {
