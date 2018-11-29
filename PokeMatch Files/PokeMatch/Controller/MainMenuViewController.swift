@@ -135,9 +135,4 @@ class MainMenuViewController: UIViewController {
         music.handleMuteMusic(clip: bgMusic)
         handleMusicButtons()
     }
-    
-    @IBAction func bestTimesButtonTapped(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HighScoreViewController")
-        self.show(vc!, sender: self)
-    }
 }
