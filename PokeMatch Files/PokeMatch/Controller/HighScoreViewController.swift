@@ -53,7 +53,6 @@ class HighScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interstitial = createAndLoadInterstitial()
-        
         handleAdRequest()
         showItems()
         checkHighScoreForNil()
@@ -111,7 +110,6 @@ class HighScoreViewController: UIViewController {
                 highScoreLbl.text = "\(intToScoreString(score: Int(highScore)))"
                 
                 handleHighScore()
-                print("Best Time Displayed")
             }
         } else {
             gameTimeStackView.isHidden = true
@@ -139,7 +137,7 @@ class HighScoreViewController: UIViewController {
     // Animate GC image
     func animateGCIcon() {
         UIView.animate(withDuration: 1.5, animations: {
-            self.gcIconView.transform = CGAffineTransform(scaleX: 30, y: 30)
+            self.gcIconView.transform = CGAffineTransform(scaleX: 20, y: 20)
             self.gcIconView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         }) { (finished) in
             UIView.animate(withDuration: 0.8, animations: {
@@ -160,7 +158,6 @@ class HighScoreViewController: UIViewController {
         // Interstitial Ad setup
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
-            print("Ad page attempted")
             if musicIsOn {
                 musicIsOn = false
                 music.handleMuteMusic(clip: bgMusic)
@@ -337,9 +334,9 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
     
     /// Tells the delegate the interstitial had been animated off the screen.
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        if musicIsOn {
-            bgMusic?.play()
-        }
+//        if musicIsOn {
+//            bgMusic?.play()
+//        }
         print("interstitialDidDismissScreen")
     }
     
