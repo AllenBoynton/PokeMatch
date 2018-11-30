@@ -29,6 +29,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var musicOnView: UIView!
     @IBOutlet weak var musicOffView: UIView!
     @IBOutlet weak var offMusicImage: UIButton!
+    @IBOutlet weak var removeAdsButton: UIButton!
     
     var bannerView: GADBannerView!
     
@@ -36,6 +37,8 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PurchaseManager.instance.fetchProducts()
         
         self.imagePicker.dataSource = self
         self.imagePicker.delegate = self
@@ -147,7 +150,11 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @IBAction func removeAdButtonTapped(sender: AnyObject) {
-        print("Remove Ads Button Tapped")
+        PurchaseManager.instance.purchase(product: IAPProducts.IAP_REMOVE_ADS)
+        
+//        if SKPaymentTransactionState.status(.purchased) { // If status shows purchased then remove ad and button
+            removeAdsButton.isHidden = true
+//        }
     }
     
     @IBAction func backToMain(_ sender: UIButton) {
@@ -219,36 +226,43 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             myImageView.image = UIImage(named:"6")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen2Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_2)
         case 2:
             rowString = imageCategoryArray[2]
             myImageView.image = UIImage(named:"269")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen3Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_3)
         case 3:
             rowString = imageCategoryArray[3]
             myImageView.image = UIImage(named:"_448")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen4Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_4)
         case 4:
             rowString = imageCategoryArray[4]
             myImageView.image = UIImage(named:"_133")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen5Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_5)
         case 5:
             rowString = imageCategoryArray[5]
             myImageView.image = UIImage(named:"_249")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen6Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_6)
         case 6:
             rowString = imageCategoryArray[6]
             myImageView.image = UIImage(named:"_257")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen7Images
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_7)
         case 7:
             rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named:"_384")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.topCardImages
+            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_8)
         case 8: break
         default:
             rowString = "Error: too many rows"
@@ -262,6 +276,10 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         myView.addSubview(lockImage)
         
         return myView
+    }
+    
+    func handlePurchaseAlerts() {
+        
     }
 }
 
