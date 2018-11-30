@@ -1107,6 +1107,7 @@
                         <outlet property="musicOffView" destination="HYy-EB-z34" id="YJS-JK-KJa"/>
                         <outlet property="musicOnView" destination="nYh-Lk-fAg" id="WVd-2Z-rQM"/>
                         <outlet property="offMusicImage" destination="00j-qk-Vso" id="7CW-6R-ybG"/>
+                        <outlet property="removeAdsButton" destination="HgZ-Zn-UQQ" id="rzw-3j-OCZ"/>
                         <outlet property="segmentedControl" destination="NcD-iU-hNl" id="gUM-XB-eVU"/>
                     </connections>
                 </viewController>
