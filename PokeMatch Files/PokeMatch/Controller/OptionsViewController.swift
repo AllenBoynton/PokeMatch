@@ -226,43 +226,43 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             myImageView.image = UIImage(named:"6")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen2Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_2)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_2)
         case 2:
             rowString = imageCategoryArray[2]
             myImageView.image = UIImage(named:"269")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen3Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_3)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_3)
         case 3:
             rowString = imageCategoryArray[3]
             myImageView.image = UIImage(named:"_448")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen4Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_4)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_4)
         case 4:
             rowString = imageCategoryArray[4]
             myImageView.image = UIImage(named:"_133")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen5Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_5)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_5)
         case 5:
             rowString = imageCategoryArray[5]
             myImageView.image = UIImage(named:"_249")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen6Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_6)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_6)
         case 6:
             rowString = imageCategoryArray[6]
             myImageView.image = UIImage(named:"_257")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.gen7Images
-            //PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_7)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_7)
         case 7:
             rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named:"_384")
             lockImage.image = lockImg
             imageGroupArray = PokeMemoryGame.topCardImages
-            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_8)
+//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_8)
         case 8: break
         default:
             rowString = "Error: too many rows"
