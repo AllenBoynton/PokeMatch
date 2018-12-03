@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 // Global Identifier
 let cellID = "PokeCell"
 
 class PokeMatchViewController: UIViewController {
     
-    private var gameController = PokeMemoryGame()
+    private var gameController = MemoryGame()
     private var optionsVC = OptionsViewController()
     
     // Collection view to hold all images
@@ -34,9 +33,6 @@ class PokeMatchViewController: UIViewController {
     @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
     
     // MARK - Local variables
-    
-    // AdMob banner ad
-    private var adBannerView: GADBannerView!
     
     // Time passed to FinalScoreVC
     private var gameTimePassed = UILabel()
@@ -69,9 +65,7 @@ class PokeMatchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        handleAdRequest()
         handleDifficultyLabel()
-        GADMobileAds.sharedInstance().applicationVolume = 0.5
         gameController.delegate = self
         restartButton.isHidden = true
     }
@@ -118,8 +112,8 @@ class PokeMatchViewController: UIViewController {
 
 // MARK: - MemoryGameDelegate
 
-extension PokeMatchViewController: MemoryGameDelegate {
-    func memoryGameDidStart(_ game: PokeMemoryGame) {
+extension PokeMatchViewController: GameDelegate {
+    func memoryGameDidStart(_ game: MemoryGame) {
         collectionView.reloadData()
         collectionView.isUserInteractionEnabled = true
         
@@ -127,7 +121,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
     }
     
     // Function for cards that are being shown
-    func memoryGame(_ game: PokeMemoryGame, showCards cards: [Card]) {
+    func memoryGame(_ game: MemoryGame, showCards cards: [Card]) {
         for card in cards {
             guard let index = gameController.indexForCard(card) else { continue }
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeViewCell
@@ -136,7 +130,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
     }
     
     // Function for cards that are being hidden
-    func memoryGame(_ game: PokeMemoryGame, hideCards cards: [Card]) {
+    func memoryGame(_ game: MemoryGame, hideCards cards: [Card]) {
         for card in cards {
             guard let index = gameController.indexForCard(card) else { continue }
             let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! PokeViewCell
@@ -145,7 +139,7 @@ extension PokeMatchViewController: MemoryGameDelegate {
     }
     
     // End of game methods
-    func memoryGameDidEnd(_ game: PokeMemoryGame, elapsedTime: TimeInterval) {
+    func memoryGameDidEnd(_ game: MemoryGame, elapsedTime: TimeInterval) {
         timer?.invalidate()
                 
         if musicIsOn {
@@ -330,81 +324,4 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
         
         return display
     }
-}
-
-extension PokeMatchViewController: GADBannerViewDelegate {
-    // MARK: - view positioning
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        if #available(iOS 11.0, *) {
-            // In iOS 11, we need to constrain the view to the safe area.
-            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
-        }
-        else {
-            // In lower iOS versions, safe area is not available so we use
-            // bottom layout guide and view edges.
-            positionBannerViewFullWidthAtBottomOfView(bannerView)
-        }
-    }
-
-    @available (iOS 11, *)
-    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
-        // Position the banner. Stick it to the bottom of the Safe Area.
-        // Make it constrained to the edges of the safe area.
-        let guide = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
-            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
-            ])
-    }
-
-    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .trailing,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .bottom,
-                                              relatedBy: .equal,
-                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
-    }
-
-    // MARK:  AdMob banner ad
-    func handleAdRequest() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-
-        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(adBannerView)
-
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/6252355617"
-        adBannerView.rootViewController = self
-        adBannerView.delegate = self
-
-        adBannerView.load(request)
-    }
-
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("Banner loaded successfully")
-    }
-
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print(error.debugDescription)
-    }
-    
 }

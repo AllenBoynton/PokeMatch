@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Music().startGameMusic(name: "music")
         
         StoreReviewHelper().checkAndAskForReview()
-        
-        // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
-        // Testing banner ID:  ca-app-pub-3940256099942544/2934735716
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-2292175261120907~2981949238")
-        PurchaseManager.instance.fetchProducts()
         
         return true
     }
@@ -41,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        //        bgMusic?.pause()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

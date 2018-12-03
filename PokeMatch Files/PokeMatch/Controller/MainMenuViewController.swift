@@ -11,18 +11,21 @@ import GameKit
 import SwiftyGif
 
 // Global GC identifiers
-let timeLeaderboardID = "com.alsmobileapps.PokeMatch" // Time Leaderboard
+let easyTimeLeaderboardID = "com.alsmobileapps.PokeMatch" // Easy Time Leaderboard
+let mediumTimeLeaderboardID = "com.alsmobileapps.PokeMatch.medium" // Medium Time Leaderboard
+let hardTimeLeaderboardID = "com.alsmobileapps.PokeMatch.hard" // Hard Time Leaderboard
+let overallTimeLeaderboardID = "com.alsmobileapps.PokeMatch.overall" // Total Time Leaderboard
+
+let gifManager = SwiftyGifManager(memoryLimit:20)
 
 class MainMenuViewController: UIViewController {
     
     // Class delegates
-    var gameController = PokeMemoryGame()
+    var gameController = MemoryGame()
     var music = Music()
     
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var gifView: UIImageView!
-    
-    let gifManager = SwiftyGifManager(memoryLimit:20)
     
     let localPlayer = GKLocalPlayer.local
     
@@ -33,14 +36,7 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         handleGifViews()
-        
-        if !musicIsOn {
-            handleMusicButtons()
-        } else {
-            bgMusic?.play()
-        }
     }
     
     override func viewDidLoad() {
@@ -94,24 +90,8 @@ class MainMenuViewController: UIViewController {
         print("GKPlayerAuthenticationDidChangeNotificationName - Authentication Status: \(localPlayer.isAuthenticated)")
     }
     
-    // Reporting game time
-    func saveHighScore(_ score: Int64) {
-        // if player is logged in to GC, then report the score
-        if GKLocalPlayer.local.isAuthenticated {
-            
-            // Save game time to GC
-            let scoreReporter = GKScore(leaderboardIdentifier: timeLeaderboardID)
-            scoreReporter.value = Int64(score)
-            
-            let gkScoreArray: [GKScore] = [scoreReporter]
-            
-            GKScore.report(gkScoreArray, withCompletionHandler: { error in
-                guard error == nil  else { return }
-            })
-        }
-    }
-    
     func handleGifViews() {
+        gifView.contentMode = .scaleAspectFit
         gifView.setGifImage(RandomGifs.init().randomFlyingGif(), manager: gifManager, loopCount: -1)
         print("GifImage frame count: \(gifView.gifImage!.framesCount())")
     }

@@ -7,7 +7,6 @@
 //
 
 import AVFoundation
-import GoogleMobileAds
 
 // Global references
 var bgMusic: AVAudioPlayer?
@@ -52,7 +51,6 @@ extension Music {
         // Pause sound if on
         if musicIsOn {
             // pauses music
-            GADMobileAds.sharedInstance().applicationMuted = true
             clip?.pause()
             winnerAudio1?.stop()
             musicIsOn = false

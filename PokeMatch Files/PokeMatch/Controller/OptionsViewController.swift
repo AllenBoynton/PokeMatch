@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import GameKit
 import StoreKit
-import GoogleMobileAds
+import SwiftyGif
 
 var difficulty = UInt()
 var iPadDifficulty = UInt()
@@ -31,14 +31,10 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var offMusicImage: UIButton!
     @IBOutlet weak var removeAdsButton: UIButton!
     
-    var bannerView: GADBannerView!
-    
-    var imageCategoryArray: [String] = ["Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7", "Most Popular"]
+    var imageCategoryArray: [String] = ["Most Popular", "Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        PurchaseManager.instance.fetchProducts()
         
         self.imagePicker.dataSource = self
         self.imagePicker.delegate = self
@@ -49,7 +45,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         
         handleMusicButtons()
         handleSegmentControl()
-        handleAdRequest()
     }
     
     func handleMusicButtons() {
@@ -149,14 +144,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
     }
     
-    @IBAction func removeAdButtonTapped(sender: AnyObject) {
-        PurchaseManager.instance.purchase(product: IAPProducts.IAP_REMOVE_ADS)
-        
-//        if SKPaymentTransactionState.status(.purchased) { // If status shows purchased then remove ad and button
-            removeAdsButton.isHidden = true
-//        }
-    }
-    
     @IBAction func backToMain(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -167,7 +154,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         
         gameCenterViewController.gameCenterDelegate = self
         gameCenterViewController.viewState = .leaderboards
-        gameCenterViewController.leaderboardIdentifier = timeLeaderboardID
+        gameCenterViewController.leaderboardIdentifier = overallTimeLeaderboardID
         
         // Show leaderboard
         self.present(gameCenterViewController, animated: true, completion: nil)
@@ -208,61 +195,55 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let myView = UIView(frame: CGRect(x:0, y:0, width:pickerView.bounds.width - 30, height:60))
+        let myView = UIView(frame: CGRect(x:0, y:0, width:pickerView.bounds.width - 30, height:80))
         
-        let myImageView = UIImageView(frame: CGRect(x:60, y:5, width:50, height:50))
-        let myLabel = UILabel(frame: CGRect(x:pickerView.bounds.maxX - 190, y:0, width:pickerView.bounds.width - 90, height:60 ))
-        let lockImage = UIImageView(frame: CGRect(x:75, y: 15, width: 35, height: 35))
+        let myImageView = UIImageView(frame: CGRect(x:60, y:15, width:50, height:50))
+        myImageView.contentMode = .scaleAspectFit
+        let myLabel = UILabel(frame: CGRect(x:pickerView.bounds.maxX - 190, y:10, width:pickerView.bounds.width - 90, height:60 ))
+        myLabel.font = UIFont.boldSystemFont(ofSize: 18)
         var rowString = String()
-        let lockImg = UIImage(named: "lock")
         
         switch row {
         case 0:
             rowString = imageCategoryArray[0]
-            myImageView.image = UIImage(named:"25")
-            imageGroupArray = PokeMemoryGame.gen1Images
+            let gif = UIImage(gifName: "7.gif", levelOfIntegrity:0.2)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.topCardImages
         case 1:
             rowString = imageCategoryArray[1]
-            myImageView.image = UIImage(named:"6")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen2Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_2)
+            let gif = UIImage(gifName: "Charizard.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen1Images
         case 2:
             rowString = imageCategoryArray[2]
-            myImageView.image = UIImage(named:"269")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen3Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_3)
+            let gif = UIImage(gifName: "Lugia.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen2Images
         case 3:
             rowString = imageCategoryArray[3]
-            myImageView.image = UIImage(named:"_448")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen4Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_4)
+            let gif = UIImage(gifName: "Rayquaza.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen3Images
         case 4:
             rowString = imageCategoryArray[4]
-            myImageView.image = UIImage(named:"_133")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen5Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_5)
+            let gif = UIImage(gifName: "Lucario.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen4Images
         case 5:
             rowString = imageCategoryArray[5]
-            myImageView.image = UIImage(named:"_249")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen6Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_6)
+            let gif = UIImage(gifName: "Hydreigon.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen5Images
         case 6:
             rowString = imageCategoryArray[6]
-            myImageView.image = UIImage(named:"_257")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.gen7Images
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_7)
+            let gif = UIImage(gifName: "Greninja.gif", levelOfIntegrity:0.05)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen6Images
         case 7:
             rowString = imageCategoryArray[7]
-            myImageView.image = UIImage(named:"_384")
-            lockImage.image = lockImg
-            imageGroupArray = PokeMemoryGame.topCardImages
-//            PurchaseManager.instance.purchase(product: .IAP_IMAGE_PACK_8)
+            let gif = UIImage(gifName: "Lycanroc_Midday.gif", levelOfIntegrity:0.1)
+            myImageView.setGifImage(gif)
+            imageGroupArray = MemoryGame.gen7Images
         case 8: break
         default:
             rowString = "Error: too many rows"
@@ -273,116 +254,7 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         myView.addSubview(myLabel)
         myView.addSubview(myImageView)
-        myView.addSubview(lockImage)
         
         return myView
-    }
-    
-    func handlePurchaseAlerts() {
-        
-    }
-}
-
-extension OptionsViewController: GADBannerViewDelegate {
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        if #available(iOS 11.0, *) {
-            // In iOS 11, we need to constrain the view to the safe area.
-            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
-        }
-        else {
-            // In lower iOS versions, safe area is not available so we use
-            // bottom layout guide and view edges.
-            positionBannerViewFullWidthAtBottomOfView(bannerView)
-        }
-    }
-    
-    // MARK: - view positioning
-    @available (iOS 11, *)
-    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
-        // Position the banner. Stick it to the bottom of the Safe Area.
-        // Make it constrained to the edges of the safe area.
-        let guide = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
-            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
-            ])
-    }
-    
-    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .trailing,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .bottom,
-                                              relatedBy: .equal,
-                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
-    }
-    
-    // AdMob banner ad
-    func handleAdRequest() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
-        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(bannerView)
-        
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/4964310398"
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        
-        bannerView.load(request)
-    }
-    /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
-    }
-    
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-                didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    /// Tells the delegate that a full-screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("adViewWillPresentScreen")
-    }
-    
-    /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewWillDismissScreen")
-    }
-    
-    /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewDidDismissScreen")
-    }
-    
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print("adViewWillLeaveApplication")
     }
 }

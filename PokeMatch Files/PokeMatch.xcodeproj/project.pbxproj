@@ -71,16 +71,21 @@
 		0FB6212121A884FE002EABD0 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212021A884FE002EABD0 /* MainMenuViewController.swift */; };
 		0FB6212321A88548002EABD0 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212221A88548002EABD0 /* OptionsViewController.swift */; };
 		0FB6212521A88591002EABD0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212421A88591002EABD0 /* HighScoreViewController.swift */; };
-		0FB6212721A885FD002EABD0 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212621A885FD002EABD0 /* PurchaseManager.swift */; };
-		0FB6212921A887B1002EABD0 /* MemoryGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212821A887B1002EABD0 /* MemoryGameDelegate.swift */; };
-		0FB6212B21A88830002EABD0 /* PokeMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212A21A88830002EABD0 /* PokeMemoryGame.swift */; };
+		0FB6212921A887B1002EABD0 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212821A887B1002EABD0 /* GameDelegate.swift */; };
+		0FB6212B21A88830002EABD0 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6212A21A88830002EABD0 /* MemoryGame.swift */; };
 		0FB6213321A8A0E9002EABD0 /* StoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6213221A8A0E9002EABD0 /* StoreReviewHelper.swift */; };
 		0FB6213621A8A109002EABD0 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6213421A8A109002EABD0 /* MaterialView.swift */; };
 		0FB6213721A8A109002EABD0 /* RandomArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6213521A8A109002EABD0 /* RandomArray.swift */; };
 		0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6215021A8E603002EABD0 /* Gifs.swift */; };
 		0FB6215521A8FB67002EABD0 /* CertificateSigningRequest.certSigningRequest in Resources */ = {isa = PBXBuildFile; fileRef = 0FB6215421A8FB66002EABD0 /* CertificateSigningRequest.certSigningRequest */; };
-		0FC6994921B0CDD500B79935 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC6994821B0CDD500B79935 /* StoreKit.framework */; };
-		0FC6994B21B0D30000B79935 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6994A21B0D30000B79935 /* IAPProducts.swift */; };
+		0FC699FF21B4721200B79935 /* Charizard.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC699FE21B4721200B79935 /* Charizard.gif */; };
+		0FC69A0121B4724B00B79935 /* Lugia.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0021B4724B00B79935 /* Lugia.gif */; };
+		0FC69A0321B4727C00B79935 /* Rayquaza.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0221B4727C00B79935 /* Rayquaza.gif */; };
+		0FC69A0521B4744A00B79935 /* Hydreigon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0421B4744A00B79935 /* Hydreigon.gif */; };
+		0FC69A0721B4748600B79935 /* Lucario.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0621B4748600B79935 /* Lucario.gif */; };
+		0FC69A0921B474D400B79935 /* Greninja.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0821B474D400B79935 /* Greninja.gif */; };
+		0FC69A0B21B4755200B79935 /* Lycanroc_Midday.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A0A21B4755200B79935 /* Lycanroc_Midday.gif */; };
+		0FC69A1121B47F4600B79935 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 0FC69A1021B47F4600B79935 /* pokemon.csv */; };
 		0FC8351B21AB2DEB007A2914 /* 1.6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8351321AB2DEA007A2914 /* 1.6.gif */; };
 		28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */; };
 		3CAB7BC9821D07F8B7D995EA /* Pods_PokeMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */; };
@@ -176,16 +181,25 @@
 		0FB6212021A884FE002EABD0 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		0FB6212221A88548002EABD0 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		0FB6212421A88591002EABD0 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
-		0FB6212621A885FD002EABD0 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
-		0FB6212821A887B1002EABD0 /* MemoryGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameDelegate.swift; sourceTree = "<group>"; };
-		0FB6212A21A88830002EABD0 /* PokeMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeMemoryGame.swift; sourceTree = "<group>"; };
+		0FB6212821A887B1002EABD0 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
+		0FB6212A21A88830002EABD0 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		0FB6213221A8A0E9002EABD0 /* StoreReviewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreReviewHelper.swift; sourceTree = "<group>"; };
 		0FB6213421A8A109002EABD0 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		0FB6213521A8A109002EABD0 /* RandomArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomArray.swift; sourceTree = "<group>"; };
 		0FB6215021A8E603002EABD0 /* Gifs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifs.swift; sourceTree = "<group>"; };
 		0FB6215421A8FB66002EABD0 /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CertificateSigningRequest.certSigningRequest; path = PokeMatch/Utilities/CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
-		0FC6994821B0CDD500B79935 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		0FC6994A21B0D30000B79935 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		0FC699FE21B4721200B79935 /* Charizard.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Charizard.gif; sourceTree = "<group>"; };
+		0FC69A0021B4724B00B79935 /* Lugia.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Lugia.gif; sourceTree = "<group>"; };
+		0FC69A0221B4727C00B79935 /* Rayquaza.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Rayquaza.gif; sourceTree = "<group>"; };
+		0FC69A0421B4744A00B79935 /* Hydreigon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hydreigon.gif; sourceTree = "<group>"; };
+		0FC69A0621B4748600B79935 /* Lucario.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Lucario.gif; sourceTree = "<group>"; };
+		0FC69A0821B474D400B79935 /* Greninja.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Greninja.gif; sourceTree = "<group>"; };
+		0FC69A0A21B4755200B79935 /* Lycanroc_Midday.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Lycanroc_Midday.gif; sourceTree = "<group>"; };
+		0FC69A0C21B4766800B79935 /* Hydreigon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hydreigon.gif; sourceTree = "<group>"; };
+		0FC69A0D21B4766800B79935 /* Lugia.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Lugia.gif; sourceTree = "<group>"; };
+		0FC69A0E21B4766800B79935 /* Charizard.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Charizard.gif; sourceTree = "<group>"; };
+		0FC69A0F21B4766800B79935 /* Rayquaza.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Rayquaza.gif; sourceTree = "<group>"; };
+		0FC69A1021B47F4600B79935 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		0FC8351321AB2DEA007A2914 /* 1.6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.6.gif; sourceTree = "<group>"; };
 		1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C11FCA93570D60C45FB3858 /* Pods-PokeMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatch.release.xcconfig"; path = "Target Support Files/Pods-PokeMatch/Pods-PokeMatch.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D22FB0D7C81EEE5229FA11 /* Pods_PokeMatch.framework in Frameworks */,
-				0FC6994921B0CDD500B79935 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +269,10 @@
 				0F28A2D621ABB60300DE6F9F /* 3.5.gif */,
 				0F28A2E221ABB60600DE6F9F /* 3.6.gif */,
 				0F28A2D921ABB60400DE6F9F /* 3.7.gif */,
+				0FC69A0E21B4766800B79935 /* Charizard.gif */,
+				0FC69A0D21B4766800B79935 /* Lugia.gif */,
+				0FC69A0F21B4766800B79935 /* Rayquaza.gif */,
+				0FC69A0C21B4766800B79935 /* Hydreigon.gif */,
 			);
 			path = flyingGifs;
 			sourceTree = "<group>";
@@ -263,6 +280,13 @@
 		0F28A31C21ABB6D700DE6F9F /* gifImages */ = {
 			isa = PBXGroup;
 			children = (
+				0FC699FE21B4721200B79935 /* Charizard.gif */,
+				0FC69A0021B4724B00B79935 /* Lugia.gif */,
+				0FC69A0221B4727C00B79935 /* Rayquaza.gif */,
+				0FC69A0621B4748600B79935 /* Lucario.gif */,
+				0FC69A0421B4744A00B79935 /* Hydreigon.gif */,
+				0FC69A0821B474D400B79935 /* Greninja.gif */,
+				0FC69A0A21B4755200B79935 /* Lycanroc_Midday.gif */,
 				0F28A30A21ABB63F00DE6F9F /* 1.gif */,
 				0F28A30521ABB63E00DE6F9F /* 2.gif */,
 				0F28A30B21ABB63F00DE6F9F /* 3.gif */,
@@ -349,6 +373,7 @@
 		0FB620EB21A87D79002EABD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0FC69A1021B47F4600B79935 /* pokemon.csv */,
 				0FB620ED21A87E07002EABD0 /* Font */,
 				0FB620EE21A87E11002EABD0 /* Audio */,
 				0FB620EC21A87DFD002EABD0 /* gif */,
@@ -399,7 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				0FB6213221A8A0E9002EABD0 /* StoreReviewHelper.swift */,
-				0FB6212821A887B1002EABD0 /* MemoryGameDelegate.swift */,
+				0FB6212821A887B1002EABD0 /* GameDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -432,7 +457,7 @@
 				0FB620FD21A88019002EABD0 /* Device.swift */,
 				0FB620FF21A88074002EABD0 /* Music.swift */,
 				0FB6210121A880DF002EABD0 /* Notifications.swift */,
-				0FB6212A21A88830002EABD0 /* PokeMemoryGame.swift */,
+				0FB6212A21A88830002EABD0 /* MemoryGame.swift */,
 				0FB6215021A8E603002EABD0 /* Gifs.swift */,
 			);
 			path = Model;
@@ -441,8 +466,6 @@
 		0FB620F821A87EB9002EABD0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0FB6212621A885FD002EABD0 /* PurchaseManager.swift */,
-				0FC6994A21B0D30000B79935 /* IAPProducts.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,7 +500,6 @@
 		B2E44A40F4D4D57EFA9D429C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0FC6994821B0CDD500B79935 /* StoreKit.framework */,
 				CAB06C6788C3A6F3AD6435F9 /* Pods_PokeMatch.framework */,
 				5486877D1ACFC5043D8D8918 /* Pods_PokeMatchTests.framework */,
 				1FDDC9C45F379B06ED75CEBE /* Pods_PokeMatchUITests.framework */,
@@ -572,7 +594,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -617,10 +639,13 @@
 				0F28A31021ABB64000DE6F9F /* 10.gif in Resources */,
 				0F28A2FF21ABB60600DE6F9F /* 1.5.gif in Resources */,
 				0F28A2EC21ABB60600DE6F9F /* 1.9.gif in Resources */,
+				0FC69A0921B474D400B79935 /* Greninja.gif in Resources */,
 				0F28A2E821ABB60600DE6F9F /* 1.8.gif in Resources */,
+				0FC69A0321B4727C00B79935 /* Rayquaza.gif in Resources */,
 				0F28A2EA21ABB60600DE6F9F /* 1.1.gif in Resources */,
 				0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */,
 				0FB6215521A8FB67002EABD0 /* CertificateSigningRequest.certSigningRequest in Resources */,
+				0FC699FF21B4721200B79935 /* Charizard.gif in Resources */,
 				0F28A2E621ABB60600DE6F9F /* 2.5.gif in Resources */,
 				0F28A31121ABB64000DE6F9F /* 6.gif in Resources */,
 				0F28A2F321ABB60600DE6F9F /* 2.8.gif in Resources */,
@@ -629,6 +654,7 @@
 				0FB6210621A881B6002EABD0 /* LaunchScreen.storyboard in Resources */,
 				0F28A2EE21ABB60600DE6F9F /* 1.4.gif in Resources */,
 				0F28A31A21ABB64000DE6F9F /* 13.gif in Resources */,
+				0FC69A0B21B4755200B79935 /* Lycanroc_Midday.gif in Resources */,
 				0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */,
 				0F28A2F221ABB60600DE6F9F /* 3.1.gif in Resources */,
 				0F28A31521ABB64000DE6F9F /* 9.gif in Resources */,
@@ -636,12 +662,16 @@
 				0F28A2F121ABB60600DE6F9F /* 3.5.gif in Resources */,
 				0F28A31621ABB64000DE6F9F /* 11.gif in Resources */,
 				0F28A30E21ABB64000DE6F9F /* 7.gif in Resources */,
+				0FC69A0721B4748600B79935 /* Lucario.gif in Resources */,
 				0F28A31421ABB64000DE6F9F /* 4.gif in Resources */,
 				0F28A31221ABB64000DE6F9F /* 2.gif in Resources */,
 				0F28A2FE21ABB60600DE6F9F /* 1.3.gif in Resources */,
+				0FC69A0121B4724B00B79935 /* Lugia.gif in Resources */,
+				0FC69A1121B47F4600B79935 /* pokemon.csv in Resources */,
 				0F28A2C621AB565800DE6F9F /* 42 Fanfare_ Jackpot.mp3 in Resources */,
 				0FC8351B21AB2DEB007A2914 /* 1.6.gif in Resources */,
 				0F28A2FA21ABB60600DE6F9F /* 2.4.gif in Resources */,
+				0FC69A0521B4744A00B79935 /* Hydreigon.gif in Resources */,
 				0F28A2FB21ABB60600DE6F9F /* 1.7.gif in Resources */,
 				0F28A2F421ABB60600DE6F9F /* 3.7.gif in Resources */,
 				0FB620F221A87E68002EABD0 /* music.mp3 in Resources */,
@@ -738,7 +768,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-PokeMatch/Pods-PokeMatch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -746,7 +775,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -790,13 +818,11 @@
 				0FB620FE21A88019002EABD0 /* Device.swift in Sources */,
 				0FB6212321A88548002EABD0 /* OptionsViewController.swift in Sources */,
 				0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */,
-				0FB6212721A885FD002EABD0 /* PurchaseManager.swift in Sources */,
 				0FB620FC21A87FAD002EABD0 /* Card.swift in Sources */,
 				0FB6210021A88074002EABD0 /* Music.swift in Sources */,
 				0FB6213321A8A0E9002EABD0 /* StoreReviewHelper.swift in Sources */,
-				0FB6212B21A88830002EABD0 /* PokeMemoryGame.swift in Sources */,
-				0FB6212921A887B1002EABD0 /* MemoryGameDelegate.swift in Sources */,
-				0FC6994B21B0D30000B79935 /* IAPProducts.swift in Sources */,
+				0FB6212B21A88830002EABD0 /* MemoryGame.swift in Sources */,
+				0FB6212921A887B1002EABD0 /* GameDelegate.swift in Sources */,
 				0FB6211F21A88495002EABD0 /* PokeMatchViewController.swift in Sources */,
 				0F7BE9EF21AA1B6200E8763D /* DesignableViews.swift in Sources */,
 				0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */,

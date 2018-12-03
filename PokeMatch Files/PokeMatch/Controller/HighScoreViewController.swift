@@ -8,20 +8,22 @@
 
 import UIKit
 import GameKit
-import GoogleMobileAds
 
 class HighScoreViewController: UIViewController {
     
-    private var music = Music()
     private var pokeMatchViewController: PokeMatchViewController!
     
+    @IBOutlet weak var bestTimeStackViews: UIStackView!
     @IBOutlet weak var gameTimeStackView: UIStackView!
-    @IBOutlet weak var bestTimeStackView: UIStackView!
-
+    @IBOutlet weak var bestEasyTimeStackView: UIStackView!
+    @IBOutlet weak var bestMedTimeStackView: UIStackView!
+    @IBOutlet weak var bestHardTimeStackView: UIStackView!
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var highScoreLbl: UILabel!
+    @IBOutlet weak var easyHighScoreLbl: UILabel!
+    @IBOutlet weak var mediumHighScoreLbl: UILabel!
+    @IBOutlet weak var hardHighScoreLbl: UILabel!
     
     @IBOutlet weak var youWonLabel: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
@@ -29,10 +31,14 @@ class HighScoreViewController: UIViewController {
     
     @IBOutlet weak var gcIconView: UIView!
     
-    private var adBannerView: GADBannerView!
-    
     private var score = Int()
-    private var highScore = Int()
+    private var easyHighScore = Int()
+    private var mediumHighScore = Int()
+    private var hardHighScore = Int()
+    
+    private let easyHighScoreDefault = UserDefaults.standard
+    private let mediumHighScoreDefault = UserDefaults.standard
+    private let hardHighScoreDefault = UserDefaults.standard
     
     private var minutes = Int()
     private var seconds = Int()
@@ -43,8 +49,6 @@ class HighScoreViewController: UIViewController {
     
     private var mute = true
     
-    private var interstitial: GADInterstitial!
-    
     override func viewWillAppear(_ animated: Bool) {
         animateGCIcon()
         loadImage()
@@ -52,16 +56,18 @@ class HighScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.interstitial = createAndLoadInterstitial()
-        handleAdRequest()
         showItems()
         checkHighScoreForNil()
         addScore()
+        if timePassed != nil {
+            saveHighScore(convertStringToNumbers(time: timePassed!)!)
+        } else {
+            print("Time is nil")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         gifView.image = nil
-        bgMusic?.pause()
     }
     
     // Shows items depending on best score screen or final score screen
@@ -72,6 +78,7 @@ class HighScoreViewController: UIViewController {
     }
     
     private func loadImage() {
+        gifView.contentMode = .scaleAspectFit
         gifView.setGifImage(RandomGifs.init().randomGif())
     }
     
@@ -79,12 +86,22 @@ class HighScoreViewController: UIViewController {
     
     // Verifies score/time is not nil
     func checkHighScoreForNil() {
-        let highScoreDefault = UserDefaults.standard
+        if easyHighScoreDefault.value(forKey: "EasyHighScore") != nil {
+            easyHighScore = score
+            easyHighScore = easyHighScoreDefault.value(forKey: "EasyHighScore") as! NSInteger
+            easyHighScoreLbl.text = "\(intToScoreString(score: easyHighScore))"
+        }
         
-        if highScoreDefault.value(forKey: "HighScore") != nil {
-            highScore = score
-            highScore = highScoreDefault.value(forKey: "HighScore") as! NSInteger
-            highScoreLbl.text = "\(intToScoreString(score: highScore))"
+        if mediumHighScoreDefault.value(forKey: "MedHighScore") != nil {
+            mediumHighScore = score
+            mediumHighScore = mediumHighScoreDefault.value(forKey: "MedHighScore") as! NSInteger
+            mediumHighScoreLbl.text = "\(intToScoreString(score: mediumHighScore))"
+        }
+        
+        if hardHighScoreDefault.value(forKey: "HardHighScore") != nil {
+            hardHighScore = score
+            hardHighScore = hardHighScoreDefault.value(forKey: "HardHighScore") as! NSInteger
+            hardHighScoreLbl.text = "\(intToScoreString(score: hardHighScore))"
         }
     }
     
@@ -105,12 +122,23 @@ class HighScoreViewController: UIViewController {
             score = Int(convertStringToNumbers(time: timePassed!)!)
             scoreLabel.text = "\(intToScoreString(score: score))"
             
-            if (score > highScore) { // Change value for testing purposes
-                highScore = score
-                highScoreLbl.text = "\(intToScoreString(score: Int(highScore)))"
-                
-                handleHighScore()
+            if defaults.integer(forKey: "difficulty") == 0 {
+                if (score > easyHighScore) { // Change value for testing purposes
+                    easyHighScore = score
+                    easyHighScoreLbl.text = "\(intToScoreString(score: Int(easyHighScore)))"
+                }
+            } else if defaults.integer(forKey: "difficulty") == 1 {
+                if (score > mediumHighScore) { // Change value for testing purposes
+                    mediumHighScore = score
+                    mediumHighScoreLbl.text = "\(intToScoreString(score: Int(mediumHighScore)))"
+                }
+            } else if defaults.integer(forKey: "difficulty") == 2 {
+                if (score > hardHighScore) { // Change value for testing purposes
+                    hardHighScore = score
+                    hardHighScoreLbl.text = "\(intToScoreString(score: Int(hardHighScore)))"
+                }
             }
+            handleHighScore()
         } else {
             gameTimeStackView.isHidden = true
             scoreLabel.isHidden = true
@@ -121,9 +149,20 @@ class HighScoreViewController: UIViewController {
     
     // Handles the saving of high score as cumulative or reset to 0
     func handleHighScore() {
-        let highScoreDefault = UserDefaults.standard
-        highScoreDefault.set(highScore, forKey: "HighScore")
-        highScoreDefault.synchronize()
+        switch defaults.integer(forKey: "difficulty") {
+        case 0:
+            easyHighScoreDefault.set(easyHighScore, forKey: "EasyHighScore")
+            easyHighScoreDefault.synchronize()
+        case 1:
+            mediumHighScoreDefault.set(mediumHighScore, forKey: "MedHighScore")
+            mediumHighScoreDefault.synchronize()
+        case 2:
+            hardHighScoreDefault.set(hardHighScore, forKey: "HardHighScore")
+            hardHighScoreDefault.synchronize()
+        default:
+            print("High Score Switch HIT")
+            break
+        }
     }
     
     // Seperate string out to numbers
@@ -155,24 +194,6 @@ class HighScoreViewController: UIViewController {
     
     // Play again game button to main menu
     @IBAction func playAgainButtonPressed(_ sender: Any) {
-        // Interstitial Ad setup
-        if interstitial.isReady {
-            interstitial.present(fromRootViewController: self)
-            if musicIsOn {
-                musicIsOn = false
-                music.handleMuteMusic(clip: bgMusic)
-            }
-        } else {
-            print("Ad wasn't ready")
-            return
-        }
-        
-        if timePassed != nil {
-            saveHighScore(convertStringToNumbers(time: timePassed!)!)
-        } else {
-            print("Time is nil")
-        }
-        
         // Return to game screen
         gifView.image = nil
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
@@ -193,30 +214,54 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
         // if player is logged in to GC, then report the score
         if GKLocalPlayer.local.isAuthenticated {
             
+            var scoreReporter = GKScore()
+            
             // Save game time to GC
-            let scoreReporter = GKScore(leaderboardIdentifier: timeLeaderboardID)
-            scoreReporter.value = Int64(score)
+            if defaults.integer(forKey: "difficulty") == 0 {
+                scoreReporter = GKScore(leaderboardIdentifier: easyTimeLeaderboardID)
+                scoreReporter.value = Int64(score)
+                let gkScoreArray: [GKScore] = [scoreReporter]
+                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+                    guard error == nil else { return }
+                })
+            }
             
-            let gkScoreArray: [GKScore] = [scoreReporter]
+            if defaults.integer(forKey: "difficulty") == 1 {
+                scoreReporter = GKScore(leaderboardIdentifier: mediumTimeLeaderboardID)
+                scoreReporter.value = Int64(score)
+                let gkScoreArray: [GKScore] = [scoreReporter]
+                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+                    guard error == nil else { return }
+                })
+            }
             
-            GKScore.report(gkScoreArray, withCompletionHandler: { error in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                } else {
-                    print("Best Time submitted to the Leaderboard!")
-                }
-            })
+            if defaults.integer(forKey: "difficulty") == 2 {
+                scoreReporter = GKScore(leaderboardIdentifier: hardTimeLeaderboardID)
+                scoreReporter.value = Int64(score)
+                let gkScoreArray: [GKScore] = [scoreReporter]
+                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+                    guard error == nil else { return }
+                })
+            }
         }
     }
     
     // Retrieves the GC VC leaderboard
     func showLeaderboard() {
         let gameCenterViewController = GKGameCenterViewController()
-        
         gameCenterViewController.gameCenterDelegate = self
         gameCenterViewController.viewState = .leaderboards
-        gameCenterViewController.leaderboardIdentifier = timeLeaderboardID
+        
+        switch defaults.integer(forKey: "difficulty") {
+        case 0:
+            gameCenterViewController.leaderboardIdentifier = easyTimeLeaderboardID
+        case 1:
+            gameCenterViewController.leaderboardIdentifier = mediumTimeLeaderboardID
+        case 2:
+            gameCenterViewController.leaderboardIdentifier = hardTimeLeaderboardID
+        default:
+            print("Show leaderboard: \(String(describing: gameCenterViewController.leaderboardIdentifier))")
+        }
         
         // Show leaderboard
         self.present(gameCenterViewController, animated: true, completion: nil)
@@ -225,124 +270,5 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
     // Adds the Done button to the GC view controller
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK:  AdMob
-extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegate {
-    /*************************** AdMob Requests ***********************/
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        if #available(iOS 11.0, *) {
-            // In iOS 11, we need to constrain the view to the safe area.
-            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
-        }
-        else {
-            // In lower iOS versions, safe area is not available so we use
-            // bottom layout guide and view edges.
-            positionBannerViewFullWidthAtBottomOfView(bannerView)
-        }
-    }
-    
-    // MARK: - view positioning
-    @available (iOS 11, *)
-    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
-        // Position the banner. Stick it to the bottom of the Safe Area.
-        // Make it constrained to the edges of the safe area.
-        let guide = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
-            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
-            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
-            ])
-    }
-    
-    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .leading,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .leading,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: view,
-                                              attribute: .trailing,
-                                              multiplier: 1,
-                                              constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: bannerView,
-                                              attribute: .bottom,
-                                              relatedBy: .equal,
-                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
-                                              attribute: .top,
-                                              multiplier: 1,
-                                              constant: 0))
-    }
-    
-    // Ad request
-    func handleAdRequest() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
-        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        addBannerViewToView(adBannerView)
-        
-        // Ad setup
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/3388241322"
-        adBannerView.rootViewController = self
-        adBannerView.delegate = self
-        
-        adBannerView.load(request)
-    }
-    
-    // Create and load an Interstitial Ad
-    func createAndLoadInterstitial() -> GADInterstitial {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        interstitial.delegate = self
-        
-        let request = GADRequest()
-        request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
-        interstitial.load(request)
-        
-        return interstitial
-    }
-    
-    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    /// Tells the delegate an ad request succeeded.
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("interstitialDidReceiveAd")
-    }
-    
-    /// Tells the delegate an ad request failed.
-    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    /// Tells the delegate that an interstitial will be presented.
-    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
-        print("interstitialWillPresentScreen")
-    }
-    
-    /// Tells the delegate the interstitial had been animated off the screen.
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-//        if musicIsOn {
-//            bgMusic?.play()
-//        }
-        print("interstitialDidDismissScreen")
-    }
-    
-    /// Tells the delegate that a user click will open another app
-    /// (such as the App Store), backgrounding the current app.
-    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-        print("interstitialWillLeaveApplication")
     }
 }
