@@ -123,17 +123,17 @@ class HighScoreViewController: UIViewController {
             scoreLabel.text = "\(intToScoreString(score: score))"
             
             if defaults.integer(forKey: "difficulty") == 0 {
-                if (score > easyHighScore) { // Change value for testing purposes
+                if (score < easyHighScore) { // Change value for testing purposes
                     easyHighScore = score
                     easyHighScoreLbl.text = "\(intToScoreString(score: Int(easyHighScore)))"
                 }
             } else if defaults.integer(forKey: "difficulty") == 1 {
-                if (score > mediumHighScore) { // Change value for testing purposes
+                if (score < mediumHighScore) { // Change value for testing purposes
                     mediumHighScore = score
                     mediumHighScoreLbl.text = "\(intToScoreString(score: Int(mediumHighScore)))"
                 }
             } else if defaults.integer(forKey: "difficulty") == 2 {
-                if (score > hardHighScore) { // Change value for testing purposes
+                if (score < hardHighScore) { // Change value for testing purposes
                     hardHighScore = score
                     hardHighScoreLbl.text = "\(intToScoreString(score: Int(hardHighScore)))"
                 }
