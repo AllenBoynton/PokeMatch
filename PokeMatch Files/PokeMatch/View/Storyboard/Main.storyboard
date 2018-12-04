@@ -1084,7 +1084,7 @@
                                     <constraint firstAttribute="height" constant="1" id="Iqc-j4-SY5"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokéMatch Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-SG-fem">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokéMatch Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-SG-fem">
                                 <rect key="frame" x="0.0" y="658.66666666666663" width="375" height="24.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -1095,6 +1095,13 @@
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DOS-E0-hvp">
+                                <rect key="frame" x="16" y="735" width="343" height="43"/>
+                                <string key="text">Pokémon © 2002-2018 Pokémon. © 1995-2018 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pokémon content on PokéMatch</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.54509803921568623" green="0.78431372549019607" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1151,6 +1158,7 @@
                             <constraint firstItem="6Fd-Ot-KYQ" firstAttribute="centerX" secondItem="gFe-Wb-avU" secondAttribute="centerX" id="UvH-88-0EE"/>
                             <constraint firstItem="S4C-ss-v5Y" firstAttribute="leading" secondItem="gFe-Wb-avU" secondAttribute="leading" id="VH2-Ng-dSk"/>
                             <constraint firstItem="jrB-0B-spg" firstAttribute="centerX" secondItem="gFe-Wb-avU" secondAttribute="centerX" id="VIi-gu-nkG"/>
+                            <constraint firstItem="M08-tA-h5T" firstAttribute="bottom" secondItem="DOS-E0-hvp" secondAttribute="bottom" id="Whb-PH-kU4"/>
                             <constraint firstItem="1RT-n3-s9g" firstAttribute="top" secondItem="nju-Ki-rZ1" secondAttribute="bottom" id="Y5P-bM-ZYn"/>
                             <constraint firstItem="ulY-u7-TaO" firstAttribute="height" secondItem="xgi-D9-VWW" secondAttribute="height" id="Yij-m7-puD"/>
                             <constraint firstItem="rog-Mb-WP5" firstAttribute="centerY" secondItem="j2w-DO-cdJ" secondAttribute="centerY" id="ZoD-2f-6Me"/>
@@ -1178,6 +1186,7 @@
                             <constraint firstItem="RUW-hz-LL0" firstAttribute="top" secondItem="hQf-eV-u0E" secondAttribute="bottom" constant="5" id="pw8-zX-uZe"/>
                             <constraint firstItem="hQf-eV-u0E" firstAttribute="height" secondItem="xgi-D9-VWW" secondAttribute="height" id="qGz-rz-FBd"/>
                             <constraint firstItem="Uap-Xz-PRR" firstAttribute="height" secondItem="gFe-Wb-avU" secondAttribute="height" multiplier="0.045" id="qZz-Pf-Hdv"/>
+                            <constraint firstItem="M08-tA-h5T" firstAttribute="trailing" secondItem="DOS-E0-hvp" secondAttribute="trailing" constant="16" id="qiO-CM-ErB"/>
                             <constraint firstItem="n46-9Z-Qrl" firstAttribute="height" secondItem="hQf-eV-u0E" secondAttribute="height" id="rfl-4u-zgq"/>
                             <constraint firstItem="M08-tA-h5T" firstAttribute="trailing" secondItem="ulY-u7-TaO" secondAttribute="trailing" constant="16" id="rpx-Ie-Rs0"/>
                             <constraint firstItem="M08-tA-h5T" firstAttribute="trailing" secondItem="rog-Mb-WP5" secondAttribute="trailing" constant="16" id="sQ0-O3-XzI"/>
@@ -1185,6 +1194,7 @@
                             <constraint firstItem="NcD-iU-hNl" firstAttribute="centerX" secondItem="gFe-Wb-avU" secondAttribute="centerX" id="uY8-9T-fUx"/>
                             <constraint firstAttribute="trailing" secondItem="j7L-Rg-G0I" secondAttribute="trailing" id="vrX-SG-GFq"/>
                             <constraint firstItem="UEB-jx-ak5" firstAttribute="top" secondItem="xgi-D9-VWW" secondAttribute="bottom" constant="5" id="yOs-LG-cl7"/>
+                            <constraint firstItem="DOS-E0-hvp" firstAttribute="leading" secondItem="M08-tA-h5T" secondAttribute="leading" constant="16" id="ymj-XJ-nZj"/>
                             <constraint firstItem="RUW-hz-LL0" firstAttribute="leading" secondItem="gFe-Wb-avU" secondAttribute="leading" constant="16" id="zVt-E8-qVf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M08-tA-h5T"/>
