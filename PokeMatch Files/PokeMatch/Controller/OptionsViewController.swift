@@ -29,9 +29,8 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var musicOnView: UIView!
     @IBOutlet weak var musicOffView: UIView!
     @IBOutlet weak var offMusicImage: UIButton!
-    @IBOutlet weak var removeAdsButton: UIButton!
     
-    var imageCategoryArray: [String] = ["Most Popular", "Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7"]
+    private var imageCategoryArray: [String] = ["Most Popular", "Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         
         let pickerName = defaults.integer(forKey: "row")
         self.imagePicker.selectRow(pickerName, inComponent: 0, animated: true)
-        print("Picker row: \(pickerName)")
         
         handleMusicButtons()
         handleSegmentControl()
@@ -137,7 +135,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @IBAction func rateButtonTapped(_ sender: Any) {
-        print("Rate App button tapped!")
         let appleID = "1444497236"
         guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id\(appleID)?action=write-review")
             else { fatalError("Expected a valid URL") }
