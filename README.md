@@ -21,3 +21,5 @@ Responsibilities:
 • Debugged and fixed the issues that were found during the different phases of the project.
 Environment: iOS, Swift, Xcode, Google Firebase, Game Center, NSUserNotification, Google Analytics, StoreKit,
 GameKit, AVFoundation, CocoaPods, UIKit.
+
+Pokémon © 2002-2018 Pokémon. © 1995-2018 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pokémon content on PokéMatch
