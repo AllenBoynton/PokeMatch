@@ -9,6 +9,26 @@
 import UIKit
 import GameKit
 
+// Global GC identifiers
+let easyTimeLeaderboardID = "com.alsmobileapps.PokeMatch" // Easy Time Leaderboard
+let mediumTimeLeaderboardID = "com.alsmobileapps.PokeMatch.medium" // Medium Time Leaderboard
+let hardTimeLeaderboardID = "com.alsmobileapps.PokeMatch.hard" // Hard Time Leaderboard
+let overallTimeLeaderboardID = "com.alsmobileapps.PokeMatch.overall" // Total Time Leaderboard
+let gamesAchievementID10 = "achievements.pokematch.10"
+let gamesAchievementID20 = "achievements.pokematch.20"
+let gamesAchievementID30 = "achievements.pokematch.30"
+let gamesAchievementID40 = "achievements.pokematch.40"
+let gamesAchievementID50 = "achievements.pokematch.50"
+let gamesAchievementID100 = "achievements.pokematch.100"
+let gamesAchievementID150 = "achievements.pokematch.150"
+let gamesAchievementID200 = "achievements.pokematch.200"
+let gamesAchievementID250 = "achievements.pokematch.250"
+let gamesAchievementID300 = "achievements.pokematch.300"
+let gamesAchievementID350 = "achievements.pokematch.350"
+let gamesAchievementID400 = "achievements.pokematch.400"
+let gamesAchievementID450 = "achievements.pokematch.450"
+let gamesAchievementID500 = "achievements.pokematch.500"
+
 class HighScoreViewController: UIViewController {
     
     private var pokeMatchViewController: PokeMatchViewController!
@@ -31,14 +51,12 @@ class HighScoreViewController: UIViewController {
     
     @IBOutlet weak var gcIconView: UIView!
     
+    private var scoreReporter = GKScore()
     private var score = Int()
     private var easyHighScore = Int()
     private var mediumHighScore = Int()
     private var hardHighScore = Int()
-    
-    private let easyHighScoreDefault = UserDefaults.standard
-    private let mediumHighScoreDefault = UserDefaults.standard
-    private let hardHighScoreDefault = UserDefaults.standard
+    private var numOfGames = 0
     
     private var minutes = Int()
     private var seconds = Int()
@@ -59,15 +77,29 @@ class HighScoreViewController: UIViewController {
         showItems()
         checkHighScoreForNil()
         addScore()
-        if timePassed != nil {
-            saveHighScore(convertStringToNumbers(time: timePassed!)!)
-        } else {
-            print("Time is nil")
-        }
+        numOfGames = defaults.integer(forKey: "Games")
+        showTime()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         gifView.image = nil
+    }
+    
+    private func showTime() {
+        if timePassed != nil {
+            let numTime = convertStringToNumbers(time: timePassed!)!
+            saveHighScore(numTime)
+            print("Achievement Time: \(numTime)")
+            if numTime <= 3000 {
+                numOfGames += 1
+                defaults.set(numOfGames, forKey: "Games")
+                defaults.synchronize()
+                handleGameAchievements()
+                print("Number of games under 30 seconds: \(defaults.integer(forKey: "Games"))")
+            }
+        } else {
+            print("Time is nil")
+        }
     }
     
     // Shows items depending on best score screen or final score screen
@@ -86,23 +118,22 @@ class HighScoreViewController: UIViewController {
     
     // Verifies score/time is not nil
     func checkHighScoreForNil() {
-        if easyHighScoreDefault.value(forKey: "EasyHighScore") != nil {
+        if defaults.value(forKey: "EasyHighScore") != nil {
             easyHighScore = score
-            easyHighScore = easyHighScoreDefault.value(forKey: "EasyHighScore") as! NSInteger
+            easyHighScore = defaults.value(forKey: "EasyHighScore") as! NSInteger
             easyHighScoreLbl.text = "\(intToScoreString(score: easyHighScore))"
         }
-        
-        if mediumHighScoreDefault.value(forKey: "MedHighScore") != nil {
+        if defaults.value(forKey: "MedHighScore") != nil {
             mediumHighScore = score
-            mediumHighScore = mediumHighScoreDefault.value(forKey: "MedHighScore") as! NSInteger
+            mediumHighScore = defaults.value(forKey: "MedHighScore") as! NSInteger
             mediumHighScoreLbl.text = "\(intToScoreString(score: mediumHighScore))"
         }
-        
-        if hardHighScoreDefault.value(forKey: "HardHighScore") != nil {
+        if defaults.value(forKey: "HardHighScore") != nil {
             hardHighScore = score
-            hardHighScore = hardHighScoreDefault.value(forKey: "HardHighScore") as! NSInteger
+            hardHighScore = defaults.value(forKey: "HardHighScore") as! NSInteger
             hardHighScoreLbl.text = "\(intToScoreString(score: hardHighScore))"
         }
+        defaults.synchronize()
     }
     
     // Score format for time
@@ -115,29 +146,42 @@ class HighScoreViewController: UIViewController {
         return scoreString
     }
     
-    // Adds time from game to high scores. Compares again others for order
+    // Adds time from game to high scores. Compares against others for order
     func addScore() {
         if timePassed != nil {
             menuButton.isHidden = true
             score = Int(convertStringToNumbers(time: timePassed!)!)
             scoreLabel.text = "\(intToScoreString(score: score))"
+            print("Default difficulty: \(defaults.integer(forKey: "difficulty"))")
             
             if defaults.integer(forKey: "difficulty") == 0 {
-                if (score < easyHighScore) { // Change value for testing purposes
+                if (easyHighScore == 0) { // Change value for testing purposes
+                    easyHighScoreLbl.text = "\(intToScoreString(score: Int(score)))"
+                }
+                
+                if (score < easyHighScore) {
                     easyHighScore = score
                     easyHighScoreLbl.text = "\(intToScoreString(score: Int(easyHighScore)))"
                 }
             }
             
             if defaults.integer(forKey: "difficulty") == 1 {
-                if (score > mediumHighScore) { // Change value for testing purposes
+                if (mediumHighScore == 0) { // Change value for testing purposes
+                    mediumHighScoreLbl.text = "\(intToScoreString(score: Int(score)))"
+                }
+                
+                if (score < mediumHighScore) { // Change value for testing purposes
                     mediumHighScore = score
                     mediumHighScoreLbl.text = "\(intToScoreString(score: Int(mediumHighScore)))"
                 }
             }
             
             if defaults.integer(forKey: "difficulty") == 2 {
-                if (score > hardHighScore) { // Change value for testing purposes
+                if (hardHighScore == 0) { // Change value for testing purposes
+                    hardHighScoreLbl.text = "\(intToScoreString(score: Int(score)))"
+                }
+                
+                if (score < hardHighScore) && (hardHighScore > 0) { // Change value for testing purposes
                     hardHighScore = score
                     hardHighScoreLbl.text = "\(intToScoreString(score: Int(hardHighScore)))"
                 }
@@ -155,18 +199,16 @@ class HighScoreViewController: UIViewController {
     func handleHighScore() {
         switch defaults.integer(forKey: "difficulty") {
         case 0:
-            easyHighScoreDefault.set(easyHighScore, forKey: "EasyHighScore")
-            easyHighScoreDefault.synchronize()
+            defaults.set(easyHighScore, forKey: "EasyHighScore")
         case 1:
-            mediumHighScoreDefault.set(mediumHighScore, forKey: "MedHighScore")
-            mediumHighScoreDefault.synchronize()
+            defaults.set(mediumHighScore, forKey: "MedHighScore")
         case 2:
-            hardHighScoreDefault.set(hardHighScore, forKey: "HardHighScore")
-            hardHighScoreDefault.synchronize()
+            defaults.set(hardHighScore, forKey: "HardHighScore")
         default:
             print("High Score Switch HIT")
             break
         }
+        defaults.synchronize()
     }
     
     // Seperate string out to numbers
@@ -211,61 +253,71 @@ class HighScoreViewController: UIViewController {
 
 // MARK:  Game Center
 extension HighScoreViewController: GKGameCenterControllerDelegate {
+    
     /**************************** Game Center ***********************/
     
     // Reporting game time
     func saveHighScore(_ score: Int) {
         // if player is logged in to GC, then report the score
         if GKLocalPlayer.local.isAuthenticated {
-            
-            var scoreReporter = GKScore()
-            
             // Save game time to GC
             if defaults.integer(forKey: "difficulty") == 0 {
-                scoreReporter = GKScore(leaderboardIdentifier: easyTimeLeaderboardID)
-                scoreReporter.value = Int64(score)
-                let gkScoreArray: [GKScore] = [scoreReporter]
-                GKScore.report(gkScoreArray, withCompletionHandler: { error in
-                    guard error == nil else { return }
-                })
+                handleScoreReporter(id: easyTimeLeaderboardID)
+//                scoreReporter = GKScore(leaderboardIdentifier: easyTimeLeaderboardID)
+//                scoreReporter.value = Int64(score)
+//                let gkScoreArray: [GKScore] = [scoreReporter]
+//                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+//                    guard error == nil else { return }
+//                })
             }
             
             if defaults.integer(forKey: "difficulty") == 1 {
-                scoreReporter = GKScore(leaderboardIdentifier: mediumTimeLeaderboardID)
-                scoreReporter.value = Int64(score)
-                let gkScoreArray: [GKScore] = [scoreReporter]
-                GKScore.report(gkScoreArray, withCompletionHandler: { error in
-                    guard error == nil else { return }
-                })
+                handleScoreReporter(id: mediumTimeLeaderboardID)
+//                scoreReporter = GKScore(leaderboardIdentifier: mediumTimeLeaderboardID)
+//                scoreReporter.value = Int64(score)
+//                let gkScoreArray: [GKScore] = [scoreReporter]
+//                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+//                    guard error == nil else { return }
+//                })
             }
             
             if defaults.integer(forKey: "difficulty") == 2 {
-                scoreReporter = GKScore(leaderboardIdentifier: hardTimeLeaderboardID)
-                scoreReporter.value = Int64(score)
-                let gkScoreArray: [GKScore] = [scoreReporter]
-                GKScore.report(gkScoreArray, withCompletionHandler: { error in
-                    guard error == nil else { return }
-                })
+                handleScoreReporter(id: hardTimeLeaderboardID)
+//                scoreReporter = GKScore(leaderboardIdentifier: hardTimeLeaderboardID)
+//                scoreReporter.value = Int64(score)
+//                let gkScoreArray: [GKScore] = [scoreReporter]
+//                GKScore.report(gkScoreArray, withCompletionHandler: { error in
+//                    guard error == nil else { return }
+//                })
             }
         }
     }
     
+    private func handleScoreReporter(id: String) {
+        scoreReporter = GKScore(leaderboardIdentifier: id)
+        scoreReporter.value = Int64(score)
+        let gkScoreArray: [GKScore] = [scoreReporter]
+        GKScore.report(gkScoreArray, withCompletionHandler: { error in
+            guard error == nil else { return }
+        })
+    }
+    
     // Retrieves the GC VC leaderboard
-    func showLeaderboard() {
+    private func showLeaderboard() {
         let gameCenterViewController = GKGameCenterViewController()
         gameCenterViewController.gameCenterDelegate = self
-        gameCenterViewController.viewState = .leaderboards
+        gameCenterViewController.viewState = .default
         
-        switch defaults.integer(forKey: "difficulty") {
-        case 0:
-            gameCenterViewController.leaderboardIdentifier = easyTimeLeaderboardID
-        case 1:
-            gameCenterViewController.leaderboardIdentifier = mediumTimeLeaderboardID
-        case 2:
-            gameCenterViewController.leaderboardIdentifier = hardTimeLeaderboardID
-        default:
-            print("Show leaderboard: \(String(describing: gameCenterViewController.leaderboardIdentifier))")
-        }
+//        switch defaults.integer(forKey: "difficulty") {
+//        case 0:
+//            gameCenterViewController.leaderboardIdentifier = easyTimeLeaderboardID
+//        case 1:
+//            gameCenterViewController.leaderboardIdentifier = mediumTimeLeaderboardID
+//        case 2:
+//            gameCenterViewController.leaderboardIdentifier = hardTimeLeaderboardID
+//        default:
+//            print("Show leaderboard: \(String(describing: gameCenterViewController.leaderboardIdentifier))")
+//        }
         
         // Show leaderboard
         self.present(gameCenterViewController, animated: true, completion: nil)
@@ -274,5 +326,91 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
     // Adds the Done button to the GC view controller
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func handleGameAchievements() {
+        if GKLocalPlayer.local.isAuthenticated {
+            let games = defaults.integer(forKey: "Games")
+            
+            switch games {
+            case 10:
+                let achievement = GKAchievement(identifier: gamesAchievementID10)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 20:
+                let achievement = GKAchievement(identifier: gamesAchievementID20)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 30:
+                let achievement = GKAchievement(identifier: gamesAchievementID30)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 40:
+                let achievement = GKAchievement(identifier: gamesAchievementID40)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 50:
+                let achievement = GKAchievement(identifier: gamesAchievementID50)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 100:
+                let achievement = GKAchievement(identifier: gamesAchievementID100)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 150:
+                let achievement = GKAchievement(identifier: gamesAchievementID150)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 200:
+                let achievement = GKAchievement(identifier: gamesAchievementID200)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 250:
+                let achievement = GKAchievement(identifier: gamesAchievementID250)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 300:
+                let achievement = GKAchievement(identifier: gamesAchievementID300)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 350:
+                let achievement = GKAchievement(identifier: gamesAchievementID350)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 400:
+                let achievement = GKAchievement(identifier: gamesAchievementID400)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 450:
+                let achievement = GKAchievement(identifier: gamesAchievementID450)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            case 500:
+                let achievement = GKAchievement(identifier: gamesAchievementID500)
+                achievement.percentComplete = Double((games / 500) * 100)
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement], withCompletionHandler: nil)
+            default:
+                print(print("Achievements default reached"))
+            }
+        }
+        
+        GKAchievement.loadAchievements() { achievements, error in
+            guard let achievements = achievements else { return }
+            print(achievements)
+        }
     }
 }
