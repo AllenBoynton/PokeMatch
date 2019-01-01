@@ -10,12 +10,6 @@ import UIKit
 import GameKit
 import SwiftyGif
 
-// Global GC identifiers
-let easyTimeLeaderboardID = "com.alsmobileapps.PokeMatch" // Easy Time Leaderboard
-let mediumTimeLeaderboardID = "com.alsmobileapps.PokeMatch.medium" // Medium Time Leaderboard
-let hardTimeLeaderboardID = "com.alsmobileapps.PokeMatch.hard" // Hard Time Leaderboard
-let overallTimeLeaderboardID = "com.alsmobileapps.PokeMatch.overall" // Total Time Leaderboard
-
 let gifManager = SwiftyGifManager(memoryLimit:20)
 
 class MainMenuViewController: UIViewController {
