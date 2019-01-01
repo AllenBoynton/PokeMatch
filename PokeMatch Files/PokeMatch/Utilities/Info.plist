@@ -45,5 +45,7 @@
 	</array>
 	<key>FirebaseScreenReportingEnabled</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>PokeMatch</string>
 </dict>
 </plist>
