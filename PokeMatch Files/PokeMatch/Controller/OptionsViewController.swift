@@ -150,8 +150,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         let gameCenterViewController = GKGameCenterViewController()
         
         gameCenterViewController.gameCenterDelegate = self
-        gameCenterViewController.viewState = .leaderboards
-        gameCenterViewController.leaderboardIdentifier = overallTimeLeaderboardID
+        gameCenterViewController.viewState = .default
         
         // Show leaderboard
         self.present(gameCenterViewController, animated: true, completion: nil)
@@ -204,50 +203,34 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         case 0:
             rowString = imageCategoryArray[0]
             myImageView.image = UIImage(named: "25")
-//            let gif = UIImage(gifName: "7.gif", levelOfIntegrity:0.2)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.topCardImages
         case 1:
             rowString = imageCategoryArray[1]
             myImageView.image = UIImage(named: "6")
-//            let gif = UIImage(gifName: "Charizard.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen1Images
         case 2:
             rowString = imageCategoryArray[2]
             myImageView.image = UIImage(named: "249")
-//            let gif = UIImage(gifName: "Lugia.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen2Images
         case 3:
             rowString = imageCategoryArray[3]
             myImageView.image = UIImage(named: "384")
-//            let gif = UIImage(gifName: "Rayquaza.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen3Images
         case 4:
             rowString = imageCategoryArray[4]
             myImageView.image = UIImage(named: "448")
-//            let gif = UIImage(gifName: "Lucario.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen4Images
         case 5:
             rowString = imageCategoryArray[5]
             myImageView.image = UIImage(named: "635")
-//            let gif = UIImage(gifName: "Hydreigon.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen5Images
         case 6:
             rowString = imageCategoryArray[6]
             myImageView.image = UIImage(named: "658")
-//            let gif = UIImage(gifName: "Greninja.gif", levelOfIntegrity:0.05)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen6Images
         case 7:
             rowString = imageCategoryArray[7]
             myImageView.image = UIImage(named: "745_2")
-//            let gif = UIImage(gifName: "Lycanroc_Midday.gif", levelOfIntegrity:0.1)
-//            myImageView.setGifImage(gif)
             imageGroupArray = MemoryGame.gen7Images
         case 8: break
         default:
