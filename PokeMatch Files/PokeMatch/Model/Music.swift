@@ -54,11 +54,9 @@ extension Music {
             clip?.pause()
             winnerAudio1?.stop()
             musicIsOn = false
-            print("Audio muted")
         } else {
             clip?.play()
             musicIsOn = true
-            print("Audio playing")
         }
     }
 }
