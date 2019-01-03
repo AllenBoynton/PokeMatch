@@ -89,17 +89,13 @@ class HighScoreViewController: UIViewController {
         if timePassed != nil {
             let numTime = convertStringToNumbers(time: timePassed!)!
             saveHighScore(numTime)
-            print("Achievement Time: \(numTime)")
             if numTime <= 3000 {
                 numOfGames += 1
                 defaults.set(numOfGames, forKey: "Games")
                 defaults.synchronize()
                 handleGameAchievements()
-                print("Number of games under 30 seconds: \(defaults.integer(forKey: "Games"))")
             }
-        } else {
-            print("Time is nil")
-        }
+        } 
     }
     
     // Shows items depending on best score screen or final score screen
