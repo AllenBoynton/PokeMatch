@@ -87,7 +87,6 @@ class MainMenuViewController: UIViewController {
     func handleGifViews() {
         gifView.contentMode = .scaleAspectFit
         gifView.setGifImage(RandomGifs.init().randomFlyingGif(), manager: gifManager, loopCount: -1)
-        print("GifImage frame count: \(gifView.gifImage!.framesCount())")
     }
     
     func handleMusicButtons() {
