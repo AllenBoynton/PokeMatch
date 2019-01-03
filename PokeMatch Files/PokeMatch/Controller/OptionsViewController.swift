@@ -47,17 +47,21 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     
     func handleMusicButtons() {
         if (bgMusic?.isPlaying)! {
-            musicOnView.layer.borderWidth = 2
+            musicOnView.layer.borderWidth = 2.0
+            musicOnView.layer.cornerRadius = 8.0
+            musicOnView.layer.borderColor = UIColor.yellow.cgColor
             musicOffView.layer.borderWidth = 0
-            musicOnView.materialDesign = true
-            musicOffView.materialDesign = false
+            musicOnView.alpha = 1.0
+            musicOffView.alpha = 0.4
             musicIsOn = true
             
         } else {
             musicOnView.layer.borderWidth = 0
-            musicOffView.layer.borderWidth = 2
-            musicOnView.materialDesign = false
-            musicOffView.materialDesign = true
+            musicOffView.layer.borderWidth = 2.0
+            musicOffView.layer.cornerRadius = 8.0
+            musicOffView.layer.borderColor = UIColor.yellow.cgColor
+            musicOnView.alpha = 0.4
+            musicOffView.alpha = 1.0
             musicIsOn = false
         }
     }
@@ -66,6 +70,10 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         // Saves the current state of the segmented control
         let segmentName = defaults.integer(forKey: "difficulty")
         self.segmentedControl.selectedSegmentIndex = segmentName
+        self.segmentedControl.layer.cornerRadius = 15.0
+        self.segmentedControl.layer.borderWidth = 2.0
+        self.segmentedControl.layer.masksToBounds = true
+        self.segmentedControl.layer.borderColor = UIColor.yellow.cgColor
         
         if segmentName == 0 {
             difficulty = 6
