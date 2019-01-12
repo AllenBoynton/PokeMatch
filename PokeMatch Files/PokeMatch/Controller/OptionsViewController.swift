@@ -54,7 +54,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
             musicOnView.alpha = 1.0
             musicOffView.alpha = 0.4
             musicIsOn = true
-            
         } else {
             musicOnView.layer.borderWidth = 0
             musicOffView.layer.borderWidth = 2.0
@@ -70,7 +69,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         // Saves the current state of the segmented control
         let segmentName = defaults.integer(forKey: "difficulty")
         self.segmentedControl.selectedSegmentIndex = segmentName
-        self.segmentedControl.layer.cornerRadius = 15.0
+        self.segmentedControl.layer.cornerRadius = 8.0
         self.segmentedControl.layer.borderWidth = 2.0
         self.segmentedControl.layer.masksToBounds = true
         self.segmentedControl.layer.borderColor = UIColor.yellow.cgColor
