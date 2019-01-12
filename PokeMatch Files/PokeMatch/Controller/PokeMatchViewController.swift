@@ -29,9 +29,6 @@ class PokeMatchViewController: UIViewController {
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var difficultyLabel: UILabel!
     
-    // Constraint outlets for animation
-    @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
-    
     // MARK - Local variables
     
     // Time passed to FinalScoreVC
@@ -216,7 +213,7 @@ extension PokeMatchViewController: UICollectionViewDelegateFlowLayout {
                 itemHeight = collectionView.frame.height / 4 - 10.0
             case 8:
                 itemWidth = collectionView.frame.width / 4 - 8.0
-                itemHeight = collectionView.frame.height / 4 - 12.0
+                itemHeight = collectionView.frame.height / 4 - 14.0
             case 10:
                 itemWidth = collectionView.frame.width / 4 - 8.0
                 itemHeight = collectionView.frame.height / 5 - 10.0
