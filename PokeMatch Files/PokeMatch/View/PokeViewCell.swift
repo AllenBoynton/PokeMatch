@@ -31,8 +31,19 @@ class PokeViewCell: UICollectionViewCell {
     // MARK: - Methods
     
     func showCard(_ show: Bool, animated: Bool) {
+        
         frontImageView.isHidden = false
+        self.frontImageView.layer.borderWidth = 2.0
+        self.frontImageView.layer.borderColor = UIColor.blue.cgColor
+        self.frontImageView.layer.cornerRadius = 8.0
+        self.frontImageView.layer.masksToBounds = true
+        
         backImageView.isHidden = false
+        self.backImageView.layer.borderWidth = 2.0
+        self.backImageView.layer.borderColor = UIColor.yellow.cgColor
+        self.backImageView.layer.cornerRadius = 8.0
+        self.backImageView.layer.masksToBounds = true
+        
         shown = show
         
         let left = UIImage(named: "_254")
