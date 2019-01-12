@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F27BFBC21DF2586003B978C /* BlinkingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F27BFBB21DF2586003B978C /* BlinkingLabel.swift */; };
 		0F28A2C221AB559C00DE6F9F /* 90 Ending Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2C121AB559B00DE6F9F /* 90 Ending Theme.mp3 */; };
 		0F28A2C521AB565800DE6F9F /* 54 Fanfare_ Pokémon Caught.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2C321AB565700DE6F9F /* 54 Fanfare_ Pokémon Caught.mp3 */; };
 		0F28A2C621AB565800DE6F9F /* 42 Fanfare_ Jackpot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A2C421AB565700DE6F9F /* 42 Fanfare_ Jackpot.mp3 */; };
@@ -51,9 +52,6 @@
 		0F28A31A21ABB64000DE6F9F /* 13.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F28A30D21ABB64000DE6F9F /* 13.gif */; };
 		0F7BE9E321A9061000E8763D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */; };
 		0F7BE9EC21A9B8DA00E8763D /* fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F7BE9EB21A9B8DA00E8763D /* fanfare.mp3 */; };
-		0F7BE9EF21AA1B6200E8763D /* DesignableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BE9ED21AA1B6200E8763D /* DesignableViews.swift */; };
-		0F7BE9F021AA1B6200E8763D /* DesignableImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BE9EE21AA1B6200E8763D /* DesignableImageViews.swift */; };
-		0F92A2AC21DC6192001B576B /* DesignableSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F92A2AB21DC6192001B576B /* DesignableSegmentedControl.swift */; };
 		0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620B921A8776C002EABD0 /* AppDelegate.swift */; };
 		0FB620C121A8776C002EABD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB620C021A8776C002EABD0 /* Assets.xcassets */; };
 		0FB620CF21A8776C002EABD0 /* PokeMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB620CE21A8776C002EABD0 /* PokeMatchTests.swift */; };
@@ -111,6 +109,7 @@
 
 /* Begin PBXFileReference section */
 		052A2FBB89CE303D46609B6F /* Pods-PokeMatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMatchTests.release.xcconfig"; path = "Target Support Files/Pods-PokeMatchTests/Pods-PokeMatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		0F27BFBB21DF2586003B978C /* BlinkingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkingLabel.swift; sourceTree = "<group>"; };
 		0F28A2C121AB559B00DE6F9F /* 90 Ending Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "90 Ending Theme.mp3"; sourceTree = "<group>"; };
 		0F28A2C321AB565700DE6F9F /* 54 Fanfare_ Pokémon Caught.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "54 Fanfare_ Pokémon Caught.mp3"; sourceTree = "<group>"; };
 		0F28A2C421AB565700DE6F9F /* 42 Fanfare_ Jackpot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "42 Fanfare_ Jackpot.mp3"; sourceTree = "<group>"; };
@@ -155,9 +154,6 @@
 		0F28A30D21ABB64000DE6F9F /* 13.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 13.gif; sourceTree = "<group>"; };
 		0F7BE9E221A9061000E8763D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F7BE9EB21A9B8DA00E8763D /* fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fanfare.mp3; sourceTree = "<group>"; };
-		0F7BE9ED21AA1B6200E8763D /* DesignableViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableViews.swift; sourceTree = "<group>"; };
-		0F7BE9EE21AA1B6200E8763D /* DesignableImageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageViews.swift; sourceTree = "<group>"; };
-		0F92A2AB21DC6192001B576B /* DesignableSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableSegmentedControl.swift; sourceTree = "<group>"; };
 		0FB620B621A8776C002EABD0 /* PokeMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB620B921A8776C002EABD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FB620C021A8776C002EABD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -415,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				0FB6213521A8A109002EABD0 /* RandomArray.swift */,
+				0F27BFBB21DF2586003B978C /* BlinkingLabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,7 +439,6 @@
 		0FB620F621A87EA5002EABD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0FB6211521A88252002EABD0 /* Designables */,
 				0FB620F921A87EC5002EABD0 /* Storyboard */,
 				0FB6211C21A882F5002EABD0 /* PokeViewCell.swift */,
 			);
@@ -485,16 +481,6 @@
 				0FB620C521A8776C002EABD0 /* Info.plist */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		0FB6211521A88252002EABD0 /* Designables */ = {
-			isa = PBXGroup;
-			children = (
-				0F7BE9EE21AA1B6200E8763D /* DesignableImageViews.swift */,
-				0F7BE9ED21AA1B6200E8763D /* DesignableViews.swift */,
-				0F92A2AB21DC6192001B576B /* DesignableSegmentedControl.swift */,
-			);
-			path = Designables;
 			sourceTree = "<group>";
 		};
 		B2E44A40F4D4D57EFA9D429C /* Frameworks */ = {
@@ -813,19 +799,17 @@
 				0FB6212121A884FE002EABD0 /* MainMenuViewController.swift in Sources */,
 				0FB6212521A88591002EABD0 /* HighScoreViewController.swift in Sources */,
 				0FB6213721A8A109002EABD0 /* RandomArray.swift in Sources */,
-				0F7BE9F021AA1B6200E8763D /* DesignableImageViews.swift in Sources */,
 				0FB6210221A880DF002EABD0 /* Notifications.swift in Sources */,
 				0FB620FE21A88019002EABD0 /* Device.swift in Sources */,
 				0FB6212321A88548002EABD0 /* OptionsViewController.swift in Sources */,
 				0FB620BA21A8776C002EABD0 /* AppDelegate.swift in Sources */,
-				0F92A2AC21DC6192001B576B /* DesignableSegmentedControl.swift in Sources */,
 				0FB620FC21A87FAD002EABD0 /* Card.swift in Sources */,
 				0FB6210021A88074002EABD0 /* Music.swift in Sources */,
 				0FB6213321A8A0E9002EABD0 /* StoreReviewHelper.swift in Sources */,
 				0FB6212B21A88830002EABD0 /* MemoryGame.swift in Sources */,
 				0FB6212921A887B1002EABD0 /* GameDelegate.swift in Sources */,
+				0F27BFBC21DF2586003B978C /* BlinkingLabel.swift in Sources */,
 				0FB6211F21A88495002EABD0 /* PokeMatchViewController.swift in Sources */,
-				0F7BE9EF21AA1B6200E8763D /* DesignableViews.swift in Sources */,
 				0FB6215121A8E603002EABD0 /* Gifs.swift in Sources */,
 				0FB6211D21A882F5002EABD0 /* PokeViewCell.swift in Sources */,
 			);
