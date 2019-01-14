@@ -34,6 +34,7 @@ class HighScoreViewController: UIViewController {
     
     private var pokeMatchViewController: PokeMatchViewController!
     
+    @IBOutlet weak var newGameTimeStackview: UIStackView!
     @IBOutlet weak var bestTimeStackViews: UIStackView!
     @IBOutlet weak var gameTimeStackView: UIStackView!
     @IBOutlet weak var bestEasyTimeStackView: UIStackView!
@@ -75,13 +76,13 @@ class HighScoreViewController: UIViewController {
         animateGCIcon()
         loadImage()
         newHighScoreLabel.startBlink()
+        addScore()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showItems()
         checkHighScoreForNil()
-        addScore()
         numOfGames = defaults.integer(forKey: "Games")
         showTime()
     }
@@ -104,7 +105,7 @@ class HighScoreViewController: UIViewController {
     
     // Shows items depending on best score screen or final score screen
     private func showItems() {
-        gameTimeStackView.isHidden = false
+        newGameTimeStackview.isHidden = true
         playAgainButton.isHidden = false
         menuButton.isHidden = false
         bestTimeStackLabel.isHidden = false
@@ -156,7 +157,7 @@ class HighScoreViewController: UIViewController {
             if defaults.integer(forKey: "difficulty") == 0 {
                 if (score < easyHighScore) || (easyHighScore == 0) {
                     newHighScoreLabel.isHidden = false
-                    
+                    bestEasyTimeStackView.startBlink()
                     easyHighScore = score
                     defaults.set(easyHighScore, forKey: "EasyHighScore")
                     easyHighScoreLbl.text = "\(intToScoreString(score: Int(easyHighScore)))"
@@ -164,20 +165,19 @@ class HighScoreViewController: UIViewController {
             }
             
             if defaults.integer(forKey: "difficulty") == 1 {
-                if (score > mediumHighScore) || (mediumHighScore == 0) { // Change value for testing purposes
+                if (score < mediumHighScore) || (mediumHighScore == 0) { // Change value for testing purposes
                     newHighScoreLabel.isHidden = false
-                    
+                    bestMedTimeStackView.startBlink()
                     mediumHighScore = score
                     defaults.set(mediumHighScore, forKey: "MediumHighScore")
                     mediumHighScoreLbl.text = "\(intToScoreString(score: Int(mediumHighScore)))"
-                    
                 }
             }
             
             if defaults.integer(forKey: "difficulty") == 2 {
                 if (score < hardHighScore) || (hardHighScore == 0) { // Change value for testing purposes
                     newHighScoreLabel.isHidden = false
-                    
+                    bestHardTimeStackView.startBlink()
                     hardHighScore = score
                     defaults.set(hardHighScore, forKey: "HardHighScore")
                     hardHighScoreLbl.text = "\(intToScoreString(score: Int(hardHighScore)))"
