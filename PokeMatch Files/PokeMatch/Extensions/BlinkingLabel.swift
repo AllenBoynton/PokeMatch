@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UILabel {
+extension UIView {
     func startBlink() {
         self.alpha = 1.0
         UIView.animate(withDuration: 0.6,
