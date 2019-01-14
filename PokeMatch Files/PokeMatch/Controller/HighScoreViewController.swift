@@ -35,8 +35,7 @@ class HighScoreViewController: UIViewController {
     private var pokeMatchViewController: PokeMatchViewController!
     
     @IBOutlet weak var newGameTimeStackview: UIStackView!
-    @IBOutlet weak var bestTimeStackViews: UIStackView!
-    @IBOutlet weak var gameTimeStackView: UIStackView!
+//    @IBOutlet weak var bestTimeStackViews: UIStackView!
     @IBOutlet weak var bestEasyTimeStackView: UIStackView!
     @IBOutlet weak var bestMedTimeStackView: UIStackView!
     @IBOutlet weak var bestHardTimeStackView: UIStackView!
@@ -105,7 +104,7 @@ class HighScoreViewController: UIViewController {
     
     // Shows items depending on best score screen or final score screen
     private func showItems() {
-        newGameTimeStackview.isHidden = true
+//        newGameTimeStackview.isHidden = true
         playAgainButton.isHidden = false
         menuButton.isHidden = false
         bestTimeStackLabel.isHidden = false
@@ -186,7 +185,7 @@ class HighScoreViewController: UIViewController {
         } else {
             bestTimeLabel.isHidden = false
             bestTimeStackLabel.isHidden = true
-            gameTimeStackView.isHidden = true
+            newGameTimeStackview.isHidden = true
             scoreLabel.isHidden = true
             playAgainButton.isHidden = true
             youWonLabel.isHidden = true
