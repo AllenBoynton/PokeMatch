@@ -1,13 +1,14 @@
 # PokeMatch
 A Memory Matching Game
 
-This app is a memory matching game and is played by an end-facing user. The game is Pokémon themed and
+This app is a memory matching game and is played by the end-facing user. The game is Pokémon themed and
 targeted for young children and adults, both male and female into their 30s and up. The app recognizes the device it
 is playing on and adjusts for both iPhone and iPad. The app connects to Apple’s Game Center using GameKit. The
 game uses Game Center’s leaderboard to track time and points scored. Authenticating the user asks proper
 permission to connect. It also creates notifications with GKGameCenterViewController and push notifications with
 attachments. An options menu allows the user to mute the background music. Here the user can pull up the leader
-board and can choose the level of difficulty.
+board, choose the level of difficulty, and pick an image pack based on the generations of Pokémon.
+
 Responsibilities:
 • Involved solely in the life cycle of conception, design, prototype, and build.
 • Set up connection and authorization with Game Center for the best gaming
@@ -19,7 +20,9 @@ Responsibilities:
 • Developed an Object Oriented Architecture using different design patterns.
 • Created a test group to learn proper flow of the application and ease of the UI.
 • Debugged and fixed the issues that were found during the different phases of the project.
+
 Environment: iOS, Swift, Xcode, Google Firebase, Game Center, NSUserNotification, Google Analytics, StoreKit,
 GameKit, AVFoundation, CocoaPods, UIKit.
 
-Pokémon © 2002-2018 Pokémon. © 1995-2018 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pokémon content on PokéMatch
+Pokémon © 2002-2019 Pokémon. © 1995-2019 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are 
+trademarks of Nintendo. No copyright or trademark infringement is intended in using Pokémon content on PokéMatch
