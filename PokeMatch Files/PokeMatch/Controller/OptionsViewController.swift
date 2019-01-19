@@ -11,6 +11,7 @@ import AVFoundation
 import GameKit
 import StoreKit
 import SwiftyGif
+import GoogleMobileAds
 
 var difficulty = UInt()
 var iPadDifficulty = UInt()
@@ -29,8 +30,15 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var musicOnView: UIView!
     @IBOutlet weak var musicOffView: UIView!
     @IBOutlet weak var offMusicImage: UIButton!
+    @IBOutlet weak var versionLabel: UILabel!
+    
+    private var bannerView: GADBannerView!
     
     private var imageCategoryArray: [String] = ["Most Popular", "Generation 1", "Generation 2", "Generation 3", "Generation 4", "Generation 5", "Generation 6", "Generation 7"]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        versionLabel.text = version()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +51,7 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         
         handleMusicButtons()
         handleSegmentControl()
+        handleAdRequest()
     }
     
     func handleMusicButtons() {
@@ -96,6 +105,13 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
             ], for: .selected)
     }
     
+    func version() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "PokéMatch Version \(version) Build \(build)"
+    }
+    
     @IBAction func difficultySelection(_ sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -146,10 +162,6 @@ class OptionsViewController: UIViewController, GKGameCenterControllerDelegate {
         guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id\(appleID)?action=write-review")
             else { fatalError("Expected a valid URL") }
         UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
-    }
-    
-    @IBAction func backToMain(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
     
     // Retrieves the GC VC leaderboard
@@ -251,5 +263,111 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         myView.addSubview(myImageView)
         
         return myView
+    }
+}
+
+extension OptionsViewController: GADBannerViewDelegate {
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        if #available(iOS 11.0, *) {
+            // In iOS 11, we need to constrain the view to the safe area.
+            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
+        }
+        else {
+            // In lower iOS versions, safe area is not available so we use
+            // bottom layout guide and view edges.
+            positionBannerViewFullWidthAtBottomOfView(bannerView)
+        }
+    }
+    
+    // MARK: - view positioning
+    @available (iOS 11, *)
+    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
+        // Position the banner. Stick it to the bottom of the Safe Area.
+        // Make it constrained to the edges of the safe area.
+        let guide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
+            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
+            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
+            ])
+    }
+    
+    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .leading,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
+                                              attribute: .top,
+                                              multiplier: 1,
+                                              constant: 0))
+    }
+    
+    // AdMob banner ad
+    func handleAdRequest() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        addBannerViewToView(bannerView)
+        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/4964310398"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        
+        bannerView.load(request)
+    }
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+        //        music.handleMuteMusic()
+    }
+    
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+        //        music.handleMuteMusic()
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
     }
 }

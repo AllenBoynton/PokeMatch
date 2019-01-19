@@ -422,7 +422,6 @@
 		0FB620F421A87E85002EABD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0FB6213221A8A0E9002EABD0 /* StoreReviewHelper.swift */,
 				0FB6212821A887B1002EABD0 /* GameDelegate.swift */,
 			);
 			path = Protocols;
@@ -464,6 +463,7 @@
 		0FB620F821A87EB9002EABD0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0FB6213221A8A0E9002EABD0 /* StoreReviewHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1004,6 +1004,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6GTM24L94G;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeMatch/Utilities/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1023,6 +1024,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GTM24L94G;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeMatch/Utilities/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import GoogleMobileAds
 
 // Global GC identifiers
 let easyTimeLeaderboardID = "com.alsmobileapps.PokeMatch" // Easy Time Leaderboard
@@ -35,7 +36,6 @@ class HighScoreViewController: UIViewController {
     private var pokeMatchViewController: PokeMatchViewController!
     
     @IBOutlet weak var newGameTimeStackview: UIStackView!
-//    @IBOutlet weak var bestTimeStackViews: UIStackView!
     @IBOutlet weak var bestEasyTimeStackView: UIStackView!
     @IBOutlet weak var bestMedTimeStackView: UIStackView!
     @IBOutlet weak var bestHardTimeStackView: UIStackView!
@@ -54,6 +54,9 @@ class HighScoreViewController: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     
     @IBOutlet weak var gcIconView: UIView!
+    
+    private var adBannerView: GADBannerView!
+    private var interstitial: GADInterstitial!
     
     private var scoreReporter = GKScore()
     private var score = Int()
@@ -80,6 +83,10 @@ class HighScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.interstitial = createAndLoadInterstitial()
+        handleAdRequest()
+        
         showItems()
         checkHighScoreForNil()
         numOfGames = defaults.integer(forKey: "Games")
@@ -221,6 +228,14 @@ class HighScoreViewController: UIViewController {
     // Play again game button to main menu
     @IBAction func playAgainButtonPressed(_ sender: Any) {
         // Return to game screen
+        // Interstitial Ad setup
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+            print("Ad page attempted")
+        } else {
+            print("Ad wasn't ready")
+        }
+        
         gifView.image = nil
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
         show(vc!, sender: self)
@@ -326,5 +341,124 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK:  AdMob
+extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegate {
+    /*************************** AdMob Requests ***********************/
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        if #available(iOS 11.0, *) {
+            // In iOS 11, we need to constrain the view to the safe area.
+            positionBannerViewFullWidthAtBottomOfSafeArea(bannerView)
+        }
+        else {
+            // In lower iOS versions, safe area is not available so we use
+            // bottom layout guide and view edges.
+            positionBannerViewFullWidthAtBottomOfView(bannerView)
+        }
+    }
+    
+    // MARK: - view positioning
+    @available (iOS 11, *)
+    func positionBannerViewFullWidthAtBottomOfSafeArea(_ bannerView: UIView) {
+        // Position the banner. Stick it to the bottom of the Safe Area.
+        // Make it constrained to the edges of the safe area.
+        let guide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            guide.leftAnchor.constraint(equalTo: bannerView.leftAnchor),
+            guide.rightAnchor.constraint(equalTo: bannerView.rightAnchor),
+            guide.bottomAnchor.constraint(equalTo: bannerView.bottomAnchor)
+            ])
+    }
+    
+    func positionBannerViewFullWidthAtBottomOfView(_ bannerView: UIView) {
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .leading,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: view,
+                                              attribute: .trailing,
+                                              multiplier: 1,
+                                              constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: bannerView,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: view.safeAreaLayoutGuide.bottomAnchor,
+                                              attribute: .top,
+                                              multiplier: 1,
+                                              constant: 0))
+    }
+    
+    // Ad request
+    func handleAdRequest() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        addBannerViewToView(adBannerView)
+        
+        // Ad setup
+        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"//"ca-app-pub-2292175261120907/3388241322"
+        adBannerView.rootViewController = self
+        adBannerView.delegate = self
+        
+        adBannerView.load(request)
+    }
+    
+    // Create and load an Interstitial Ad
+    func createAndLoadInterstitial() -> GADInterstitial {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial.delegate = self
+        
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+        interstitial.load(request)
+        
+        return interstitial
+    }
+    
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitialDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+        gifView.image = nil
+        Music().handleMuteMusic(clip: bgMusic)
+        print("interstitialWillPresentScreen...handleMusic")
+    }
+    
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        Music().handleMuteMusic(clip: bgMusic)
+        print("interstitialDidDismissScreen...handleMusic")
+    }
+    
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        gifView.image = nil
+        print("interstitialWillLeaveApplication")
     }
 }

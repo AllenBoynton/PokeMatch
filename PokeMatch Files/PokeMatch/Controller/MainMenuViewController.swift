@@ -23,8 +23,9 @@ class MainMenuViewController: UIViewController {
     
     let localPlayer = GKLocalPlayer.local
     
-    lazy var gcEnabled = Bool() // Check if the user has Game Center enabled
-    lazy var gcDefaultLeaderBoard = String() // Check the default
+    private let shouldIncrement = true
+    private var gcEnabled = Bool() // Check if the user has Game Center enabled
+    private var gcDefaultLeaderBoard = String() // Check the default
     let GKPlayerAuthenticationDidChangeNotificationName: String = ""
     let score = 0
     

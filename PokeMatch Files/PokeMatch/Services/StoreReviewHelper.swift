@@ -31,6 +31,7 @@ struct StoreReviewHelper {
             }
         }
     }
+    
     func checkAndAskForReview() { // call this whenever appropriate
         // this will not be shown everytime. Apple has some internal logic on how to show this.
         guard let appOpenCount = UserDefaults.standard.value(forKey: UserDefaultsKeys.APP_OPENED_COUNT) as? Int else {
@@ -39,7 +40,7 @@ struct StoreReviewHelper {
         }
         
         switch appOpenCount {
-        case 10,50:
+        case 10,25,50:
             StoreReviewHelper().requestReview()
         case _ where appOpenCount % 100 == 0 :
             StoreReviewHelper().requestReview()
@@ -49,6 +50,7 @@ struct StoreReviewHelper {
         }
         
     }
+    
     fileprivate func requestReview() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()

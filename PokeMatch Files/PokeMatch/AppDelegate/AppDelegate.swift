@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Crashlytics
 import Fabric
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Music().startGameMusic(name: "music")
         
         StoreReviewHelper().checkAndAskForReview()
+        
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
+        // Testing banner ID:  ca-app-pub-3940256099942544/2934735716
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-2292175261120907~2981949238")
         
         return true
     }
@@ -46,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         if musicIsOn {
             bgMusic?.play()
+        } else {
+            bgMusic?.pause()
         }
     }
     
