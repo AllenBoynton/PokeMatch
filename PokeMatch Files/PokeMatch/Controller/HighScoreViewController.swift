@@ -423,7 +423,7 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
         let request = GADRequest()
         request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
         interstitial.load(request)
-        
+
         return interstitial
     }
     
@@ -432,33 +432,23 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
         self.dismiss(animated: true, completion: nil)
     }
     
-    /// Tells the delegate an ad request succeeded.
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("interstitialDidReceiveAd")
-    }
-    
-    /// Tells the delegate an ad request failed.
-    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
     /// Tells the delegate that an interstitial will be presented.
     func interstitialWillPresentScreen(_ ad: GADInterstitial) {
-        gifView.image = nil
-        Music().handleMuteMusic(clip: bgMusic)
-        print("interstitialWillPresentScreen...handleMusic")
+        if musicIsOn {
+            bgMusic?.pause()
+            musicIsOn = true
+        } else {
+            musicIsOn = false
+        }
     }
     
     /// Tells the delegate the interstitial had been animated off the screen.
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        Music().handleMuteMusic(clip: bgMusic)
-        print("interstitialDidDismissScreen...handleMusic")
-    }
-    
-    /// Tells the delegate that a user click will open another app
-    /// (such as the App Store), backgrounding the current app.
-    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-        gifView.image = nil
-        print("interstitialWillLeaveApplication")
+        if musicIsOn {
+            bgMusic?.play()
+        } else {
+            bgMusic?.pause()
+            musicIsOn = false
+        }
     }
 }
