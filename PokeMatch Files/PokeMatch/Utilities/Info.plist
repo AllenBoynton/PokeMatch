@@ -44,7 +44,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>FirebaseScreenReportingEnabled</key>
-	<true/>
+	<false/>
 	<key>CFBundleDisplayName</key>
 	<string>PokeMatch</string>
 </dict>

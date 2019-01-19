@@ -104,7 +104,6 @@ class HighScoreViewController: UIViewController {
     
     // Shows items depending on best score screen or final score screen
     private func showItems() {
-//        newGameTimeStackview.isHidden = true
         playAgainButton.isHidden = false
         menuButton.isHidden = false
         bestTimeStackLabel.isHidden = false
@@ -276,7 +275,6 @@ extension HighScoreViewController: GKGameCenterControllerDelegate {
     private func handleGameAchievements() {
         if GKLocalPlayer.local.isAuthenticated {
             let games = defaults.integer(forKey: "Games")
-            print("# of games under 30 seconds: \(games)")
             switch games {
             case 10:
                 reportAchievement(identifier: gamesAchievementID10, percentCompleted: Double(games / 10) * 100)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebasePerformance
 
 // Global Identifier
 let cellID = "PokeCell"
