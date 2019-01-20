@@ -107,8 +107,8 @@
 		0F28A2C121AB559B00DE6F9F /* 90 Ending Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "90 Ending Theme.mp3"; sourceTree = "<group>"; };
 		0F28A2C321AB565700DE6F9F /* 54 Fanfare_ Pokémon Caught.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "54 Fanfare_ Pokémon Caught.mp3"; sourceTree = "<group>"; };
 		0F28A2C421AB565700DE6F9F /* 42 Fanfare_ Jackpot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "42 Fanfare_ Jackpot.mp3"; sourceTree = "<group>"; };
-		0F43F1C821F2CBC80038037B /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
-		0F43F1CC21F2CD560038037B /* PokeMatch.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokeMatch.mobileprovision; sourceTree = "<group>"; };
+		0F43F1C821F2CBC80038037B /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CertificateSigningRequest.certSigningRequest; path = ../PokeMatch/Utilities/CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
+		0F43F1CC21F2CD560038037B /* PokeMatch.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = PokeMatch.mobileprovision; path = ../PokeMatch/Utilities/PokeMatch.mobileprovision; sourceTree = "<group>"; };
 		0F43F2A121F3DB4D0038037B /* Fearow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Fearow.gif; path = flyingGifs/flyingGifsHD/Fearow.gif; sourceTree = "<group>"; };
 		0F43F2A221F3DB4D0038037B /* Pidgeotto.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Pidgeotto.gif; path = flyingGifs/flyingGifsHD/Pidgeotto.gif; sourceTree = "<group>"; };
 		0F43F2A321F3DB4D0038037B /* Butterfree.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Butterfree.gif; path = flyingGifs/flyingGifsHD/Butterfree.gif; sourceTree = "<group>"; };
@@ -220,6 +220,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F43F2F221F4155A0038037B /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				0F43F1C821F2CBC80038037B /* CertificateSigningRequest.certSigningRequest */,
+				0F43F1CC21F2CD560038037B /* PokeMatch.mobileprovision */,
+			);
+			name = Certificates;
+			path = "/Users/allenboynton/Development/Repository/PokeMatch/PokeMatch Files/Certificates";
+			sourceTree = "<absolute>";
+		};
 		0FB620AD21A8776C002EABD0 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +240,7 @@
 				0FB620B721A8776C002EABD0 /* Products */,
 				F24EA7BFC6E3F09A68AF0E08 /* Pods */,
 				B2E44A40F4D4D57EFA9D429C /* Frameworks */,
+				0F43F2F221F4155A0038037B /* Certificates */,
 			);
 			sourceTree = "<group>";
 		};
@@ -435,8 +446,6 @@
 		0FB620FA21A87ED5002EABD0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0F43F1C821F2CBC80038037B /* CertificateSigningRequest.certSigningRequest */,
-				0F43F1CC21F2CD560038037B /* PokeMatch.mobileprovision */,
 				0FB22A4121F2B95800F0ED84 /* GoogleService-Info.plist */,
 				0FB620C521A8776C002EABD0 /* Info.plist */,
 			);
@@ -952,7 +961,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6GTM24L94G;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeMatch/Utilities/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -972,7 +981,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GTM24L94G;
 				INFOPLIST_FILE = "$(SRCROOT)/PokeMatch/Utilities/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -21,7 +21,9 @@
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>FirebaseScreenReportingEnabled</key>
-	<false/>
+	<true/>
+	<key>FIRAnalyticsDebugEnabled</key>
+	<true/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

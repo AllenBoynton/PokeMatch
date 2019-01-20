@@ -48,7 +48,6 @@ struct StoreReviewHelper {
             print("App run count completed \(appOpenCount) time(s)")
             break;
         }
-        
     }
     
     fileprivate func requestReview() {
