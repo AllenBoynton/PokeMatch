@@ -16,9 +16,7 @@ class PokeViewCell: UICollectionViewCell {
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet var leftImageView: UIImageView!
     @IBOutlet var rightImageView: UIImageView!
-    
-    private var imageArrays: [[UIImage]] = [[]]
-    
+        
     var card: Card? {
         didSet {
             guard let card = card else { return }
@@ -28,8 +26,15 @@ class PokeViewCell: UICollectionViewCell {
     
     fileprivate(set) var shown: Bool = false
     
-    // MARK: - Methods
+//    let randomGenArray = [MemoryGame.gen1Images, MemoryGame.gen2Images, MemoryGame.gen3Images, MemoryGame.gen4Images, MemoryGame.gen5Images, MemoryGame.gen6Images, MemoryGame.gen7Images, MemoryGame.topCardImages
+//        ].randomElement()
+//    let left = randomGenArray?.randomElement()
+//    leftImageView.image = left
+//
+//    let right = randomGenArray?.randomElement()
+//    rightImageView.image = right
     
+    // MARK: - Methods
     func showCard(_ show: Bool, animated: Bool) {
         
         frontImageView.isHidden = false
@@ -45,12 +50,6 @@ class PokeViewCell: UICollectionViewCell {
         self.backImageView.layer.masksToBounds = true
         
         shown = show
-        
-        let left = UIImage(named: "_254")
-        leftImageView = UIImageView(image: left)
-
-        let right = UIImage(named: "6")
-        rightImageView = UIImageView(image: right)
         
         if animated {
             if show {

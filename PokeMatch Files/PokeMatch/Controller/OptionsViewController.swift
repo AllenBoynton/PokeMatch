@@ -225,7 +225,7 @@ extension OptionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             imageGroupArray = MemoryGame.topCardImages
         case 1:
             rowString = imageCategoryArray[1]
-            myImageView.image = UIImage(named: "6")
+            myImageView.image = UIImage(named: "_6")
             imageGroupArray = MemoryGame.gen1Images
         case 2:
             rowString = imageCategoryArray[2]

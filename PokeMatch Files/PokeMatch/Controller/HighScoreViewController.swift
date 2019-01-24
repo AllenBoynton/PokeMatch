@@ -35,10 +35,12 @@ class HighScoreViewController: UIViewController {
     
     private var pokeMatchViewController: PokeMatchViewController!
     
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var newGameTimeStackview: UIStackView!
     @IBOutlet weak var bestEasyTimeStackView: UIStackView!
     @IBOutlet weak var bestMedTimeStackView: UIStackView!
     @IBOutlet weak var bestHardTimeStackView: UIStackView!
+    @IBOutlet weak var bestTimesStackView: UIStackView!
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -231,14 +233,10 @@ class HighScoreViewController: UIViewController {
         // Interstitial Ad setup
         if interstitial.isReady {
             interstitial.present(fromRootViewController: self)
-            print("Ad page attempted")
-        } else {
-            print("Ad wasn't ready")
         }
         
-        gifView.image = nil
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
-        show(vc!, sender: self)
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
+//        show(vc!, sender: self)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {

@@ -26,6 +26,14 @@ class RandomGifs {
         ]
     }
     
+    func randomGifs(array: [UIImage]) -> UIImage {
+        let unsignedArrayCount = UInt32(array.count)
+        let unsignedRandomNumber = arc4random_uniform(unsignedArrayCount)
+        let randomNumber = Int(unsignedRandomNumber)
+        
+        return array[randomNumber]
+    }
+    
     func randomGif() -> UIImage {
         let unsignedArrayCount = UInt32(gifImages.count)
         let unsignedRandomNumber = arc4random_uniform(unsignedArrayCount)
