@@ -26,14 +26,6 @@ class PokeViewCell: UICollectionViewCell {
     
     fileprivate(set) var shown: Bool = false
     
-//    let randomGenArray = [MemoryGame.gen1Images, MemoryGame.gen2Images, MemoryGame.gen3Images, MemoryGame.gen4Images, MemoryGame.gen5Images, MemoryGame.gen6Images, MemoryGame.gen7Images, MemoryGame.topCardImages
-//        ].randomElement()
-//    let left = randomGenArray?.randomElement()
-//    leftImageView.image = left
-//
-//    let right = randomGenArray?.randomElement()
-//    rightImageView.image = right
-    
     // MARK: - Methods
     func showCard(_ show: Bool, animated: Bool) {
         
