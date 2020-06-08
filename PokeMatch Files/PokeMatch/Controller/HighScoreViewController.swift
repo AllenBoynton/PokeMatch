@@ -400,7 +400,7 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
     // Ad request
     func handleAdRequest() {
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+//        request.testDevices = [kGADSimulatorID]
         
         adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(adBannerView)
@@ -419,7 +419,7 @@ extension HighScoreViewController: GADBannerViewDelegate, GADInterstitialDelegat
         interstitial.delegate = self
         
         let request = GADRequest()
-        request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+//        request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
         interstitial.load(request)
 
         return interstitial

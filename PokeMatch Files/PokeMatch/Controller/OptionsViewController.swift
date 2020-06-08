@@ -321,7 +321,7 @@ extension OptionsViewController: GADBannerViewDelegate {
     // AdMob banner ad
     func handleAdRequest() {
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+//        request.testDevices = [kGADSimulatorID]
         
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(bannerView)
@@ -332,6 +332,7 @@ extension OptionsViewController: GADBannerViewDelegate {
         
         bannerView.load(request)
     }
+    
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         bannerView.alpha = 0

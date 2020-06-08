@@ -385,7 +385,7 @@ extension PokeMatchViewController: GADBannerViewDelegate {
     // MARK:  AdMob banner ad
     func handleAdRequest() {
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
+//        request.testDevices = [kGADSimulatorID]
         
         adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         addBannerViewToView(adBannerView)
