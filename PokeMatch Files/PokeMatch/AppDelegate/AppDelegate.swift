@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
         // Testing banner ID:  ca-app-pub-3940256099942544/2934735716
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
 //        GADMobileAds.configure(withApplicationID: "ca-app-pub-2292175261120907~2981949238")
         
         return true
