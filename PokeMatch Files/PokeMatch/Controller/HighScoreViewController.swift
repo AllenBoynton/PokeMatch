@@ -235,8 +235,8 @@ class HighScoreViewController: UIViewController {
             interstitial.present(fromRootViewController: self)
         }
         
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
-//        show(vc!, sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PokeMatchViewController")
+        show(vc!, sender: self)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
