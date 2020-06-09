@@ -24,4 +24,6 @@ struct Device {
     static let IS_IPHONE_6         = IS_IPHONE && SCREEN_MAX_LENGTH == 667
     static let IS_IPHONE_6P        = IS_IPHONE && SCREEN_MAX_LENGTH == 736
     static let IS_IPHONE_X         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+    static let IS_IPHONE_XS        = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+    static let IS_IPHONE_X_MAX     = IS_IPHONE && SCREEN_MAX_LENGTH == 896
 }
