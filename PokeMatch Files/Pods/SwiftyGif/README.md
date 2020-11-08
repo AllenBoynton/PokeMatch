@@ -1,12 +1,16 @@
-[![Language](https://img.shields.io/badge/swift-4.2-blue.svg)](http://swift.org)
+[![Language](https://img.shields.io/badge/swift-5.0-blue.svg)](http://swift.org)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SwiftyGif.svg)](https://img.shields.io/cocoapods/v/SwiftyGif.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/kirualex/SwiftyGif.svg?branch=master)](https://travis-ci.org/kirualex/SwiftyGif)
-[![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://raw.githubusercontent.com/kirualex/SwiftyGif/master/LICENSE)
 
+# SwiftyGif
 High performance & easy to use Gif engine
 
-<img src="http://i.imgur.com/p8A6jJh.gif" width="280" />
+<p align="center">
+    </br>
+    <img src="https://github.com/kirualex/SwiftyGif/blob/master/example.gif" align="center" />
+</p>
 
 ## Features
 - [x] UIImage and UIImageView extension based
@@ -17,11 +21,24 @@ High performance & easy to use Gif engine
 - [x] Allow control CPU/memory tradeoff via 'memoryLimit' 
 
 ## Installation
+
 #### With CocoaPods
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 pod 'SwiftyGif'
+```
+
+#### With Carthage
+Follow the usual Carthage instructions on how to [add a framework to an application](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application). When adding SwiftyGif among the frameworks listed in `Cartfile`, apply its syntax for [GitHub repositories](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#github-repositories):
+
+```
+github "kirualex/SwiftyGif"
+```
+
+#### With Swift Package Manager
+```ruby
+https://github.com/kirualex/SwiftyGif.git
 ```
 
 ## How to Use
@@ -35,10 +52,14 @@ SwiftyGif uses familiar `UIImage` and `UIImageView`  to display gifs.
 ```swift
 import SwiftyGif
 
-let gif = UIImage(gifName: "MyImage.gif")
-let imageview = UIImageView(gifImage: gif, loopCount: 3) // Use -1 for infinite loop
-imageview.frame = view.bounds
-view.addSubview(imageview)
+do {
+    let gif = try UIImage(gifName: "MyImage.gif")
+    let imageview = UIImageView(gifImage: gif, loopCount: 3) // Use -1 for infinite loop
+    imageview.frame = view.bounds
+    view.addSubview(imageview)
+} catch {
+    print(error)
+}
 ```
 
 In case your `UIImageView` is already created (via Nib or Storyboards for instance), it's even easier.
@@ -59,7 +80,11 @@ A  `SwiftyGifManager`  can hold one or several UIImageView using the same memory
 Setting a lower level of integrity will allow for frame skipping, lowering both CPU and memory usage. This can be a godd option if you need to preview a lot of gifs at the same time.
 
 ```swift
-let gif = UIImage(gifName: "MyImage.gif", levelOfIntegrity:0.5)
+do {
+    let gif = try UIImage(gifName: "MyImage.gif", levelOfIntegrity:0.5)
+} catch {
+    print(error)
+}
 ```
 
 #### Controls
@@ -133,5 +158,3 @@ extension MyController : SwiftyGifDelegate {
 
 Measured on an iPhone 6S, iOS 9.3.1 and Xcode 7.3.
 
-## Licence
-SwiftyGif is released under the MIT license. See [LICENSE](https://github.com/kirualex/SwiftyGif/raw/master/LICENSE) for details.

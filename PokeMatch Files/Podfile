@@ -6,7 +6,7 @@ target 'PokeMatch' do
   use_frameworks!
 
   # Pods for PokeMatch
-	pod 'SwiftyGif', '~> 4.2'
+	pod 'SwiftyGif'
 
   target 'PokeMatchTests' do
     inherit! :search_paths

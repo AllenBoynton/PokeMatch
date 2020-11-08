@@ -6,8 +6,28 @@
 	<dict>
 		<key>PokeMatch.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0FB620B521A8776C002EABD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0FB620C921A8776C002EABD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0FB620D421A8776C002EABD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
