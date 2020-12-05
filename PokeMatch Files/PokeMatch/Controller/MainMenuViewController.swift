@@ -31,7 +31,11 @@ class MainMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        handleGifViews()
+        do {
+            try handleGifViews()
+        } catch {
+            print("ERROR: CANNOT LOAD GIFS.")
+        }
     }
     
     override func viewDidLoad() {
@@ -85,9 +89,9 @@ class MainMenuViewController: UIViewController {
         print("GKPlayerAuthenticationDidChangeNotificationName - Authentication Status: \(localPlayer.isAuthenticated)")
     }
     
-    func handleGifViews() {
+    func handleGifViews() throws {
         gifView.contentMode = .scaleAspectFit
-        gifView.setGifImage(RandomGifs.init().randomFlyingGifHD(), manager: gifManager, loopCount: -1)
+        try gifView.setGifImage(RandomGifs.init().randomFlyingGifHD(), manager: gifManager, loopCount: -1)
     }
     
     func handleMusicButtons() {

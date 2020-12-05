@@ -1,6 +1,0 @@
-framework module Pods_PokeMatchUITests {
-  umbrella header "Pods-PokeMatchUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -112,8 +112,12 @@ class HighScoreViewController: UIViewController {
     }
     
     private func loadImage() {
-        gifView.contentMode = .scaleAspectFit
-        gifView.setGifImage(RandomGifs.init().randomGif())
+        do {
+            gifView.contentMode = .scaleAspectFit
+            gifView.setGifImage(try RandomGifs.init().randomGif())
+        } catch {
+            print("ERROR: Cannot load gif's.")
+        }
     }
     
     /*************************** High Score Logic *********************/
