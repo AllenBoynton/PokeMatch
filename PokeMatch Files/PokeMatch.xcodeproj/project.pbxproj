@@ -515,7 +515,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellScript = "\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		39C90AF30C026CF7ADFA3395 /* [CP] Embed Pods Frameworks */ = {
